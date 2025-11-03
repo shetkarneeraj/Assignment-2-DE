@@ -1,0 +1,32 @@
+api:
+  base_url: "https://api.openelectricity.org.au/v4"
+  network: "NEM"
+  api_key: "oe_3ZhVp8fmw6dFFpCyG25cYEc5"
+  # api_key_header: "Authorization"
+  # api_key_prefix: "Bearer "
+  metrics:
+    power: "power"
+    emissions: "emissions"
+    price: "price"
+    demand: "demand"
+
+cache:
+  directory: "cache"
+  consolidated_filename: "consolidated.csv"
+
+mqtt:
+  host: "localhost"
+  port: 1883
+  topic: "openelectricity/facilities"
+  keepalive: 60
+
+dashboard:
+  host: "127.0.0.1"
+  port: 8050
+  refresh_interval_ms: 2000
+  # mapbox_token: "optional-mapbox-token"
+
+facilities_metadata_path: "data/facilities_metadata.csv"
+consolidate_optional_metrics:
+  - price
+  - demand
