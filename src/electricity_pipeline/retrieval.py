@@ -33,6 +33,13 @@ def _normalise_facility_catalog(facilities: Iterable[dict]) -> pd.DataFrame:
         if not facility_id:
             continue
         name = facility.get("name") or facility.get("label")
+        # Extract coordinates from location field if available
+        latitude = facility.get("latitude")
+        longitude = facility.get("longitude")
+        if not latitude and "location" in facility and facility["location"]:
+            latitude = facility["location"].get("lat")
+            longitude = facility["location"].get("lng")
+
         record = {
             "facility_id": facility_id,
             "facility_name": name,
@@ -42,8 +49,8 @@ def _normalise_facility_catalog(facilities: Iterable[dict]) -> pd.DataFrame:
             "facility_fuel_type": facility.get("fueltech_id")
             or facility.get("fueltech_code")
             or facility.get("fueltech"),
-            "facility_latitude": facility.get("latitude"),
-            "facility_longitude": facility.get("longitude"),
+            "facility_latitude": latitude,
+            "facility_longitude": longitude,
         }
         if name:
             record["name_key"] = slugify(name)
@@ -98,6 +105,7 @@ def retrieve_and_cache_dataset(
         consolidated = consolidated.merge(
             facility_catalog, on="facility_id", how="left"
         )
+
     metadata = load_facility_metadata(config.facilities_metadata_path)
     merged = merge_with_metadata(consolidated, metadata)
     cleaned = filter_by_optional_metrics(merged, config.consolidate_optional_metrics)

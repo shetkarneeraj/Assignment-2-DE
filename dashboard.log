@@ -1,0 +1,2096 @@
+🔄 MQTT: Received message for facility: MBAHNTH
+🔄 MQTT: Received message for facility: METZSF1
+🔄 MQTT: Received message for facility: MARYRSF1
+🔄 MQTT: Received message for facility: CETHANA
+Dash is running on http://127.0.0.1:8080/
+
+ * Serving Flask app 'dashboard'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8080
+[33mPress CTRL+C to quit[0m
+🔄 MQTT: Received message for facility: MAPS3PV1
+🔄 MQTT: Received message for facility: MINTARO
+🔄 MQTT: Received message for facility: CAPBES1L
+🔄 MQTT: Received message for facility: WSTWYSF1
+🔄 MQTT: Received message for facility: MLSP1
+🔄 MQTT: Received message for facility: MP1
+🔄 MQTT: Received message for facility: UPPTUMUT
+🔄 MQTT: Received message for facility: BW04
+🔄 MQTT: Received message for facility: MOUSF1
+🔄 MQTT: Received message for facility: BWTR1
+🔄 MQTT: Received message for facility: MORTLK12
+🔄 MQTT: Received message for facility: MORTLK11
+🔄 MQTT: Received message for facility: VBB1
+🔄 MQTT: Received message for facility: CALL_B_1
+🔄 MQTT: Received message for facility: URANQ13
+🔄 MQTT: Received message for facility: CAPTL_WF
+🔄 MQTT: Received message for facility: WALGRVL1
+🔄 MQTT: Received message for facility: JLA02
+🔄 MQTT: Received message for facility: CROWLWF1
+🔄 MQTT: Received message for facility: TARONG#1
+🔄 MQTT: Received message for facility: SUNRSF1
+🔄 MQTT: Received message for facility: KAREEYA2
+🔄 MQTT: Received message for facility: KAREEYA1
+🔄 MQTT: Received message for facility: CRURWF1
+🔄 MQTT: Received message for facility: KABANWF1
+🔄 MQTT: Received message for facility: WALGRV1
+🔄 MQTT: Received message for facility: WLWLSF2
+🔄 MQTT: Received message for facility: CRWASF1
+🔄 MQTT: Received message for facility: JUNEESF1
+🔄 MQTT: Received message for facility: MEWF1
+🔄 MQTT: Received message for facility: JLB03
+🔄 MQTT: Received message for facility: JLB02
+🔄 MQTT: Received message for facility: SUNTPSF1
+🔄 MQTT: Received message for facility: JLB01
+🔄 MQTT: Received message for facility: WALGRVG1
+🔄 MQTT: Received message for facility: CTHLWF1
+🔄 MQTT: Received message for facility: JLA04
+🔄 MQTT: Received message for facility: JLA03
+🔄 MQTT: Received message for facility: CULLRGWF
+🔄 MQTT: Received message for facility: CLRKCWF1
+🔄 MQTT: Received message for facility: WOOLGSF1
+🔄 MQTT: Received message for facility: AGLSOM
+🔄 MQTT: Received message for facility: MCKAY1
+🔄 MQTT: Received message for facility: MIDDLSF1
+🔄 MQTT: Received message for facility: CSPVPS1
+🔄 MQTT: Received message for facility: WLWLSF1
+🔄 MQTT: Received message for facility: MOREESF1
+🔄 MQTT: Received message for facility: ANGAST1
+🔄 MQTT: Received message for facility: CLOVER
+🔄 MQTT: Received message for facility: LI_WY_CA
+🔄 MQTT: Received message for facility: LRSF1
+🔄 MQTT: Received message for facility: VP6
+🔄 MQTT: Received message for facility: CG2
+🔄 MQTT: Received message for facility: LYA1
+🔄 MQTT: Received message for facility: MANNUMBL1
+🔄 MQTT: Received message for facility: MANNUMBG1
+🔄 MQTT: Received message for facility: VBBG1
+🔄 MQTT: Received message for facility: WRSF1
+🔄 MQTT: Received message for facility: ALDGASF1
+🔄 MQTT: Received message for facility: CG3
+🔄 MQTT: Received message for facility: MANNUMB1
+🔄 MQTT: Received message for facility: LKBONNY1
+🔄 MQTT: Received message for facility: CG4
+🔄 MQTT: Received message for facility: VBBL1
+🔄 MQTT: Received message for facility: MACKNTSH
+🔄 MQTT: Received message for facility: CHALLHWF
+🔄 MQTT: Received message for facility: MACARTH1
+🔄 MQTT: Received message for facility: LYA4
+🔄 MQTT: Received message for facility: CHBESS1
+🔄 MQTT: Received message for facility: STARHLWF
+🔄 MQTT: Received message for facility: LYA3
+🔄 MQTT: Received message for facility: VP5
+🔄 MQTT: Received message for facility: WPWF
+🔄 MQTT: Received message for facility: CHBESSG1
+🔄 MQTT: Received message for facility: LYA2
+🔄 MQTT: Received message for facility: ROMA_7
+🔄 MQTT: Received message for facility: MANNSF2
+🔄 MQTT: Received message for facility: URANQ11
+🔄 MQTT: Received message for facility: LKBONNY2
+🔄 MQTT: Received message for facility: LKBONNY3
+🔄 MQTT: Received message for facility: MOORAWF1
+🔄 MQTT: Received message for facility: CALL_B_2
+🔄 MQTT: Received message for facility: MOLNGSF1
+🔄 MQTT: Received message for facility: CAPBES1
+🔄 MQTT: Received message for facility: STAN-3
+🔄 MQTT: Received message for facility: MOKOSF1
+🔄 MQTT: Received message for facility: MLWF1
+🔄 MQTT: Received message for facility: URANQ12
+🔄 MQTT: Received message for facility: CAPBES1G
+🔄 MQTT: Received message for facility: CG1
+🔄 MQTT: Received message for facility: MAPS2PV1
+🔄 MQTT: Received message for facility: MANSLR1
+🔄 MQTT: Received message for facility: CHBESSL1
+🔄 MQTT: Received message for facility: CLERMSF1
+🔄 MQTT: Received message for facility: CHILDSF1
+🔄 MQTT: Received message for facility: TARONG#2
+🔄 MQTT: Received message for facility: STOCKYD1
+🔄 MQTT: Received message for facility: LOYYB1
+🔄 MQTT: Received message for facility: VPGS1
+🔄 MQTT: Received message for facility: CHYTWF1
+🔄 MQTT: Received message for facility: LONSDALE
+🔄 MQTT: Received message for facility: WOOLNTH1
+🔄 MQTT: Received message for facility: CLARESF1
+🔄 MQTT: Received message for facility: LNGS2
+🔄 MQTT: Received message for facility: LNGS1
+🔄 MQTT: Received message for facility: CLEMGPWF
+🔄 MQTT: Received message for facility: LK_ECHO
+🔄 MQTT: Received message for facility: VPGS2
+🔄 MQTT: Received message for facility: LOYYB2
+🔄 MQTT: Received message for facility: JLA01
+🔄 MQTT: Received message for facility: WTAHB1
+🔄 MQTT: Received message for facility: BLYTHB1
+🔄 MQTT: Received message for facility: BDL01
+🔄 MQTT: Received message for facility: TIBG1
+🔄 MQTT: Received message for facility: REPULSE
+🔄 MQTT: Received message for facility: SNOWTWN1
+🔄 MQTT: Received message for facility: BDL02
+🔄 MQTT: Received message for facility: REECE2
+🔄 MQTT: Received message for facility: YATSF1
+🔄 MQTT: Received message for facility: BERYLSF1
+🔄 MQTT: Received message for facility: REECE1
+🔄 MQTT: Received message for facility: RANGEB1L1
+🔄 MQTT: Received message for facility: TIBL1
+🔄 MQTT: Received message for facility: BHB1
+🔄 MQTT: Received message for facility: RANGEB1G1
+🔄 MQTT: Received message for facility: RESS1L
+🔄 MQTT: Received message for facility: RANGEB1
+🔄 MQTT: Received message for facility: TNPS1
+🔄 MQTT: Received message for facility: MPP_2
+🔄 MQTT: Received message for facility: MPP_1
+🔄 MQTT: Received message for facility: BW03
+🔄 MQTT: Received message for facility: KESSB1
+🔄 MQTT: Received message for facility: COLWF01
+🔄 MQTT: Received message for facility: KINGASF1
+🔄 MQTT: Received message for facility: CONDONG1
+🔄 MQTT: Received message for facility: KIATAWF1
+🔄 MQTT: Received message for facility: WOLARSF1
+🔄 MQTT: Received message for facility: KIAMSF1
+🔄 MQTT: Received message for facility: COOPGWF1
+🔄 MQTT: Received message for facility: KESSL1
+🔄 MQTT: Received message for facility: QPS5
+🔄 MQTT: Received message for facility: W/HOE#1
+🔄 MQTT: Received message for facility: BBTHREE3
+🔄 MQTT: Received message for facility: TIB1
+🔄 MQTT: Received message for facility: POR03
+🔄 MQTT: Received message for facility: HUGSF1
+🔄 MQTT: Received message for facility: BLOWERNG
+🔄 MQTT: Received message for facility: QPS2
+🔄 MQTT: Received message for facility: QPS1
+🔄 MQTT: Received message for facility: TORRB1
+🔄 MQTT: Received message for facility: BLUEGSF1
+🔄 MQTT: Received message for facility: QBYNBL1
+🔄 MQTT: Received message for facility: QBYNBG1
+🔄 MQTT: Received message for facility: BLUFF1
+🔄 MQTT: Received message for facility: QBYNB1
+🔄 MQTT: Received message for facility: PUMP2
+🔄 MQTT: Received message for facility: BALB1
+🔄 MQTT: Received message for facility: RIVNB2
+🔄 MQTT: Received message for facility: RIVNBG2
+🔄 MQTT: Received message for facility: YARANSF1
+🔄 MQTT: Received message for facility: PTSTAN1
+🔄 MQTT: Received message for facility: TORRB2
+🔄 MQTT: Received message for facility: BLYTHB1G1
+🔄 MQTT: Received message for facility: TARONG#4
+🔄 MQTT: Received message for facility: SNOWYP
+🔄 MQTT: Received message for facility: PPCCGT127.0.0.1 - - [05/Nov/2025 23:30:46] "GET / HTTP/1.1" 200 -
+
+🔄 MQTT: Received message for facility: BLYTHB1L1
+🔄 MQTT: Received message for facility: PORTWF
+🔄 MQTT: Received message for facility: YARWUN_1
+🔄 MQTT: Received message for facility: QPS3
+🔄 MQTT: Received message for facility: BHBL1
+🔄 MQTT: Received message for facility: QPS4
+🔄 MQTT: Received message for facility: PUMP1
+🔄 MQTT: Received message for facility: CPP_3
+🔄 MQTT: Received message for facility: RESS1
+🔄 MQTT: Received message for facility: WAGGNSF1
+🔄 MQTT: Received message for facility: STWF1
+🔄 MQTT: Received message for facility: COLEASF1
+🔄 MQTT: Received message for facility: LADBROK2
+🔄 MQTT: Received message for facility: LADBROK1
+🔄 MQTT: Received message for facility: KAREEYA4
+🔄 MQTT: Received message for facility: CROOKWF3
+🔄 MQTT: Received message for facility: MP2
+🔄 MQTT: Received message for facility: WKIEWA2
+🔄 MQTT: Received message for facility: DALNTH01
+🔄 MQTT: Received message for facility: JEMALNG1
+🔄 MQTT: Received message for facility: DALNTH1
+🔄 MQTT: Received message for facility: JBUTTERS
+🔄 MQTT: Received message for facility: HVWWPV1
+🔄 MQTT: Received message for facility: ADPPV1
+🔄 MQTT: Received message for facility: HVWWBA1L
+🔄 MQTT: Received message for facility: WAMBOWF1
+🔄 MQTT: Received message for facility: DARLSF1
+🔄 MQTT: Received message for facility: HVWWBA1G
+🔄 MQTT: Received message for facility: HVWWBA1
+🔄 MQTT: Received message for facility: KAREEYA3
+🔄 MQTT: Received message for facility: DARTM1
+🔄 MQTT: Received message for facility: HUNTER2
+🔄 MQTT: Received message for facility: HUNTER1
+🔄 MQTT: Received message for facility: WANDB1
+🔄 MQTT: Received message for facility: DAYDSF1
+🔄 MQTT: Received message for facility: SWAN_E
+🔄 MQTT: Received message for facility: HUMEV
+🔄 MQTT: Received message for facility: KERNGSP1
+🔄 MQTT: Received message for facility: DDPS1
+🔄 MQTT: Received message for facility: VPGS5
+🔄 MQTT: Received message for facility: LBB1
+🔄 MQTT: Received message for facility: HUMENSW
+🔄 MQTT: Received message for facility: COHUNSF1
+🔄 MQTT: Received message for facility: LBBG1
+🔄 MQTT: Received message for facility: CPP_4
+🔄 MQTT: Received message for facility: KEPWF1
+🔄 MQTT: Received message for facility: W/HOE#2
+🔄 MQTT: Received message for facility: AGLHAL
+🔄 MQTT: Received message for facility: CPSA
+🔄 MQTT: Received message for facility: KEPSF1
+🔄 MQTT: Received message for facility: WNSF1
+🔄 MQTT: Received message for facility: CROOKWF2
+🔄 MQTT: Received message for facility: KARSF1
+🔄 MQTT: Received message for facility: VPGS6
+🔄 MQTT: Received message for facility: KPP_1
+🔄 MQTT: Received message for facility: KSP1
+🔄 MQTT: Received message for facility: COLUMSF1
+🔄 MQTT: Received message for facility: KEPBG1
+🔄 MQTT: Received message for facility: LIMOSF11
+🔄 MQTT: Received message for facility: LIMOSF21
+🔄 MQTT: Received message for facility: LBBL1
+🔄 MQTT: Received message for facility: LEM_WIL
+🔄 MQTT: Received message for facility: CNUNDAWF
+🔄 MQTT: Received message for facility: LGAPWF1
+🔄 MQTT: Received message for facility: CLUNY
+🔄 MQTT: Received message for facility: WOODLWN1
+🔄 MQTT: Received message for facility: LGAPWF2
+🔄 MQTT: Received message for facility: LILYSF1
+🔄 MQTT: Received message for facility: YWPS4
+🔄 MQTT: Received message for facility: CLRKCWF2
+🔄 MQTT: Received message for facility: VPGS4
+🔄 MQTT: Received message for facility: PIBESSL1
+🔄 MQTT: Received message for facility: TREVALLN
+🔄 MQTT: Received message for facility: PAREPW1
+🔄 MQTT: Received message for facility: PARSF1
+🔄 MQTT: Received message for facility: BOLIVPS1
+🔄 MQTT: Received message for facility: PIBESSG1
+🔄 MQTT: Received message for facility: PIBESS1
+🔄 MQTT: Received message for facility: BODWF1
+🔄 MQTT: Received message for facility: YABULU2
+🔄 MQTT: Received message for facility: ER04
+🔄 MQTT: Received message for facility: GPWFEST3
+🔄 MQTT: Received message for facility: GPWFEST2
+🔄 MQTT: Received message for facility: BOMENSF1
+🔄 MQTT: Received message for facility: ERB01
+🔄 MQTT: Received message for facility: POR01
+🔄 MQTT: Received message for facility: BNGSF1
+🔄 MQTT: Received message for facility: WELNSF1
+🔄 MQTT: Received message for facility: QBYNBL1
+🔄 MQTT: Received message for facility: QBYNBG1
+🔄 MQTT: Received message for facility: GOONSF1
+🔄 MQTT: Received message for facility: BLUFF1
+🔄 MQTT: Received message for facility: QBYNB1
+🔄 MQTT: Received message for facility: PUMP2
+🔄 MQTT: Received message for facility: BLYTHB1
+🔄 MQTT: Received message for facility: BALB1
+🔄 MQTT: Received message for facility: PUMP1
+🔄 MQTT: Received message for facility: PIONEER
+🔄 MQTT: Received message for facility: YARANSF1
+🔄 MQTT: Received message for facility: TORRB3
+🔄 MQTT: Received message for facility: BOCORWF1
+🔄 MQTT: Received message for facility: DALNTH1
+🔄 MQTT: Received message for facility: GPWFEST1
+🔄 MQTT: Received message for facility: PTSTAN1
+🔄 MQTT: Received message for facility: WLWLSF1
+🔄 MQTT: Received message for facility: CROOKWF3
+🔄 MQTT: Received message for facility: TALWA1
+🔄 MQTT: Received message for facility: LIMOSF11
+🔄 MQTT: Received message for facility: JLA01
+🔄 MQTT: Received message for facility: WALGRVL1
+🔄 MQTT: Received message for facility: LIMOSF21
+🔄 MQTT: Received message for facility: WAGGNSF1
+🔄 MQTT: Received message for facility: DALNTH01
+🔄 MQTT: Received message for facility: ADPBA1L
+🔄 MQTT: Received message for facility: KAREEYA4
+🔄 MQTT: Received message for facility: LADBROK2
+🔄 MQTT: Received message for facility: SNUG1
+🔄 MQTT: Received message for facility: CLRKCWF1
+🔄 MQTT: Received message for facility: JEMALNG1
+🔄 MQTT: Received message for facility: DIAPURWF1
+🔄 MQTT: Received message for facility: LADBROK1
+🔄 MQTT: Received message for facility: WOOLGSF1
+🔄 MQTT: Received message for facility: KIAMSF1
+🔄 MQTT: Received message for facility: CG2
+🔄 MQTT: Received message for facility: LONSDALE
+🔄 MQTT: Received message for facility: TORRB4
+🔄 MQTT: Received message for facility: BNGSF2
+🔄 MQTT: Received message for facility: POAT220
+🔄 MQTT: Received message for facility: WDBESSG1
+🔄 MQTT: Received message for facility: POAT110
+🔄 MQTT: Received message for facility: YAMBUKWF
+🔄 MQTT: Received message for facility: KARSF1
+🔄 MQTT: Received message for facility: GORDON
+🔄 MQTT: Received message for facility: MUWAWF2
+🔄 MQTT: Received message for facility: TARONG#4
+🔄 MQTT: Received message for facility: NPS
+🔄 MQTT: Received message for facility: NUMURSF1
+🔄 MQTT: Received message for facility: BRAEMAR2
+🔄 MQTT: Received message for facility: WDBESS2
+🔄 MQTT: Received message for facility: OSB-AG
+🔄 MQTT: Received message for facility: ER03
+🔄 MQTT: Received message for facility: BOWWBA1G
+🔄 MQTT: Received message for facility: OAKLAND1
+🔄 MQTT: Received message for facility: GRANWF1
+🔄 MQTT: Received message for facility: TRIBUTE
+🔄 MQTT: Received message for facility: OAKEY2SF
+🔄 MQTT: Received message for facility: BOWWBA1L
+🔄 MQTT: Received message for facility: OAKEY2
+🔄 MQTT: Received message for facility: TARONG#3
+🔄 MQTT: Received message for facility: AVLSF1
+🔄 MQTT: Received message for facility: BOWWPV1
+🔄 MQTT: Received message for facility: OAKEY1SF
+🔄 MQTT: Received message for facility: OAKEY1
+🔄 MQTT: Received message for facility: GREENB1
+🔄 MQTT: Received message for facility: TULLYSM1
+🔄 MQTT: Received message for facility: SRSF1
+🔄 MQTT: Received message for facility: YWPS3
+🔄 MQTT: Received message for facility: BRAEMAR1
+🔄 MQTT: Received message for facility: NYNGAN1
+🔄 MQTT: Received message for facility: YABULU
+🔄 MQTT: Received message for facility: BLUEGSF1
+🔄 MQTT: Received message for facility: GNNDHSF1
+🔄 MQTT: Received message for facility: CLRKCWF2
+🔄 MQTT: Received message for facility: ER02
+🔄 MQTT: Received message for facility: TORRB2[2025-11-05 23:31:14,487] ERROR in app: Exception on /_dash-update-component [POST]
+Traceback (most recent call last):
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/dash/dash.py", line 1388, in _prepare_callback
+    cb = self.callback_map[output]
+         ~~~~~~~~~~~~~~~~~^^^^^^^^
+KeyError: 'data-status.children'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/dash/dash.py", line 1489, in dispatch
+    func = self._prepare_callback(g, body)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/dash/dash.py", line 1422, in _prepare_callback
+    raise KeyError(f"Callback function not found for output '{output}'.") from e
+KeyError: "Callback function not found for output 'data-status.children'."
+127.0.0.1 - - [05/Nov/2025 23:31:14] "[35m[1mPOST /_dash-update-component HTTP/1.1[0m" 500 -
+
+🔄 MQTT: Received message for facility: MWPS1PV1
+🔄 MQTT: Received message for facility: GRIFSF1
+🔄 MQTT: Received message for facility: TARBESS1
+🔄 MQTT: Received message for facility: SNOWYP
+🔄 MQTT: Received message for facility: PPCCGT
+🔄 MQTT: Received message for facility: BLYTHB1L1
+🔄 MQTT: Received message for facility: PORTWF
+🔄 MQTT: Received message for facility: POR03
+🔄 MQTT: Received message for facility: PAREPS1
+🔄 MQTT: Received message for facility: BOWWBA1
+🔄 MQTT: Received message for facility: TORRB1
+🔄 MQTT: Received message for facility: MWPS4PV1
+🔄 MQTT: Received message for facility: GREENB1G1
+🔄 MQTT: Received message for facility: BRAEMAR3
+🔄 MQTT: Received message for facility: CHYTWF1
+🔄 MQTT: Received message for facility: BRNDBES1
+🔄 MQTT: Received message for facility: TARALGA1
+🔄 MQTT: Received message for facility: NEWENSF1
+🔄 MQTT: Received message for facility: BRAEMAR5
+🔄 MQTT: Received message for facility: NEVERSF1
+🔄 MQTT: Received message for facility: BRAEMAR6
+🔄 MQTT: Received message for facility: NBHWF1
+🔄 MQTT: Received message for facility: ER01
+🔄 MQTT: Received message for facility: PALOONA
+🔄 MQTT: Received message for facility: TUNGATIN
+🔄 MQTT: Received message for facility: WYASF1
+🔄 MQTT: Received message for facility: GREENB1L1
+🔄 MQTT: Received message for facility: MWPS3PV1
+🔄 MQTT: Received message for facility: BRAEMAR7
+🔄 MQTT: Received message for facility: MWPS2PV1
+🔄 MQTT: Received message for facility: TUMUT3
+🔄 MQTT: Received message for facility: WANDSF1
+🔄 MQTT: Received message for facility: COOPGWF1
+🔄 MQTT: Received message for facility: JBUTTERS
+🔄 MQTT: Received message for facility: CLEMGPWF
+🔄 MQTT: Received message for facility: DDPS1
+🔄 MQTT: Received message for facility: KIATAWF1
+🔄 MQTT: Received message for facility: KEPWF1
+🔄 MQTT: Received message for facility: HPRG1
+🔄 MQTT: Received message for facility: CLERMSF1
+🔄 MQTT: Received message for facility: DDSF1
+🔄 MQTT: Received message for facility: HUNTER2
+🔄 MQTT: Received message for facility: LKBONNY3
+🔄 MQTT: Received message for facility: LNGS2
+🔄 MQTT: Received message for facility: HALLWF2
+🔄 MQTT: Received message for facility: KESSL1
+🔄 MQTT: Received message for facility: WANDB1
+🔄 MQTT: Received message for facility: CONDONG1
+🔄 MQTT: Received message for facility: CPP_4
+🔄 MQTT: Received message for facility: HUGSF1
+🔄 MQTT: Received message for facility: DEVILS_G
+🔄 MQTT: Received message for facility: KERNGSP1
+🔄 MQTT: Received message for facility: W/HOE#1
+🔄 MQTT: Received message for facility: SWAN_E
+🔄 MQTT: Received message for facility: WLWLSF2
+🔄 MQTT: Received message for facility: KPP_1
+🔄 MQTT: Received message for facility: LKBONNY1
+🔄 MQTT: Received message for facility: KAREEYA2
+🔄 MQTT: Received message for facility: LBB1
+🔄 MQTT: Received message for facility: HDWF3
+🔄 MQTT: Received message for facility: HBESS1
+🔄 MQTT: Received message for facility: WALGRVG1
+🔄 MQTT: Received message for facility: HUNTER1
+🔄 MQTT: Received message for facility: VPGS4
+🔄 MQTT: Received message for facility: KESSB1
+🔄 MQTT: Received message for facility: DRYCGT1
+🔄 MQTT: Received message for facility: GANNSF1
+🔄 MQTT: Received message for facility: CLARESF1
+🔄 MQTT: Received message for facility: HVWWBA1G
+🔄 MQTT: Received message for facility: HPR1
+🔄 MQTT: Received message for facility: HVWWBA1
+🔄 MQTT: Received message for facility: W/HOE#2
+🔄 MQTT: Received message for facility: AGLHAL
+🔄 MQTT: Received message for facility: COLWF01
+🔄 MQTT: Received message for facility: WANDBG1
+🔄 MQTT: Received message for facility: LKBONNY2
+🔄 MQTT: Received message for facility: WOLARSF1
+🔄 MQTT: Received message for facility: WOOLNTH1
+🔄 MQTT: Received message for facility: HPRL1
+🔄 MQTT: Received message for facility: LK_ECHO
+🔄 MQTT: Received message for facility: WKIEWA2
+🔄 MQTT: Received message for facility: DARTM1
+🔄 MQTT: Received message for facility: HUMEV
+🔄 MQTT: Received message for facility: WINTSF1
+🔄 MQTT: Received message for facility: CPP_3
+🔄 MQTT: Received message for facility: VPGS2
+🔄 MQTT: Received message for facility: LNGS1
+🔄 MQTT: Received message for facility: DAYDSF1
+🔄 MQTT: Received message for facility: HAMISF1
+🔄 MQTT: Received message for facility: WKIEWA1
+🔄 MQTT: Received message for facility: KINGASF1
+🔄 MQTT: Received message for facility: HUMENSW
+🔄 MQTT: Received message for facility: DPNTBL1
+🔄 MQTT: Received message for facility: HBESSG1
+🔄 MQTT: Received message for facility: VPGS6
+🔄 MQTT: Received message for facility: DRYCGT2
+🔄 MQTT: Received message for facility: VPGS5
+🔄 MQTT: Received message for facility: LGAPWF2
+🔄 MQTT: Received message for facility: JLB02
+🔄 MQTT: Received message for facility: KAREEYA1
+🔄 MQTT: Received message for facility: LBBG1
+🔄 MQTT: Received message for facility: HEZ1
+🔄 MQTT: Received message for facility: COLEASF1
+🔄 MQTT: Received message for facility: HDWF1
+🔄 MQTT: Received message for facility: LI_WY_CA
+🔄 MQTT: Received message for facility: HAYMSF1
+🔄 MQTT: Received message for facility: HAUGHT11
+🔄 MQTT: Received message for facility: HVWWPV1
+🔄 MQTT: Received message for facility: AGLSOM
+🔄 MQTT: Received message for facility: DALNTHL1
+🔄 MQTT: Received message for facility: KEPBG1
+🔄 MQTT: Received message for facility: DPNTBG1
+🔄 MQTT: Received message for facility: HVWWBA1L
+🔄 MQTT: Received message for facility: VPGS3
+🔄 MQTT: Received message for facility: ADPPV1
+🔄 MQTT: Received message for facility: COLUMSF1
+🔄 MQTT: Received message for facility: KSP1
+🔄 MQTT: Received message for facility: HILLSTN1
+🔄 MQTT: Received message for facility: HD1WF1
+🔄 MQTT: Received message for facility: CLOVER
+🔄 MQTT: Received message for facility: KEPSF1
+🔄 MQTT: Received message for facility: WAMBOWF1
+🔄 MQTT: Received message for facility: DRYCGT3
+🔄 MQTT: Received message for facility: DARLSF1
+🔄 MQTT: Received message for facility: CPSA
+🔄 MQTT: Received message for facility: CROOKWF2
+🔄 MQTT: Received message for facility: WNSF1
+🔄 MQTT: Received message for facility: LGAPWF1
+🔄 MQTT: Received message for facility: CRURWF1
+🔄 MQTT: Received message for facility: CSPVPS1
+🔄 MQTT: Received message for facility: CTHLWF1
+🔄 MQTT: Received message for facility: SUNRSF1
+🔄 MQTT: Received message for facility: JLA04
+🔄 MQTT: Received message for facility: STWF1
+🔄 MQTT: Received message for facility: TARONG#1
+🔄 MQTT: Received message for facility: JLA03
+🔄 MQTT: Received message for facility: YWPS4
+🔄 MQTT: Received message for facility: WANDBL1
+🔄 MQTT: Received message for facility: LILYSF1
+🔄 MQTT: Received message for facility: CROWLWF1
+🔄 MQTT: Received message for facility: CULLRGWF
+🔄 MQTT: Received message for facility: JLA02
+🔄 MQTT: Received message for facility: JLB01
+🔄 MQTT: Received message for facility: HBESSL1
+🔄 MQTT: Received message for facility: CLUNY
+🔄 MQTT: Received message for facility: JLB03
+🔄 MQTT: Received message for facility: LBBL1
+🔄 MQTT: Received message for facility: LEM_WIL
+🔄 MQTT: Received message for facility: CRWASF1
+🔄 MQTT: Received message for facility: WOODLWN1
+🔄 MQTT: Received message for facility: WALGRV1
+🔄 MQTT: Received message for facility: HDWF2
+🔄 MQTT: Received message for facility: JUNEESF1
+🔄 MQTT: Received message for facility: KABANWF1
+🔄 MQTT: Received message for facility: COHUNSF1
+🔄 MQTT: Received message for facility: CNUNDAWF
+🔄 MQTT: Received message for facility: SUNTPSF1
+🔄 MQTT: Received message for facility: WARWSF1
+🔄 MQTT: Received message for facility: DPNTB1
+🔄 MQTT: Received message for facility: KAREEYA3
+🔄 MQTT: Received message for facility: GANNBL1
+🔄 MQTT: Received message for facility: CALL_B_1
+🔄 MQTT: Received message for facility: SHGEN
+🔄 MQTT: Received message for facility: LRSF1
+🔄 MQTT: Received message for facility: CHILDSF1
+🔄 MQTT: Received message for facility: LOYYB2
+🔄 MQTT: Received message for facility: TARONG#2
+🔄 MQTT: Received message for facility: DULAWF1
+🔄 MQTT: Received message for facility: STOCKYD1
+🔄 MQTT: Received message for facility: LOYYB1
+🔄 MQTT: Received message for facility: VPGS1
+🔄 MQTT: Received message for facility: WHITSF1
+🔄 MQTT: Received message for facility: GUTHEGA
+🔄 MQTT: Received message for facility: LYA4
+🔄 MQTT: Received message for facility: DUNDWF1
+🔄 MQTT: Received message for facility: WRSF1
+🔄 MQTT: Received message for facility: CHBESSL1
+🔄 MQTT: Received message for facility: GULLRWF1
+🔄 MQTT: Received message for facility: MAPS2PV1
+🔄 MQTT: Received message for facility: MANSLR1
+🔄 MQTT: Received message for facility: BALDHWF1
+🔄 MQTT: Received message for facility: MANNUMBL1
+🔄 MQTT: Received message for facility: DUNDWF2
+🔄 MQTT: Received message for facility: MANNUMBG1
+🔄 MQTT: Received message for facility: VBBG1
+🔄 MQTT: Received message for facility: GULLRWF2
+🔄 MQTT: Received message for facility: MACARTH1
+🔄 MQTT: Received message for facility: ALDGASF1
+🔄 MQTT: Received message for facility: CG3
+🔄 MQTT: Received message for facility: MANNUMB1
+🔄 MQTT: Received message for facility: GUNNING1
+🔄 MQTT: Received message for facility: CG1
+🔄 MQTT: Received message for facility: CG4
+🔄 MQTT: Received message for facility: HALLWF1
+🔄 MQTT: Received message for facility: LYA1
+🔄 MQTT: Received message for facility: MOORAWF1
+🔄 MQTT: Received message for facility: GSWF1A
+🔄 MQTT: Received message for facility: CALL_B_2
+🔄 MQTT: Received message for facility: MOLNGSF1
+🔄 MQTT: Received message for facility: CAPBES1
+🔄 MQTT: Received message for facility: GSWF1B1
+🔄 MQTT: Received message for facility: STAN-3
+🔄 MQTT: Received message for facility: MOKOSF1
+🔄 MQTT: Received message for facility: MLWF1
+🔄 MQTT: Received message for facility: EDENVSF1
+🔄 MQTT: Received message for facility: URANQ12
+🔄 MQTT: Received message for facility: MUWAWF1
+🔄 MQTT: Received message for facility: CAPBES1G
+🔄 MQTT: Received message for facility: VP6
+🔄 MQTT: Received message for facility: MLSP1
+🔄 MQTT: Received message for facility: CAPBES1L
+🔄 MQTT: Received message for facility: MARYRSF1
+🔄 MQTT: Received message for facility: VBB1
+🔄 MQTT: Received message for facility: CETHANA
+🔄 MQTT: Received message for facility: MAPS3PV1
+🔄 MQTT: Received message for facility: STARHLWF
+🔄 MQTT: Received message for facility: CHBESS1
+🔄 MQTT: Received message for facility: LYA3
+🔄 MQTT: Received message for facility: VP5
+🔄 MQTT: Received message for facility: WPWF
+🔄 MQTT: Received message for facility: CHBESSG1
+🔄 MQTT: Received message for facility: LYA2
+🔄 MQTT: Received message for facility: WARWSF2
+🔄 MQTT: Received message for facility: WSTWYSF1
+🔄 MQTT: Received message for facility: MANNSF2
+🔄 MQTT: Received message for facility: VBBL1
+🔄 MQTT: Received message for facility: MACKNTSH
+🔄 MQTT: Received message for facility: MSTUART1
+🔄 MQTT: Received message for facility: MREHAG2
+🔄 MQTT: Received message for facility: BW02
+🔄 MQTT: Received message for facility: BULBESL1
+🔄 MQTT: Received message for facility: EMERASF1
+🔄 MQTT: Received message for facility: WAUBRAWF
+🔄 MQTT: Received message for facility: ULPBESS1
+🔄 MQTT: Received message for facility: MORTLK12
+🔄 MQTT: Received message for facility: BWTR1
+🔄 MQTT: Received message for facility: MOUSF1
+🔄 MQTT: Received message for facility: BW04
+🔄 MQTT: Received message for facility: GSTONE2
+🔄 MQTT: Received message for facility: TVCC201
+🔄 MQTT: Received message for facility: GSTONE1
+🔄 MQTT: Received message for facility: BULBESG1
+🔄 MQTT: Received message for facility: MPP_2
+🔄 MQTT: Received message for facility: WTAHB1L1
+🔄 MQTT: Received message for facility: BROKENH1
+🔄 MQTT: Received message for facility: WEMENSF1
+🔄 MQTT: Received message for facility: MREHAL1
+🔄 MQTT: Received message for facility: GSTONE5
+🔄 MQTT: Received message for facility: MPP_1
+🔄 MQTT: Received message for facility: MURRAY
+🔄 MQTT: Received message for facility: MP1
+🔄 MQTT: Received message for facility: MP2
+🔄 MQTT: Received message for facility: EILDON1
+🔄 MQTT: Received message for facility: UPPTUMUT
+🔄 MQTT: Received message for facility: BARCSF1
+🔄 MQTT: Received message for facility: MRTLSWF1
+🔄 MQTT: Received message for facility: GSTONE3
+🔄 MQTT: Received message for facility: ARWF1
+🔄 MQTT: Received message for facility: ULPBESSG1
+🔄 MQTT: Received message for facility: CHALLHWF
+🔄 MQTT: Received message for facility: MORTLK11
+🔄 MQTT: Received message for facility: BW03
+🔄 MQTT: Received message for facility: WDBESS1
+🔄 MQTT: Received message for facility: MREHA1
+🔄 MQTT: Received message for facility: BRYB2WF2
+🔄 MQTT: Received message for facility: MREHAG3
+🔄 MQTT: Received message for facility: MSTUART2
+🔄 MQTT: Received message for facility: ADPBA1G
+🔄 MQTT: Received message for facility: WTAHB1G1
+🔄 MQTT: Received message for facility: ULPBESSL1
+🔄 MQTT: Received message for facility: EILDON2
+🔄 MQTT: Received message for facility: BULBES1
+🔄 MQTT: Received message for facility: BRYB1WF1
+🔄 MQTT: Received message for facility: MUCRKSF1
+🔄 MQTT: Received message for facility: ELAINWF1
+🔄 MQTT: Received message for facility: MTMILLAR
+🔄 MQTT: Received message for facility: MSTUART3
+🔄 MQTT: Received message for facility: MREHA2
+🔄 MQTT: Received message for facility: WUNUSF1
+🔄 MQTT: Received message for facility: STAN-2
+🔄 MQTT: Received message for facility: MTGELWF1
+🔄 MQTT: Received message for facility: BW01
+🔄 MQTT: Received message for facility: GSTONE4
+🔄 MQTT: Received message for facility: TVPP104
+🔄 MQTT: Received message for facility: MREHA3
+🔄 MQTT: Received message for facility: BULGANA1
+🔄 MQTT: Received message for facility: BUTLERSG
+🔄 MQTT: Received message for facility: MREHAG1
+🔄 MQTT: Received message for facility: ANGAST1
+🔄 MQTT: Received message for facility: URANQ11
+🔄 MQTT: Received message for facility: MUSSELR1
+🔄 MQTT: Received message for facility: SMTHBES1L1
+🔄 MQTT: Received message for facility: MOREESF1
+🔄 MQTT: Received message for facility: GANNB1
+🔄 MQTT: Received message for facility: BANGOWF2
+🔄 MQTT: Received message for facility: TB2B1
+🔄 MQTT: Received message for facility: SMTHBES1
+🔄 MQTT: Received message for facility: BANN1
+🔄 MQTT: Received message for facility: SMCSF1
+🔄 MQTT: Received message for facility: WDGPH1
+🔄 MQTT: Received message for facility: BARCALDN
+🔄 MQTT: Received message for facility: SITHE01
+🔄 MQTT: Received message for facility: SHPUMP
+🔄 MQTT: Received message for facility: GANNBG1
+🔄 MQTT: Received message for facility: RRSF1
+🔄 MQTT: Received message for facility: SNAPPER1
+🔄 MQTT: Received message for facility: TBSF1
+🔄 MQTT: Received message for facility: ERBL01
+🔄 MQTT: Received message for facility: YATSF1
+🔄 MQTT: Received message for facility: BDL02
+🔄 MQTT: Received message for facility: REECE2
+🔄 MQTT: Received message for facility: BERYLSF1
+🔄 MQTT: Received message for facility: REECE1
+🔄 MQTT: Received message for facility: ERGT01
+🔄 MQTT: Received message for facility: RANGEB1L1
+🔄 MQTT: Received message for facility: TIBL1
+🔄 MQTT: Received message for facility: BHB1
+🔄 MQTT: Received message for facility: RANGEB1
+🔄 MQTT: Received message for facility: WELLSF1
+🔄 MQTT: Received message for facility: QPS5
+🔄 MQTT: Received message for facility: QPS1
+🔄 MQTT: Received message for facility: GLRWNSF1
+🔄 MQTT: Received message for facility: BANGOWF1
+🔄 MQTT: Received message for facility: YWPS2
+🔄 MQTT: Received message for facility: BARKIPS1
+🔄 MQTT: Received message for facility: SEBSF1
+🔄 MQTT: Received message for facility: SAPHWF1
+🔄 MQTT: Received message for facility: FLYCRKWF
+🔄 MQTT: Received message for facility: BARRON-1
+🔄 MQTT: Received message for facility: SALTCRK1
+🔄 MQTT: Received message for facility: RYEPARK1
+🔄 MQTT: Received message for facility: BARRON-2
+🔄 MQTT: Received message for facility: RPCG
+🔄 MQTT: Received message for facility: RYANCWF1
+🔄 MQTT: Received message for facility: TB2SF1
+🔄 MQTT: Received message for facility: SNOWSTH1
+🔄 MQTT: Received message for facility: YSWF1
+🔄 MQTT: Received message for facility: GANGARR1
+🔄 MQTT: Received message for facility: FISHER
+🔄 MQTT: Received message for facility: RUGBYR1
+🔄 MQTT: Received message for facility: RUBICON
+🔄 MQTT: Received message for facility: GB01
+🔄 MQTT: Received message for facility: BBATRYL1
+🔄 MQTT: Received message for facility: SHOAL1
+🔄 MQTT: Received message for facility: SNOWNTH1
+🔄 MQTT: Received message for facility: YWPS1
+🔄 MQTT: Received message for facility: TB2BG1
+🔄 MQTT: Received message for facility: SNBG01
+🔄 MQTT: Received message for facility: ADPBA1
+🔄 MQTT: Received message for facility: TARRALEA
+🔄 MQTT: Received message for facility: BALBL1
+🔄 MQTT: Received message for facility: SNB01
+🔄 MQTT: Received message for facility: BASTYAN
+🔄 MQTT: Received message for facility: TNPS1
+🔄 MQTT: Received message for facility: SNOWTWN1
+🔄 MQTT: Received message for facility: BHBL1
+🔄 MQTT: Received message for facility: BRNDBESL1
+🔄 MQTT: Received message for facility: MIDDLSF1
+🔄 MQTT: Received message for facility: MEWF1
+🔄 MQTT: Received message for facility: GULLRSF1
+🔄 MQTT: Received message for facility: URANQ13
+🔄 MQTT: Received message for facility: METZSF1
+🔄 MQTT: Received message for facility: CATHROCK
+🔄 MQTT: Received message for facility: MERCER01
+🔄 MQTT: Received message for facility: STAN-4
+🔄 MQTT: Received message for facility: MEADOWBK
+🔄 MQTT: Received message for facility: DUNDWF3
+🔄 MQTT: Received message for facility: QPS4
+🔄 MQTT: Received message for facility: MCKAY1
+🔄 MQTT: Received message for facility: NEWENSF2
+🔄 MQTT: Received message for facility: URANQ14
+🔄 MQTT: Received message for facility: WATERLWF
+🔄 MQTT: Received message for facility: CBWWBA1G
+🔄 MQTT: Received message for facility: MCINTYR1
+🔄 MQTT: Received message for facility: TALWB1
+🔄 MQTT: Received message for facility: MBPS2PV1
+🔄 MQTT: Received message for facility: CBWWBA1L
+🔄 MQTT: Received message for facility: MBAHNTH
+🔄 MQTT: Received message for facility: TARBESSG1
+🔄 MQTT: Received message for facility: CAPTL_WF
+🔄 MQTT: Received message for facility: WGWF1
+🔄 MQTT: Received message for facility: WTAHB1
+🔄 MQTT: Received message for facility: MINTARO
+🔄 MQTT: Received message for facility: GSTONE6
+🔄 MQTT: Received message for facility: WRWF1
+🔄 MQTT: Received message for facility: STAN-1
+🔄 MQTT: Received message for facility: CBWWBA1
+🔄 MQTT: Received message for facility: GIRGSF
+🔄 MQTT: Received message for facility: BDL01
+🔄 MQTT: Received message for facility: YARWUN_1
+🔄 MQTT: Received message for facility: WDBESSL1
+🔄 MQTT: Received message for facility: BLOWERNG
+🔄 MQTT: Received message for facility: QPS2
+🔄 MQTT: Received message for facility: GLENSF1
+🔄 MQTT: Received message for facility: REPULSE
+🔄 MQTT: Received message for facility: TIBG1
+🔄 MQTT: Received message for facility: RESS1
+🔄 MQTT: Received message for facility: BBATTERY
+🔄 MQTT: Received message for facility: ROYALLA1
+🔄 MQTT: Received message for facility: BBATTERY1
+🔄 MQTT: Received message for facility: ROWALLAN
+🔄 MQTT: Received message for facility: ROMA_8
+🔄 MQTT: Received message for facility: QPS3
+🔄 MQTT: Received message for facility: WDBESSL2
+🔄 MQTT: Received message for facility: BALBG1
+🔄 MQTT: Received message for facility: BBTHREE3
+🔄 MQTT: Received message for facility: FINLYSF1
+🔄 MQTT: Received message for facility: RIVNB2
+🔄 MQTT: Received message for facility: TIB1
+🔄 MQTT: Received message for facility: RIVNBG2
+🔄 MQTT: Received message for facility: RESS1L
+🔄 MQTT: Received message for facility: RIVNBL2
+🔄 MQTT: Received message for facility: GERMCRK
+🔄 MQTT: Received message for facility: ROMA_7
+🔄 MQTT: Received message for facility: BBTHREE1
+🔄 MQTT: Received message for facility: YENDWF1
+🔄 MQTT: Received message for facility: BBTHREE2
+🔄 MQTT: Received message for facility: GSWF1A
+🔄 MQTT: Received message for facility: CG4
+🔄 MQTT: Received message for facility: STWF1
+🔄 MQTT: Received message for facility: STARHLWF
+🔄 MQTT: Received message for facility: WTAHB1G1
+🔄 MQTT: Received message for facility: MREHA1
+🔄 MQTT: Received message for facility: LADBROK1
+🔄 MQTT: Received message for facility: EILDON2
+🔄 MQTT: Received message for facility: HAMISF1
+🔄 MQTT: Received message for facility: ULPBESSL1
+🔄 MQTT: Received message for facility: LYA4
+🔄 MQTT: Received message for facility: CLOVER
+🔄 MQTT: Received message for facility: LKBONNY3
+🔄 MQTT: Received message for facility: WOODLWN1
+🔄 MQTT: Received message for facility: URANQ11
+🔄 MQTT: Received message for facility: HAYMSF1
+🔄 MQTT: Received message for facility: VPGS3
+🔄 MQTT: Received message for facility: ANGAST1
+🔄 MQTT: Received message for facility: MOORAWF1
+🔄 MQTT: Received message for facility: MANNUMBG1
+🔄 MQTT: Received message for facility: LI_WY_CA
+🔄 MQTT: Received message for facility: GSTONE6
+🔄 MQTT: Received message for facility: VBBG1
+🔄 MQTT: Received message for facility: COHUNSF1
+🔄 MQTT: Received message for facility: WRSF1
+🔄 MQTT: Received message for facility: MOREESF1
+🔄 MQTT: Received message for facility: CALL_B_1
+🔄 MQTT: Received message for facility: CLERMSF1
+🔄 MQTT: Received message for facility: AGLSOM
+🔄 MQTT: Received message for facility: LADBROK2
+🔄 MQTT: Received message for facility: JLB02
+🔄 MQTT: Received message for facility: MACARTH1
+🔄 MQTT: Received message for facility: MBAHNTH
+🔄 MQTT: Received message for facility: URANQ13
+🔄 MQTT: Received message for facility: LIMOSF21
+🔄 MQTT: Received message for facility: VPGS4
+🔄 MQTT: Received message for facility: MEWF1
+🔄 MQTT: Received message for facility: CAPTL_WF
+🔄 MQTT: Received message for facility: MARYRSF1
+🔄 MQTT: Received message for facility: CG2
+🔄 MQTT: Received message for facility: MANNUMBL1
+🔄 MQTT: Received message for facility: CHBESS1
+🔄 MQTT: Received message for facility: CHALLHWF
+🔄 MQTT: Received message for facility: MANNSF2
+🔄 MQTT: Received message for facility: UPPTUMUT
+🔄 MQTT: Received message for facility: BW02
+🔄 MQTT: Received message for facility: URANQ14
+🔄 MQTT: Received message for facility: EILDON1
+🔄 MQTT: Received message for facility: VBBL1
+🔄 MQTT: Received message for facility: MP1
+🔄 MQTT: Received message for facility: MP2
+🔄 MQTT: Received message for facility: MACKNTSH
+🔄 MQTT: Received message for facility: BW03
+🔄 MQTT: Received message for facility: LKBONNY2
+🔄 MQTT: Received message for facility: DUNDWF1
+🔄 MQTT: Received message for facility: GSTONE5
+🔄 MQTT: Received message for facility: COLEASF1
+🔄 MQTT: Received message for facility: MPP_1
+🔄 MQTT: Received message for facility: BW04
+🔄 MQTT: Received message for facility: MPP_2
+🔄 MQTT: Received message for facility: GUNNING1
+🔄 MQTT: Received message for facility: LKBONNY1
+🔄 MQTT: Received message for facility: WDBESSG1
+🔄 MQTT: Received message for facility: LBBG1
+🔄 MQTT: Received message for facility: QPS3
+🔄 MQTT: Received message for facility: YARWUN_1
+🔄 MQTT: Received message for facility: BERYLSF1
+🔄 MQTT: Received message for facility: REECE2
+🔄 MQTT: Received message for facility: WDBESSL1
+🔄 MQTT: Received message for facility: BDL02
+🔄 MQTT: Received message for facility: FINLYSF1
+🔄 MQTT: Received message for facility: TIB1
+🔄 MQTT: Received message for facility: RIVNB2
+🔄 MQTT: Received message for facility: JBUTTERS
+🔄 MQTT: Received message for facility: DALNTH1
+🔄 MQTT: Received message for facility: BBTHREE3
+🔄 MQTT: Received message for facility: RESS1L
+🔄 MQTT: Received message for facility: BHBL1127.0.0.1 - - [05/Nov/2025 23:32:03] "HEAD / HTTP/1.1" 200 -
+
+🔄 MQTT: Received message for facility: DIAPURWF1
+🔄 MQTT: Received message for facility: RESS1
+🔄 MQTT: Received message for facility: JEMALNG1
+🔄 MQTT: Received message for facility: GIRGSF
+🔄 MQTT: Received message for facility: TIBG1
+🔄 MQTT: Received message for facility: REPULSE
+🔄 MQTT: Received message for facility: DALNTH01
+🔄 MQTT: Received message for facility: YATSF1
+🔄 MQTT: Received message for facility: SNOWTWN1
+🔄 MQTT: Received message for facility: GLENSF1
+🔄 MQTT: Received message for facility: WALGRVL1
+🔄 MQTT: Received message for facility: JLA03
+🔄 MQTT: Received message for facility: WANDBL1
+🔄 MQTT: Received message for facility: METZSF1
+🔄 MQTT: Received message for facility: BDL01
+🔄 MQTT: Received message for facility: GLRWNSF1
+🔄 MQTT: Received message for facility: QPS4
+🔄 MQTT: Received message for facility: TNPS1
+🔄 MQTT: Received message for facility: MORTLK11
+🔄 MQTT: Received message for facility: GULLRWF2
+🔄 MQTT: Received message for facility: LBB1
+🔄 MQTT: Received message for facility: WTAHB1
+🔄 MQTT: Received message for facility: CG3
+🔄 MQTT: Received message for facility: MORTLK12
+🔄 MQTT: Received message for facility: MANNUMB1
+🔄 MQTT: Received message for facility: DRYCGT3
+🔄 MQTT: Received message for facility: BWTR1
+🔄 MQTT: Received message for facility: WAUBRAWF
+🔄 MQTT: Received message for facility: HBESS1
+🔄 MQTT: Received message for facility: MOUSF1
+🔄 MQTT: Received message for facility: WANDBG1
+🔄 MQTT: Received message for facility: KEPSF1
+🔄 MQTT: Received message for facility: GOONSF1
+🔄 MQTT: Received message for facility: ERGT01
+🔄 MQTT: Received message for facility: REECE1
+🔄 MQTT: Received message for facility: JLA01
+🔄 MQTT: Received message for facility: RANGEB1L1
+🔄 MQTT: Received message for facility: HEZ1
+🔄 MQTT: Received message for facility: TIBL1
+🔄 MQTT: Received message for facility: ERBL01
+🔄 MQTT: Received message for facility: WLWLSF1
+🔄 MQTT: Received message for facility: BHB1
+🔄 MQTT: Received message for facility: RANGEB1G1
+🔄 MQTT: Received message for facility: RANGEB1
+🔄 MQTT: Received message for facility: QPS5
+🔄 MQTT: Received message for facility: JLA02
+🔄 MQTT: Received message for facility: CULLRGWF
+🔄 MQTT: Received message for facility: ALDGASF1
+🔄 MQTT: Received message for facility: GULLRSF1
+🔄 MQTT: Received message for facility: LOYYB1
+🔄 MQTT: Received message for facility: TALWA1
+🔄 MQTT: Received message for facility: DULAWF1
+🔄 MQTT: Received message for facility: LYA1
+🔄 MQTT: Received message for facility: MSTUART1
+🔄 MQTT: Received message for facility: BULBESG1
+🔄 MQTT: Received message for facility: HALLWF2
+🔄 MQTT: Received message for facility: MREHAG1
+🔄 MQTT: Received message for facility: CHBESSG1
+🔄 MQTT: Received message for facility: BULBES1
+🔄 MQTT: Received message for facility: MREHAL1
+🔄 MQTT: Received message for facility: CLARESF1
+🔄 MQTT: Received message for facility: COLWF01
+🔄 MQTT: Received message for facility: LYA2
+🔄 MQTT: Received message for facility: WDBESS1
+🔄 MQTT: Received message for facility: GUTHEGA
+🔄 MQTT: Received message for facility: ULPBESSG1
+🔄 MQTT: Received message for facility: ELAINWF1
+🔄 MQTT: Received message for facility: LK_ECHO
+🔄 MQTT: Received message for facility: GSTONE2
+🔄 MQTT: Received message for facility: STOCKYD1
+🔄 MQTT: Received message for facility: WARWSF2
+🔄 MQTT: Received message for facility: BULBESL1
+🔄 MQTT: Received message for facility: MSTUART3
+🔄 MQTT: Received message for facility: LNGS2
+🔄 MQTT: Received message for facility: MREHAG2
+🔄 MQTT: Received message for facility: MTGELWF1
+🔄 MQTT: Received message for facility: BUTLERSG
+🔄 MQTT: Received message for facility: LRSF1
+🔄 MQTT: Received message for facility: ULPBESS1
+🔄 MQTT: Received message for facility: DRYCGT1
+🔄 MQTT: Received message for facility: ADPBA1L
+🔄 MQTT: Received message for facility: GSTONE4
+🔄 MQTT: Received message for facility: CLEMGPWF
+🔄 MQTT: Received message for facility: CHILDSF1
+🔄 MQTT: Received message for facility: HALLWF1
+🔄 MQTT: Received message for facility: VP5
+🔄 MQTT: Received message for facility: BRYB2WF2
+🔄 MQTT: Received message for facility: WOLARSF1
+🔄 MQTT: Received message for facility: MSTUART2
+🔄 MQTT: Received message for facility: VPGS2
+🔄 MQTT: Received message for facility: MREHA3
+🔄 MQTT: Received message for facility: KSP1
+🔄 MQTT: Received message for facility: GSTONE1
+🔄 MQTT: Received message for facility: VP6
+🔄 MQTT: Received message for facility: CHYTWF1
+🔄 MQTT: Received message for facility: WTAHB1L1
+🔄 MQTT: Received message for facility: BULGANA1
+🔄 MQTT: Received message for facility: LONSDALE
+🔄 MQTT: Received message for facility: MREHAG3
+🔄 MQTT: Received message for facility: ARWF1
+🔄 MQTT: Received message for facility: LNGS1
+🔄 MQTT: Received message for facility: KIATAWF1
+🔄 MQTT: Received message for facility: BW01
+🔄 MQTT: Received message for facility: LYA3
+🔄 MQTT: Received message for facility: TVPP104
+🔄 MQTT: Received message for facility: TARONG#2
+🔄 MQTT: Received message for facility: KINGASF1
+🔄 MQTT: Received message for facility: STAN-2
+🔄 MQTT: Received message for facility: WOOLNTH1
+🔄 MQTT: Received message for facility: MRTLSWF1
+🔄 MQTT: Received message for facility: COLUMSF1
+🔄 MQTT: Received message for facility: KPP_1
+🔄 MQTT: Received message for facility: CBWWBA1L
+🔄 MQTT: Received message for facility: LOYYB2
+🔄 MQTT: Received message for facility: WPWF
+🔄 MQTT: Received message for facility: CAPBES1
+🔄 MQTT: Received message for facility: STAN-3
+🔄 MQTT: Received message for facility: LBBL1
+🔄 MQTT: Received message for facility: MANSLR1
+🔄 MQTT: Received message for facility: DUNDWF2
+🔄 MQTT: Received message for facility: MOLNGSF1
+🔄 MQTT: Received message for facility: TARBESSG1
+🔄 MQTT: Received message for facility: WGWF1
+🔄 MQTT: Received message for facility: CALL_B_2
+🔄 MQTT: Received message for facility: MBPS2PV1
+🔄 MQTT: Received message for facility: WATERLWF
+🔄 MQTT: Received message for facility: WRWF1
+🔄 MQTT: Received message for facility: LILYSF1
+🔄 MQTT: Received message for facility: MOKOSF1
+🔄 MQTT: Received message for facility: MCKAY1
+🔄 MQTT: Received message for facility: TALWB1
+🔄 MQTT: Received message for facility: CBWWBA1
+🔄 MQTT: Received message for facility: CBWWBA1G
+🔄 MQTT: Received message for facility: YWPS4
+🔄 MQTT: Received message for facility: MEADOWBK
+🔄 MQTT: Received message for facility: MCINTYR1
+🔄 MQTT: Received message for facility: DUNDWF3
+🔄 MQTT: Received message for facility: STAN-4
+🔄 MQTT: Received message for facility: DRYCGT2
+🔄 MQTT: Received message for facility: LIMOSF11
+🔄 MQTT: Received message for facility: KIAMSF1
+🔄 MQTT: Received message for facility: MERCER01
+🔄 MQTT: Received message for facility: CATHROCK
+🔄 MQTT: Received message for facility: CLRKCWF2
+🔄 MQTT: Received message for facility: CONDONG1
+🔄 MQTT: Received message for facility: LEM_WIL
+🔄 MQTT: Received message for facility: CG1
+🔄 MQTT: Received message for facility: GSTONE3
+🔄 MQTT: Received message for facility: CHBESSL1
+🔄 MQTT: Received message for facility: VPGS1
+🔄 MQTT: Received message for facility: HBESSG1
+🔄 MQTT: Received message for facility: VPGS6
+🔄 MQTT: Received message for facility: VPGS5
+🔄 MQTT: Received message for facility: MREHA2
+🔄 MQTT: Received message for facility: URANQ12
+🔄 MQTT: Received message for facility: CLUNY
+🔄 MQTT: Received message for facility: MINTARO
+🔄 MQTT: Received message for facility: CLRKCWF1
+🔄 MQTT: Received message for facility: VBB1
+🔄 MQTT: Received message for facility: CAPBES1L
+🔄 MQTT: Received message for facility: MAPS2PV1
+🔄 MQTT: Received message for facility: HAUGHT11
+🔄 MQTT: Received message for facility: CETHANA
+🔄 MQTT: Received message for facility: WSTWYSF1
+🔄 MQTT: Received message for facility: MAPS3PV1127.0.0.1 - - [05/Nov/2025 23:32:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:15] "GET /_dash-component-suites/dash/deps/prop-types@15.v3_2_0m1762133011.8.1.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:15] "GET /_dash-component-suites/dash/deps/polyfill@7.v3_2_0m1762133011.12.1.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:15] "GET /_dash-component-suites/dash/deps/react@18.v3_2_0m1762133011.3.1.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:15] "GET /_dash-component-suites/dash/dcc/dash_core_components-shared.v3_2_0m1762133011.js HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:15] "GET /_dash-component-suites/dash/dash_table/bundle.v6_0_4m1762133011.js HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:15] "GET /_dash-component-suites/dash/dash-renderer/build/dash_renderer.v3_2_0m1762133011.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:15] "GET /_dash-component-suites/dash/html/dash_html_components.v3_0_4m1762133011.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:15] "GET /_dash-component-suites/dash/dcc/dash_core_components.v3_2_0m1762133011.js HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:15] "GET /_dash-component-suites/dash/deps/react-dom@18.v3_2_0m1762133011.3.1.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:16] "GET /_dash-layout HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:16] "GET /_dash-dependencies HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:16] "[36mGET /_dash-component-suites/dash/dcc/async-dropdown.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Nov/2025 23:32:16] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:18] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:20] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:22] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:24] "POST /_dash-update-component HTTP/1.1" 200 -
+
+🔄 MQTT: Received message for facility: GSWF1B1
+🔄 MQTT: Received message for facility: WARWSF1
+🔄 MQTT: Received message for facility: MLSP1
+🔄 MQTT: Received message for facility: CAPBES1G
+🔄 MQTT: Received message for facility: CNUNDAWF
+🔄 MQTT: Received message for facility: MIDDLSF1
+🔄 MQTT: Received message for facility: WOOLGSF1
+🔄 MQTT: Received message for facility: EDENVSF1
+🔄 MQTT: Received message for facility: GULLRWF1
+🔄 MQTT: Received message for facility: MLWF1
+🔄 MQTT: Received message for facility: LGAPWF1
+🔄 MQTT: Received message for facility: CSPVPS1
+🔄 MQTT: Received message for facility: LGAPWF2
+🔄 MQTT: Received message for facility: TARONG#4
+🔄 MQTT: Received message for facility: GRIFSF1
+🔄 MQTT: Received message for facility: KAREEYA3
+🔄 MQTT: Received message for facility: BOWWBA1G
+🔄 MQTT: Received message for facility: OAKLAND1
+🔄 MQTT: Received message for facility: CROOKWF3
+🔄 MQTT: Received message for facility: TRIBUTE
+🔄 MQTT: Received message for facility: GREENB1L1
+🔄 MQTT: Received message for facility: CPP_4
+🔄 MQTT: Received message for facility: MWPS3PV1
+🔄 MQTT: Received message for facility: TARALGA1
+🔄 MQTT: Received message for facility: BRAEMAR2
+🔄 MQTT: Received message for facility: AGLHAL
+🔄 MQTT: Received message for facility: NUMURSF1
+🔄 MQTT: Received message for facility: MWPS1PV1
+🔄 MQTT: Received message for facility: WNSF1
+🔄 MQTT: Received message for facility: NEVERSF1
+🔄 MQTT: Received message for facility: BRAEMAR3
+🔄 MQTT: Received message for facility: KARSF1
+🔄 MQTT: Received message for facility: NEWENSF2
+🔄 MQTT: Received message for facility: CPSA
+🔄 MQTT: Received message for facility: BRAEMAR5
+🔄 MQTT: Received message for facility: W/HOE#2
+🔄 MQTT: Received message for facility: TUMUT3
+🔄 MQTT: Received message for facility: NEWENSF1
+🔄 MQTT: Received message for facility: BRAEMAR6
+🔄 MQTT: Received message for facility: NBHWF1
+🔄 MQTT: Received message for facility: HD1WF1
+🔄 MQTT: Received message for facility: ER01
+🔄 MQTT: Received message for facility: NPS
+🔄 MQTT: Received message for facility: KEPBG1
+🔄 MQTT: Received message for facility: OSB-AG
+🔄 MQTT: Received message for facility: PALOONA
+🔄 MQTT: Received message for facility: RUBICON
+🔄 MQTT: Received message for facility: HVWWBA1G
+🔄 MQTT: Received message for facility: TORRB3
+🔄 MQTT: Received message for facility: WHITSF1
+🔄 MQTT: Received message for facility: YWPS3
+🔄 MQTT: Received message for facility: ER02
+🔄 MQTT: Received message for facility: BRNDBES1
+🔄 MQTT: Received message for facility: KERNGSP1
+🔄 MQTT: Received message for facility: BOWWBA1L
+🔄 MQTT: Received message for facility: OAKEY2
+🔄 MQTT: Received message for facility: AVLSF1
+🔄 MQTT: Received message for facility: MWPS2PV1
+🔄 MQTT: Received message for facility: KAREEYA4
+🔄 MQTT: Received message for facility: HDWF1
+🔄 MQTT: Received message for facility: WAGGNSF1
+🔄 MQTT: Received message for facility: BRAEMAR7
+🔄 MQTT: Received message for facility: OAKEY1SF
+🔄 MQTT: Received message for facility: WANDSF1
+🔄 MQTT: Received message for facility: OAKEY1
+🔄 MQTT: Received message for facility: TUNGATIN
+🔄 MQTT: Received message for facility: GRANWF1
+🔄 MQTT: Received message for facility: OAKEY2SF
+🔄 MQTT: Received message for facility: YABULU2
+🔄 MQTT: Received message for facility: ER03
+🔄 MQTT: Received message for facility: STAN-1
+🔄 MQTT: Received message for facility: KESSB1
+🔄 MQTT: Received message for facility: TARONG#3
+🔄 MQTT: Received message for facility: BOWWBA1
+🔄 MQTT: Received message for facility: BOWWPV1
+🔄 MQTT: Received message for facility: YABULU
+🔄 MQTT: Received message for facility: WDBESS2
+🔄 MQTT: Received message for facility: MWPS4PV1
+🔄 MQTT: Received message for facility: ER04
+🔄 MQTT: Received message for facility: BOCORWF1
+🔄 MQTT: Received message for facility: COOPGWF1
+🔄 MQTT: Received message for facility: WUNUSF1
+🔄 MQTT: Received message for facility: PIONEER
+🔄 MQTT: Received message for facility: CRURWF1
+🔄 MQTT: Received message for facility: KAREEYA2
+🔄 MQTT: Received message for facility: YAMBUKWF
+🔄 MQTT: Received message for facility: DPNTBL1
+🔄 MQTT: Received message for facility: SUNRSF1
+🔄 MQTT: Received message for facility: MUWAWF1
+🔄 MQTT: Received message for facility: MTMILLAR
+🔄 MQTT: Received message for facility: BRNDBESL1
+🔄 MQTT: Received message for facility: WEMENSF1
+🔄 MQTT: Received message for facility: CPP_3
+🔄 MQTT: Received message for facility: WLWLSF2
+🔄 MQTT: Received message for facility: PAREPW1
+🔄 MQTT: Received message for facility: ADPBA1G
+🔄 MQTT: Received message for facility: TREVALLN
+🔄 MQTT: Received message for facility: POAT110
+🔄 MQTT: Received message for facility: BOMENSF1
+🔄 MQTT: Received message for facility: BNGSF2
+🔄 MQTT: Received message for facility: GPWFEST2
+🔄 MQTT: Received message for facility: PAREPS1
+🔄 MQTT: Received message for facility: PARSF1
+🔄 MQTT: Received message for facility: EMERASF1
+🔄 MQTT: Received message for facility: WALGRV1
+🔄 MQTT: Received message for facility: MUWAWF2
+🔄 MQTT: Received message for facility: POAT220
+🔄 MQTT: Received message for facility: TORRB4
+🔄 MQTT: Received message for facility: KESSL1
+🔄 MQTT: Received message for facility: GPWFEST1
+🔄 MQTT: Received message for facility: WINTSF1
+🔄 MQTT: Received message for facility: NYNGAN1
+🔄 MQTT: Received message for facility: BRAEMAR1
+🔄 MQTT: Received message for facility: KEPWF1
+🔄 MQTT: Received message for facility: SRSF1
+🔄 MQTT: Received message for facility: CROOKWF2
+🔄 MQTT: Received message for facility: GREENB1
+🔄 MQTT: Received message for facility: TULLYSM1
+🔄 MQTT: Received message for facility: WYASF1
+🔄 MQTT: Received message for facility: TARONG#1
+🔄 MQTT: Received message for facility: GREENB1G1
+🔄 MQTT: Received message for facility: BODWF1
+🔄 MQTT: Received message for facility: SNUG1
+🔄 MQTT: Received message for facility: PIBESSL1
+🔄 MQTT: Received message for facility: W/HOE#1
+🔄 MQTT: Received message for facility: TVCC201
+🔄 MQTT: Received message for facility: HBESSL1
+🔄 MQTT: Received message for facility: MUCRKSF1
+🔄 MQTT: Received message for facility: KABANWF1
+🔄 MQTT: Received message for facility: BROKENH1
+🔄 MQTT: Received message for facility: MUSSELR1
+🔄 MQTT: Received message for facility: DPNTBG1
+🔄 MQTT: Received message for facility: PIBESS1
+🔄 MQTT: Received message for facility: KAREEYA1
+🔄 MQTT: Received message for facility: PIBESSG1
+🔄 MQTT: Received message for facility: GPWFEST3
+🔄 MQTT: Received message for facility: BOLIVPS1
+🔄 MQTT: Received message for facility: BRYB1WF1
+🔄 MQTT: Received message for facility: MURRAY
+🔄 MQTT: Received message for facility: GORDON
+🔄 MQTT: Received message for facility: WKIEWA2
+🔄 MQTT: Received message for facility: CROWLWF1
+🔄 MQTT: Received message for facility: BASTYAN
+🔄 MQTT: Received message for facility: RUGBYR1
+🔄 MQTT: Received message for facility: PUMP2
+🔄 MQTT: Received message for facility: JLB01
+🔄 MQTT: Received message for facility: SUNTPSF1
+🔄 MQTT: Received message for facility: BALB1
+🔄 MQTT: Received message for facility: ERB01
+🔄 MQTT: Received message for facility: BLYTHB1
+🔄 MQTT: Received message for facility: RIVNBG2
+🔄 MQTT: Received message for facility: BBTHREE2
+🔄 MQTT: Received message for facility: HVWWPV1
+🔄 MQTT: Received message for facility: WDGPH1
+🔄 MQTT: Received message for facility: BARCALDN
+🔄 MQTT: Received message for facility: SITHE01
+🔄 MQTT: Received message for facility: BLUFF1
+🔄 MQTT: Received message for facility: WKIEWA1
+🔄 MQTT: Received message for facility: HUMEV
+🔄 MQTT: Received message for facility: DAYDSF1
+🔄 MQTT: Received message for facility: YWPS1
+🔄 MQTT: Received message for facility: SWAN_E
+🔄 MQTT: Received message for facility: GANNBG1
+🔄 MQTT: Received message for facility: SNOWNTH1127.0.0.1 - - [05/Nov/2025 23:32:26] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:26] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:28] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:30] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:32] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:34] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:36] "POST /_dash-update-component HTTP/1.1" 200 -
+[2025-11-05 23:32:38,184] ERROR in app: Exception on /_dash-update-component [POST]
+Traceback (most recent call last):
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/dash/dash.py", line 1489, in dispatch
+    func = self._prepare_callback(g, body)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/dash/dash.py", line 1388, in _prepare_callback
+    cb = self.callback_map[output]
+         ~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: unhashable type: 'list'
+127.0.0.1 - - [05/Nov/2025 23:32:38] "[35m[1mPOST /_dash-update-component HTTP/1.1[0m" 500 -
+127.0.0.1 - - [05/Nov/2025 23:32:38] "POST /_dash-update-component HTTP/1.1" 200 -
+[2025-11-05 23:32:38,689] ERROR in app: Exception on /_dash-update-component [POST]
+Traceback (most recent call last):
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/dash/dash.py", line 1489, in dispatch
+    func = self._prepare_callback(g, body)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/dash/dash.py", line 1388, in _prepare_callback
+    cb = self.callback_map[output]
+         ~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: unhashable type: 'list'
+127.0.0.1 - - [05/Nov/2025 23:32:38] "[35m[1mPOST /_dash-update-component HTTP/1.1[0m" 500 -
+[2025-11-05 23:32:39,194] ERROR in app: Exception on /_dash-update-component [POST]
+Traceback (most recent call last):
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/dash/dash.py", line 1489, in dispatch
+    func = self._prepare_callback(g, body)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/dash/dash.py", line 1388, in _prepare_callback
+    cb = self.callback_map[output]
+         ~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: unhashable type: 'list'
+127.0.0.1 - - [05/Nov/2025 23:32:39] "[35m[1mPOST /_dash-update-component HTTP/1.1[0m" 500 -
+[2025-11-05 23:32:39,701] ERROR in app: Exception on /_dash-update-component [POST]
+Traceback (most recent call last):
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/dash/dash.py", line 1489, in dispatch
+    func = self._prepare_callback(g, body)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/dash/dash.py", line 1388, in _prepare_callback
+    cb = self.callback_map[output]
+         ~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: unhashable type: 'list'
+127.0.0.1 - - [05/Nov/2025 23:32:39] "[35m[1mPOST /_dash-update-component HTTP/1.1[0m" 500 -
+[2025-11-05 23:32:40,209] ERROR in app: Exception on /_dash-update-component [POST]
+Traceback (most recent call last):
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/dash/dash.py", line 1489, in dispatch
+    func = self._prepare_callback(g, body)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/dash/dash.py", line 1388, in _prepare_callback
+    cb = self.callback_map[output]
+         ~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: unhashable type: 'list'
+127.0.0.1 - - [05/Nov/2025 23:32:40] "[35m[1mPOST /_dash-update-component HTTP/1.1[0m" 500 -
+127.0.0.1 - - [05/Nov/2025 23:32:40] "POST /_dash-update-component HTTP/1.1" 200 -
+[2025-11-05 23:32:40,717] ERROR in app: Exception on /_dash-update-component [POST]
+Traceback (most recent call last):
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/dash/dash.py", line 1489, in dispatch
+    func = self._prepare_callback(g, body)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/dash/dash.py", line 1388, in _prepare_callback
+    cb = self.callback_map[output]
+         ~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: unhashable type: 'list'
+127.0.0.1 - - [05/Nov/2025 23:32:40] "[35m[1mPOST /_dash-update-component HTTP/1.1[0m" 500 -
+[2025-11-05 23:32:41,226] ERROR in app: Exception on /_dash-update-component [POST]
+Traceback (most recent call last):
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/dash/dash.py", line 1489, in dispatch
+    func = self._prepare_callback(g, body)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/dash/dash.py", line 1388, in _prepare_callback
+    cb = self.callback_map[output]
+         ~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: unhashable type: 'list'
+127.0.0.1 - - [05/Nov/2025 23:32:41] "[35m[1mPOST /_dash-update-component HTTP/1.1[0m" 500 -
+[2025-11-05 23:32:41,730] ERROR in app: Exception on /_dash-update-component [POST]
+Traceback (most recent call last):
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/dash/dash.py", line 1489, in dispatch
+    func = self._prepare_callback(g, body)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ineerajrajeev/Desktop/Assignment 2 DE/venv/lib/python3.12/site-packages/dash/dash.py", line 1388, in _prepare_callback
+    cb = self.callback_map[output]
+         ~~~~~~~~~~~~~~~~~^^^^^^^^
+TypeError: unhashable type: 'list'
+127.0.0.1 - - [05/Nov/2025 23:32:41] "[35m[1mPOST /_dash-update-component HTTP/1.1[0m" 500 -
+127.0.0.1 - - [05/Nov/2025 23:32:42] "POST /_dash-update-component HTTP/1.1" 200 -
+
+🔄 MQTT: Received message for facility: SHOAL1
+🔄 MQTT: Received message for facility: TB2BG1
+🔄 MQTT: Received message for facility: WANDB1
+🔄 MQTT: Received message for facility: BARCSF1
+🔄 MQTT: Received message for facility: SHGEN
+🔄 MQTT: Received message for facility: GANNBL1
+🔄 MQTT: Received message for facility: BARKIPS1
+🔄 MQTT: Received message for facility: SHPUMP
+🔄 MQTT: Received message for facility: SEBSF1
+🔄 MQTT: Received message for facility: HDWF3
+🔄 MQTT: Received message for facility: QBYNBG1
+🔄 MQTT: Received message for facility: DPNTB1
+🔄 MQTT: Received message for facility: TARBESS1
+🔄 MQTT: Received message for facility: JLB03
+🔄 MQTT: Received message for facility: SNOWYP
+🔄 MQTT: Received message for facility: BLYTHB1G1
+🔄 MQTT: Received message for facility: TORRB2
+🔄 MQTT: Received message for facility: PPCCGT
+🔄 MQTT: Received message for facility: BLYTHB1L1
+🔄 MQTT: Received message for facility: PORTWF
+🔄 MQTT: Received message for facility: JUNEESF1
+🔄 MQTT: Received message for facility: POR03
+🔄 MQTT: Received message for facility: CRWASF1
+🔄 MQTT: Received message for facility: WELNSF1
+🔄 MQTT: Received message for facility: WALGRVG1
+🔄 MQTT: Received message for facility: BNGSF1
+🔄 MQTT: Received message for facility: HDWF2
+🔄 MQTT: Received message for facility: PTSTAN1
+🔄 MQTT: Received message for facility: YARANSF1
+🔄 MQTT: Received message for facility: BLOWERNG
+🔄 MQTT: Received message for facility: PUMP1
+🔄 MQTT: Received message for facility: QPS2
+🔄 MQTT: Received message for facility: JLA04
+🔄 MQTT: Received message for facility: QPS1
+🔄 MQTT: Received message for facility: CTHLWF1
+🔄 MQTT: Received message for facility: TORRB1
+🔄 MQTT: Received message for facility: GNNDHSF1
+🔄 MQTT: Received message for facility: BLUEGSF1
+🔄 MQTT: Received message for facility: QBYNBL1
+🔄 MQTT: Received message for facility: POR01
+🔄 MQTT: Received message for facility: SAPHWF1
+🔄 MQTT: Received message for facility: QBYNB1
+🔄 MQTT: Received message for facility: SMCSF1
+🔄 MQTT: Received message for facility: HILLSTN1
+🔄 MQTT: Received message for facility: ROMA_8
+🔄 MQTT: Received message for facility: WDBESSL2
+🔄 MQTT: Received message for facility: BALBG1
+🔄 MQTT: Received message for facility: ADPPV1
+🔄 MQTT: Received message for facility: YENDWF1
+🔄 MQTT: Received message for facility: HVWWBA1L
+🔄 MQTT: Received message for facility: BBTHREE1
+🔄 MQTT: Received message for facility: ROMA_7
+🔄 MQTT: Received message for facility: DALNTHL1
+🔄 MQTT: Received message for facility: RIVNBL2
+🔄 MQTT: Received message for facility: RPCG
+🔄 MQTT: Received message for facility: GB01
+🔄 MQTT: Received message for facility: ROWALLAN
+🔄 MQTT: Received message for facility: RRSF1
+🔄 MQTT: Received message for facility: SALTCRK1
+🔄 MQTT: Received message for facility: HUNTER2
+🔄 MQTT: Received message for facility: RYEPARK1
+🔄 MQTT: Received message for facility: DARTM1
+🔄 MQTT: Received message for facility: BARRON-2
+🔄 MQTT: Received message for facility: RYANCWF1
+🔄 MQTT: Received message for facility: GANNSF1
+🔄 MQTT: Received message for facility: SNOWSTH1
+🔄 MQTT: Received message for facility: YSWF1
+🔄 MQTT: Received message for facility: BBATRYL1
+🔄 MQTT: Received message for facility: HVWWBA1
+🔄 MQTT: Received message for facility: FISHER
+🔄 MQTT: Received message for facility: HUMENSW
+🔄 MQTT: Received message for facility: TB2SF1
+🔄 MQTT: Received message for facility: BBATTERY1
+🔄 MQTT: Received message for facility: HPR1
+🔄 MQTT: Received message for facility: ROYALLA1
+🔄 MQTT: Received message for facility: WELLSF1
+🔄 MQTT: Received message for facility: BANN1
+🔄 MQTT: Received message for facility: BALDHWF1
+🔄 MQTT: Received message for facility: SNBG01
+🔄 MQTT: Received message for facility: ADPBA1
+🔄 MQTT: Received message for facility: TARRALEA
+🔄 MQTT: Received message for facility: HPRL1
+🔄 MQTT: Received message for facility: SNB01
+🔄 MQTT: Received message for facility: YWPS2
+🔄 MQTT: Received message for facility: GANGARR1
+🔄 MQTT: Received message for facility: DDSF1
+🔄 MQTT: Received message for facility: BANGOWF1
+🔄 MQTT: Received message for facility: SNAPPER1
+🔄 MQTT: Received message for facility: HPRG1
+🔄 MQTT: Received message for facility: GERMCRK
+🔄 MQTT: Received message for facility: HUGSF1
+🔄 MQTT: Received message for facility: BBATTERY
+🔄 MQTT: Received message for facility: WAMBOWF1
+🔄 MQTT: Received message for facility: TBSF1
+🔄 MQTT: Received message for facility: DARLSF1
+🔄 MQTT: Received message for facility: SMTHBES1L1
+🔄 MQTT: Received message for facility: DEVILS_G
+🔄 MQTT: Received message for facility: BARRON-1
+🔄 MQTT: Received message for facility: HUNTER1
+🔄 MQTT: Received message for facility: SMTHBES1
+🔄 MQTT: Received message for facility: TB2B1
+🔄 MQTT: Received message for facility: DDPS1
+🔄 MQTT: Received message for facility: GANNB1
+🔄 MQTT: Received message for facility: BANGOWF2
+🔄 MQTT: Received message for facility: FLYCRKWF
+🔄 MQTT: Received message for facility: QBYNB1
+🔄 MQTT: Received message for facility: WGWF1
+🔄 MQTT: Received message for facility: PUMP2
+🔄 MQTT: Received message for facility: MIDDLSF1
+🔄 MQTT: Received message for facility: GOONSF1
+🔄 MQTT: Received message for facility: VPGS4
+🔄 MQTT: Received message for facility: CLUNY
+🔄 MQTT: Received message for facility: MINTARO
+🔄 MQTT: Received message for facility: CAPBES1L
+🔄 MQTT: Received message for facility: BLYTHB1
+🔄 MQTT: Received message for facility: PUMP1
+🔄 MQTT: Received message for facility: ERB01
+🔄 MQTT: Received message for facility: BLUFF1
+🔄 MQTT: Received message for facility: ELAINWF1
+🔄 MQTT: Received message for facility: MEWF1
+🔄 MQTT: Received message for facility: VPGS5
+🔄 MQTT: Received message for facility: PALOONA
+🔄 MQTT: Received message for facility: URANQ14
+🔄 MQTT: Received message for facility: WTAHB1L1
+🔄 MQTT: Received message for facility: MREHAL2
+🔄 MQTT: Received message for facility: GSTONE2
+🔄 MQTT: Received message for facility: KINGASF1
+🔄 MQTT: Received message for facility: TUNGATIN
+🔄 MQTT: Received message for facility: GREENB1L1
+🔄 MQTT: Received message for facility: BRAEMAR7
+🔄 MQTT: Received message for facility: MUWAWF2
+🔄 MQTT: Received message for facility: JLB01
+🔄 MQTT: Received message for facility: CAPTL_WF
+🔄 MQTT: Received message for facility: YARANSF1
+🔄 MQTT: Received message for facility: GNNDHSF1
+🔄 MQTT: Received message for facility: JLB02
+🔄 MQTT: Received message for facility: WDBESSL1
+🔄 MQTT: Received message for facility: MEADOWBK
+🔄 MQTT: Received message for facility: QPS3
+🔄 MQTT: Received message for facility: BHBL1
+🔄 MQTT: Received message for facility: DRYCGT2
+🔄 MQTT: Received message for facility: GLRWNSF1
+🔄 MQTT: Received message for facility: CBWWBA1
+🔄 MQTT: Received message for facility: MCKAY1
+🔄 MQTT: Received message for facility: QPS4
+🔄 MQTT: Received message for facility: TNPS1
+🔄 MQTT: Received message for facility: CULLRGWF
+🔄 MQTT: Received message for facility: JLA02
+🔄 MQTT: Received message for facility: WATERLWF
+🔄 MQTT: Received message for facility: GSWF1B1
+🔄 MQTT: Received message for facility: QPS5
+🔄 MQTT: Received message for facility: QBYNBG1
+🔄 MQTT: Received message for facility: LGAPWF1
+🔄 MQTT: Received message for facility: DPNTB1
+🔄 MQTT: Received message for facility: JLB03
+🔄 MQTT: Received message for facility: PPCCGT
+🔄 MQTT: Received message for facility: TORRB2
+🔄 MQTT: Received message for facility: LEM_WIL
+🔄 MQTT: Received message for facility: CNUNDAWF
+🔄 MQTT: Received message for facility: URANQ12
+🔄 MQTT: Received message for facility: MLSP1
+🔄 MQTT: Received message for facility: WSTWYSF1
+🔄 MQTT: Received message for facility: CSPVPS1
+🔄 MQTT: Received message for facility: PTSTAN1
+🔄 MQTT: Received message for facility: WALGRVG1
+🔄 MQTT: Received message for facility: MWPS2PV1127.0.0.1 - - [05/Nov/2025 23:32:44] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:46] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:48] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:50] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:52] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:54] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:56] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:32:58] "POST /_dash-update-component HTTP/1.1" 200 -
+
+🔄 MQTT: Received message for facility: BOWWBA1L
+🔄 MQTT: Received message for facility: MRTLSWF1
+🔄 MQTT: Received message for facility: BRYB1WF1
+🔄 MQTT: Received message for facility: MUCRKSF1
+🔄 MQTT: Received message for facility: KIAMSF1
+🔄 MQTT: Received message for facility: MTMILLAR
+🔄 MQTT: Received message for facility: TVPP104
+🔄 MQTT: Received message for facility: HBESSL1
+🔄 MQTT: Received message for facility: MUSSELR1
+🔄 MQTT: Received message for facility: BROKENH1
+🔄 MQTT: Received message for facility: HBESSG1
+🔄 MQTT: Received message for facility: DPNTBL1
+🔄 MQTT: Received message for facility: WDBESS1
+🔄 MQTT: Received message for facility: TVCC201
+🔄 MQTT: Received message for facility: W/HOE#1
+🔄 MQTT: Received message for facility: BRYB2WF2
+🔄 MQTT: Received message for facility: BULBES1
+🔄 MQTT: Received message for facility: MUWAWF1
+🔄 MQTT: Received message for facility: BRNDBESL1
+🔄 MQTT: Received message for facility: KIATAWF1
+🔄 MQTT: Received message for facility: MSTUART1
+🔄 MQTT: Received message for facility: EMERASF1
+🔄 MQTT: Received message for facility: CPP_3
+🔄 MQTT: Received message for facility: CONDONG1
+🔄 MQTT: Received message for facility: MREHAG2
+🔄 MQTT: Received message for facility: GREENB1G1
+🔄 MQTT: Received message for facility: W/HOE#2
+🔄 MQTT: Received message for facility: DRYCGT1
+🔄 MQTT: Received message for facility: LADBROK2
+🔄 MQTT: Received message for facility: YARWUN_1
+🔄 MQTT: Received message for facility: MSTUART2
+🔄 MQTT: Received message for facility: KESSB1
+🔄 MQTT: Received message for facility: COOPGWF1
+🔄 MQTT: Received message for facility: MTGELWF1
+🔄 MQTT: Received message for facility: BULBESG1
+🔄 MQTT: Received message for facility: BRNDBES1
+🔄 MQTT: Received message for facility: MWPS1PV1
+🔄 MQTT: Received message for facility: MWPS3PV1
+🔄 MQTT: Received message for facility: CPP_4
+🔄 MQTT: Received message for facility: KEPWF1
+🔄 MQTT: Received message for facility: COLWF01
+🔄 MQTT: Received message for facility: WYASF1
+🔄 MQTT: Received message for facility: BULBESL1
+🔄 MQTT: Received message for facility: MREHAL1
+🔄 MQTT: Received message for facility: MWPS4PV1
+🔄 MQTT: Received message for facility: MREHAG3
+🔄 MQTT: Received message for facility: NBHWF1
+🔄 MQTT: Received message for facility: BRAEMAR6
+🔄 MQTT: Received message for facility: VPGS6
+🔄 MQTT: Received message for facility: ER01
+🔄 MQTT: Received message for facility: WINTSF1
+🔄 MQTT: Received message for facility: BULGANA1
+🔄 MQTT: Received message for facility: NEVERSF1
+🔄 MQTT: Received message for facility: BRAEMAR5
+🔄 MQTT: Received message for facility: ULPBESS1
+🔄 MQTT: Received message for facility: GRIFSF1
+🔄 MQTT: Received message for facility: HBESS1
+🔄 MQTT: Received message for facility: KESSL1
+🔄 MQTT: Received message for facility: MSTUART3
+🔄 MQTT: Received message for facility: MURRAY
+🔄 MQTT: Received message for facility: GSTONE1
+🔄 MQTT: Received message for facility: WOLARSF1
+🔄 MQTT: Received message for facility: WUNUSF1
+🔄 MQTT: Received message for facility: KERNGSP1
+🔄 MQTT: Received message for facility: JLA03
+🔄 MQTT: Received message for facility: JUNEESF1
+🔄 MQTT: Received message for facility: QBYNBL1
+🔄 MQTT: Received message for facility: ALDGASF1
+🔄 MQTT: Received message for facility: AVLSF1
+🔄 MQTT: Received message for facility: SNOWSTH1
+🔄 MQTT: Received message for facility: STAN-2
+🔄 MQTT: Received message for facility: SNOWTWN1
+🔄 MQTT: Received message for facility: STAN-4
+🔄 MQTT: Received message for facility: TALWA1
+🔄 MQTT: Received message for facility: ANGAST1
+🔄 MQTT: Received message for facility: URANQ13
+🔄 MQTT: Received message for facility: WARWSF1
+🔄 MQTT: Received message for facility: HAYMSF1
+🔄 MQTT: Received message for facility: POAT220
+🔄 MQTT: Received message for facility: WOODLWN1
+🔄 MQTT: Received message for facility: ADPPV1
+🔄 MQTT: Received message for facility: WLWLSF2
+🔄 MQTT: Received message for facility: WALGRV1
+🔄 MQTT: Received message for facility: YAMBUKWF
+🔄 MQTT: Received message for facility: MOORAWF1
+🔄 MQTT: Received message for facility: PIBESSL1
+🔄 MQTT: Received message for facility: URANQ11
+🔄 MQTT: Received message for facility: GSTONE6
+🔄 MQTT: Received message for facility: KABANWF1
+🔄 MQTT: Received message for facility: BOCORWF1
+🔄 MQTT: Received message for facility: PIONEER
+🔄 MQTT: Received message for facility: CRURWF1
+🔄 MQTT: Received message for facility: BNGSF2
+🔄 MQTT: Received message for facility: CALL_B_2
+🔄 MQTT: Received message for facility: MOLNGSF1
+🔄 MQTT: Received message for facility: POAT110
+🔄 MQTT: Received message for facility: TORRB3
+🔄 MQTT: Received message for facility: YWPS4
+🔄 MQTT: Received message for facility: TARONG#2
+🔄 MQTT: Received message for facility: OAKEY2
+🔄 MQTT: Received message for facility: AGLHAL
+🔄 MQTT: Received message for facility: ADPBA1
+🔄 MQTT: Received message for facility: ARWF1
+🔄 MQTT: Received message for facility: SNOWYP
+🔄 MQTT: Received message for facility: TARONG#4
+🔄 MQTT: Received message for facility: TALWB1
+🔄 MQTT: Received message for facility: TARBESSG1
+🔄 MQTT: Received message for facility: STOCKYD1
+🔄 MQTT: Received message for facility: BALB1
+🔄 MQTT: Received message for facility: TARONG#1
+🔄 MQTT: Received message for facility: YWPS3
+🔄 MQTT: Received message for facility: AGLSOM
+🔄 MQTT: Received message for facility: ADPBA1G
+🔄 MQTT: Received message for facility: STWF1
+🔄 MQTT: Received message for facility: SWAN_E
+🔄 MQTT: Received message for facility: TARONG#3
+🔄 MQTT: Received message for facility: STAN-1
+🔄 MQTT: Received message for facility: STARHLWF
+🔄 MQTT: Received message for facility: SNOWNTH1
+🔄 MQTT: Received message for facility: SUNTPSF1
+🔄 MQTT: Received message for facility: TARALGA1
+🔄 MQTT: Received message for facility: ADPBA1L
+🔄 MQTT: Received message for facility: SUNRSF1
+🔄 MQTT: Received message for facility: SNUG1
+🔄 MQTT: Received message for facility: STAN-3
+🔄 MQTT: Received message for facility: SRSF1
+🔄 MQTT: Received message for facility: TARBESS1
+🔄 MQTT: Received message for facility: BALBG1
+🔄 MQTT: Received message for facility: GSWF1A
+🔄 MQTT: Received message for facility: WDBESSG1
+🔄 MQTT: Received message for facility: WELNSF1
+🔄 MQTT: Received message for facility: WTAHB1
+🔄 MQTT: Received message for facility: PIBESS1
+🔄 MQTT: Received message for facility: KAREEYA1
+🔄 MQTT: Received message for facility: LBB1
+🔄 MQTT: Received message for facility: MORTLK11
+🔄 MQTT: Received message for facility: PIBESSG1
+🔄 MQTT: Received message for facility: BODWF1
+🔄 MQTT: Received message for facility: LBBG1
+🔄 MQTT: Received message for facility: TORRB4
+🔄 MQTT: Received message for facility: COHUNSF1
+🔄 MQTT: Received message for facility: CALL_B_1
+🔄 MQTT: Received message for facility: BLYTHB1L1
+🔄 MQTT: Received message for facility: EDENVSF1
+🔄 MQTT: Received message for facility: KAREEYA2
+🔄 MQTT: Received message for facility: MLWF1
+🔄 MQTT: Received message for facility: LGAPWF2
+🔄 MQTT: Received message for facility: BLOWERNG
+🔄 MQTT: Received message for facility: QPS2
+🔄 MQTT: Received message for facility: MERCER01
+🔄 MQTT: Received message for facility: CATHROCK
+🔄 MQTT: Received message for facility: QPS1
+🔄 MQTT: Received message for facility: CTHLWF1
+🔄 MQTT: Received message for facility: GORDON
+🔄 MQTT: Received message for facility: GULLRSF1
+🔄 MQTT: Received message for facility: TORRB1
+🔄 MQTT: Received message for facility: HDWF3
+🔄 MQTT: Received message for facility: METZSF1
+🔄 MQTT: Received message for facility: BLUEGSF1
+🔄 MQTT: Received message for facility: JLA04
+🔄 MQTT: Received message for facility: MORTLK12
+🔄 MQTT: Received message for facility: BOLIVPS1
+🔄 MQTT: Received message for facility: PARSF1
+🔄 MQTT: Received message for facility: POR01127.0.0.1 - - [05/Nov/2025 23:33:00] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:33:02] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:33:04] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:33:06] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:33:08] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:33:10] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:33:12] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:33:14] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:33:16] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:33:16] "GET / HTTP/1.1" 200 -
+
+🔄 MQTT: Received message for facility: BNGSF1
+🔄 MQTT: Received message for facility: LBBL1
+🔄 MQTT: Received message for facility: HDWF2
+🔄 MQTT: Received message for facility: CAPBES1
+🔄 MQTT: Received message for facility: MOKOSF1
+🔄 MQTT: Received message for facility: POR03
+🔄 MQTT: Received message for facility: CRWASF1
+🔄 MQTT: Received message for facility: PORTWF
+🔄 MQTT: Received message for facility: GPWFEST1
+🔄 MQTT: Received message for facility: MOREESF1
+🔄 MQTT: Received message for facility: BOWWBA1
+🔄 MQTT: Received message for facility: HDWF1
+🔄 MQTT: Received message for facility: PAREPW1
+🔄 MQTT: Received message for facility: WAUBRAWF
+🔄 MQTT: Received message for facility: GPWFEST2
+🔄 MQTT: Received message for facility: MOUSF1
+🔄 MQTT: Received message for facility: TREVALLN
+🔄 MQTT: Received message for facility: DPNTBG1
+🔄 MQTT: Received message for facility: BW04
+🔄 MQTT: Received message for facility: ER04
+🔄 MQTT: Received message for facility: BOMENSF1
+🔄 MQTT: Received message for facility: PAREPS1
+🔄 MQTT: Received message for facility: UPPTUMUT
+🔄 MQTT: Received message for facility: YABULU2
+🔄 MQTT: Received message for facility: GPWFEST3
+🔄 MQTT: Received message for facility: ER03
+🔄 MQTT: Received message for facility: CROWLWF1
+🔄 MQTT: Received message for facility: BWTR1
+🔄 MQTT: Received message for facility: DUNDWF3
+🔄 MQTT: Received message for facility: MPP_2
+🔄 MQTT: Received message for facility: BW02
+🔄 MQTT: Received message for facility: ER02
+🔄 MQTT: Received message for facility: BASTYAN
+🔄 MQTT: Received message for facility: WANDB1
+🔄 MQTT: Received message for facility: MACKNTSH
+🔄 MQTT: Received message for facility: HVWWBA1
+🔄 MQTT: Received message for facility: WPWF
+🔄 MQTT: Received message for facility: DUNDWF1
+🔄 MQTT: Received message for facility: YSWF1
+🔄 MQTT: Received message for facility: TB2SF1
+🔄 MQTT: Received message for facility: LKBONNY2
+🔄 MQTT: Received message for facility: BARCSF1
+🔄 MQTT: Received message for facility: BBTHREE2
+🔄 MQTT: Received message for facility: BANN1
+🔄 MQTT: Received message for facility: VPGS3
+🔄 MQTT: Received message for facility: RUGBYR1
+🔄 MQTT: Received message for facility: RESS1
+🔄 MQTT: Received message for facility: HPRL1
+🔄 MQTT: Received message for facility: GANGARR1
+🔄 MQTT: Received message for facility: REECE2
+🔄 MQTT: Received message for facility: YWPS2
+🔄 MQTT: Received message for facility: BDL02
+🔄 MQTT: Received message for facility: CBWWBA1L
+🔄 MQTT: Received message for facility: MBAHNTH
+🔄 MQTT: Received message for facility: DDSF1
+🔄 MQTT: Received message for facility: WALGRVL1
+🔄 MQTT: Received message for facility: CLARESF1
+🔄 MQTT: Received message for facility: DIAPURWF1
+🔄 MQTT: Received message for facility: LNGS2
+🔄 MQTT: Received message for facility: LIMOSF21
+🔄 MQTT: Received message for facility: GLENSF1
+🔄 MQTT: Received message for facility: DALNTH01
+🔄 MQTT: Received message for facility: TB2BG1
+🔄 MQTT: Received message for facility: GUNNING1
+🔄 MQTT: Received message for facility: GANNBL1
+🔄 MQTT: Received message for facility: GUTHEGA
+🔄 MQTT: Received message for facility: SHGEN
+🔄 MQTT: Received message for facility: RYEPARK1
+🔄 MQTT: Received message for facility: HAMISF1
+🔄 MQTT: Received message for facility: BARKIPS1
+🔄 MQTT: Received message for facility: SEBSF1
+🔄 MQTT: Received message for facility: SALTCRK1
+🔄 MQTT: Received message for facility: BARRON-1
+🔄 MQTT: Received message for facility: VPGS2
+🔄 MQTT: Received message for facility: LKBONNY3
+🔄 MQTT: Received message for facility: HUNTER1
+🔄 MQTT: Received message for facility: CHBESS1
+🔄 MQTT: Received message for facility: VBBL1
+🔄 MQTT: Received message for facility: LYA3
+🔄 MQTT: Received message for facility: CHALLHWF
+🔄 MQTT: Received message for facility: LKBONNY1
+🔄 MQTT: Received message for facility: WARWSF2
+🔄 MQTT: Received message for facility: RRSF1
+🔄 MQTT: Received message for facility: BBATRYL1
+🔄 MQTT: Received message for facility: SHOAL1
+🔄 MQTT: Received message for facility: GANNBG1
+🔄 MQTT: Received message for facility: CG4
+🔄 MQTT: Received message for facility: LYA2
+🔄 MQTT: Received message for facility: CHBESSG1
+🔄 MQTT: Received message for facility: DRYCGT3
+🔄 MQTT: Received message for facility: WKIEWA2
+🔄 MQTT: Received message for facility: RUBICON
+🔄 MQTT: Received message for facility: FISHER
+🔄 MQTT: Received message for facility: DARTM1
+🔄 MQTT: Received message for facility: CLRKCWF1
+🔄 MQTT: Received message for facility: REPULSE
+🔄 MQTT: Received message for facility: RESS1L
+🔄 MQTT: Received message for facility: RESS1G
+🔄 MQTT: Received message for facility: LNGS1
+🔄 MQTT: Received message for facility: MAPS3PV1
+🔄 MQTT: Received message for facility: HUGSF1
+🔄 MQTT: Received message for facility: DDPS1
+🔄 MQTT: Received message for facility: BBTHREE3
+🔄 MQTT: Received message for facility: BANGOWF2
+🔄 MQTT: Received message for facility: LOYYB2
+🔄 MQTT: Received message for facility: CHILDSF1
+🔄 MQTT: Received message for facility: DALNTH1
+🔄 MQTT: Received message for facility: JBUTTERS
+🔄 MQTT: Received message for facility: WOOLGSF1
+🔄 MQTT: Received message for facility: YATSF1
+🔄 MQTT: Received message for facility: TB2B1
+🔄 MQTT: Received message for facility: TIB1
+🔄 MQTT: Received message for facility: CG1
+🔄 MQTT: Received message for facility: MAPS2PV1
+🔄 MQTT: Received message for facility: SMTHBES1
+🔄 MQTT: Received message for facility: FINLYSF1
+🔄 MQTT: Received message for facility: HVWWPV1
+🔄 MQTT: Received message for facility: CETHANA
+🔄 MQTT: Received message for facility: SAPHWF1
+🔄 MQTT: Received message for facility: LOYYB1
+🔄 MQTT: Received message for facility: HAUGHT11
+🔄 MQTT: Received message for facility: DULAWF1
+🔄 MQTT: Received message for facility: SMTHBES1L1
+🔄 MQTT: Received message for facility: BDL01
+🔄 MQTT: Received message for facility: RIVNB2
+🔄 MQTT: Received message for facility: BANGOWF1
+🔄 MQTT: Received message for facility: VBB1
+🔄 MQTT: Received message for facility: BERYLSF1
+🔄 MQTT: Received message for facility: SNAPPER1
+🔄 MQTT: Received message for facility: TIBG1
+🔄 MQTT: Received message for facility: JEMALNG1
+🔄 MQTT: Received message for facility: GIRGSF
+🔄 MQTT: Received message for facility: VPGS1
+🔄 MQTT: Received message for facility: ERGT01
+🔄 MQTT: Received message for facility: LIMOSF11
+🔄 MQTT: Received message for facility: CBWWBA1G
+🔄 MQTT: Received message for facility: WLWLSF1
+🔄 MQTT: Received message for facility: WRWF1
+🔄 MQTT: Received message for facility: RANGEB1G1
+🔄 MQTT: Received message for facility: BHB1
+🔄 MQTT: Received message for facility: BALDHWF1
+🔄 MQTT: Received message for facility: SNB01
+🔄 MQTT: Received message for facility: SNBG01
+🔄 MQTT: Received message for facility: TIBL1
+🔄 MQTT: Received message for facility: LONSDALE
+🔄 MQTT: Received message for facility: ERBL01
+🔄 MQTT: Received message for facility: JLA01
+🔄 MQTT: Received message for facility: HEZ1
+🔄 MQTT: Received message for facility: MCINTYR1
+🔄 MQTT: Received message for facility: RANGEB1L1
+🔄 MQTT: Received message for facility: HPRG1
+🔄 MQTT: Received message for facility: CHYTWF1
+🔄 MQTT: Received message for facility: WHITSF1
+🔄 MQTT: Received message for facility: MBPS2PV1
+🔄 MQTT: Received message for facility: TARRALEA
+🔄 MQTT: Received message for facility: REECE1
+🔄 MQTT: Received message for facility: CLRKCWF2
+🔄 MQTT: Received message for facility: LYA4
+🔄 MQTT: Received message for facility: MARYRSF1
+🔄 MQTT: Received message for facility: BARRON-2
+🔄 MQTT: Received message for facility: KEPSF1
+🔄 MQTT: Received message for facility: BRAEMAR3
+🔄 MQTT: Received message for facility: KPP_1
+🔄 MQTT: Received message for facility: WOOLNTH1
+🔄 MQTT: Received message for facility: NEWENSF2
+🔄 MQTT: Received message for facility: GSTONE3127.0.0.1 - - [05/Nov/2025 23:33:18] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:33:20] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:33:22] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:33:24] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:33:26] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:33:28] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:33:30] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:33:32] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:33:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:33:34] "POST /_dash-update-component HTTP/1.1" 200 -
+
+🔄 MQTT: Received message for facility: NPS
+🔄 MQTT: Received message for facility: WNSF1
+🔄 MQTT: Received message for facility: BUTLERSG
+🔄 MQTT: Received message for facility: MREHA3
+🔄 MQTT: Received message for facility: BRAEMAR2
+🔄 MQTT: Received message for facility: TULLYSM1
+🔄 MQTT: Received message for facility: KSP1
+🔄 MQTT: Received message for facility: CPSA
+🔄 MQTT: Received message for facility: KEPBG1
+🔄 MQTT: Received message for facility: YABULU
+🔄 MQTT: Received message for facility: GSTONE4
+🔄 MQTT: Received message for facility: NYNGAN1
+🔄 MQTT: Received message for facility: BRAEMAR1
+🔄 MQTT: Received message for facility: HD1WF1
+🔄 MQTT: Received message for facility: BW01
+🔄 MQTT: Received message for facility: MREHA2
+🔄 MQTT: Received message for facility: WDBESS2
+🔄 MQTT: Received message for facility: EILDON2
+🔄 MQTT: Received message for facility: GREENB1
+🔄 MQTT: Received message for facility: MREHA1
+🔄 MQTT: Received message for facility: LILYSF1
+🔄 MQTT: Received message for facility: WEMENSF1
+🔄 MQTT: Received message for facility: COLUMSF1
+🔄 MQTT: Received message for facility: MREHAG1
+🔄 MQTT: Received message for facility: ULPBESSG1
+🔄 MQTT: Received message for facility: TUMUT3
+🔄 MQTT: Received message for facility: CLERMSF1
+🔄 MQTT: Received message for facility: NEWENSF1
+🔄 MQTT: Received message for facility: KAREEYA4
+🔄 MQTT: Received message for facility: BOWWPV1
+🔄 MQTT: Received message for facility: OAKEY1SF
+🔄 MQTT: Received message for facility: WTAHB1G1
+🔄 MQTT: Received message for facility: ULPBESSL1
+🔄 MQTT: Received message for facility: OAKEY1
+🔄 MQTT: Received message for facility: GRANWF1
+🔄 MQTT: Received message for facility: COLEASF1
+🔄 MQTT: Received message for facility: MPP_1
+🔄 MQTT: Received message for facility: OAKEY2SF
+🔄 MQTT: Received message for facility: TRIBUTE
+🔄 MQTT: Received message for facility: WAGGNSF1
+🔄 MQTT: Received message for facility: GSTONE5
+🔄 MQTT: Received message for facility: CROOKWF3
+🔄 MQTT: Received message for facility: WANDBG1
+🔄 MQTT: Received message for facility: OAKLAND1
+🔄 MQTT: Received message for facility: BOWWBA1G
+🔄 MQTT: Received message for facility: KAREEYA3
+🔄 MQTT: Received message for facility: BW03
+🔄 MQTT: Received message for facility: MP2
+🔄 MQTT: Received message for facility: EILDON1
+🔄 MQTT: Received message for facility: OSB-AG
+🔄 MQTT: Received message for facility: MP1
+🔄 MQTT: Received message for facility: KARSF1
+🔄 MQTT: Received message for facility: WANDSF1
+🔄 MQTT: Received message for facility: CROOKWF2
+🔄 MQTT: Received message for facility: NUMURSF1
+🔄 MQTT: Received message for facility: RANGEB1
+🔄 MQTT: Received message for facility: ROYALLA1
+🔄 MQTT: Received message for facility: LADBROK1
+🔄 MQTT: Received message for facility: LRSF1
+🔄 MQTT: Received message for facility: DUNDWF2
+🔄 MQTT: Received message for facility: RIVNBL2
+🔄 MQTT: Received message for facility: WDGPH1
+🔄 MQTT: Received message for facility: WKIEWA1
+🔄 MQTT: Received message for facility: MANNUMBL1
+🔄 MQTT: Received message for facility: BBTHREE1
+🔄 MQTT: Received message for facility: LI_WY_CA
+🔄 MQTT: Received message for facility: FLYCRKWF
+🔄 MQTT: Received message for facility: SMCSF1
+🔄 MQTT: Received message for facility: DALNTHL1
+🔄 MQTT: Received message for facility: HVWWBA1L
+🔄 MQTT: Received message for facility: WDBESSL2
+🔄 MQTT: Received message for facility: CHBESSL1
+🔄 MQTT: Received message for facility: GANNB1
+🔄 MQTT: Received message for facility: SITHE01
+🔄 MQTT: Received message for facility: HUMENSW
+🔄 MQTT: Received message for facility: YENDWF1
+🔄 MQTT: Received message for facility: BARCALDN
+🔄 MQTT: Received message for facility: MANNSF2
+🔄 MQTT: Received message for facility: HVWWBA1G
+🔄 MQTT: Received message for facility: RIVNBG2
+🔄 MQTT: Received message for facility: HUNTER2
+🔄 MQTT: Received message for facility: HPR1
+🔄 MQTT: Received message for facility: GANNSF1
+🔄 MQTT: Received message for facility: MACARTH1
+🔄 MQTT: Received message for facility: VP5
+🔄 MQTT: Received message for facility: DEVILS_G
+🔄 MQTT: Received message for facility: RYANCWF1
+🔄 MQTT: Received message for facility: MANNUMBG1
+🔄 MQTT: Received message for facility: HALLWF1
+🔄 MQTT: Received message for facility: CG2
+🔄 MQTT: Received message for facility: MANSLR1
+🔄 MQTT: Received message for facility: VP6
+🔄 MQTT: Received message for facility: CLOVER
+🔄 MQTT: Received message for facility: ROWALLAN
+🔄 MQTT: Received message for facility: BBATTERY1
+🔄 MQTT: Received message for facility: SHPUMP
+🔄 MQTT: Received message for facility: HILLSTN1
+🔄 MQTT: Received message for facility: WELLSF1
+🔄 MQTT: Received message for facility: CLEMGPWF
+🔄 MQTT: Received message for facility: GERMCRK
+🔄 MQTT: Received message for facility: GULLRWF2
+🔄 MQTT: Received message for facility: BBATTERY
+🔄 MQTT: Received message for facility: HALLWF2
+🔄 MQTT: Received message for facility: HUMEV
+🔄 MQTT: Received message for facility: DAYDSF1
+🔄 MQTT: Received message for facility: VBBG1
+🔄 MQTT: Received message for facility: CG3
+🔄 MQTT: Received message for facility: LK_ECHO
+🔄 MQTT: Received message for facility: ROMA_7
+🔄 MQTT: Received message for facility: RPCG
+🔄 MQTT: Received message for facility: WRSF1
+🔄 MQTT: Received message for facility: ROMA_8
+🔄 MQTT: Received message for facility: DARLSF1
+🔄 MQTT: Received message for facility: GULLRWF1
+🔄 MQTT: Received message for facility: GB01
+🔄 MQTT: Received message for facility: YWPS1
+🔄 MQTT: Received message for facility: MANNUMB1
+🔄 MQTT: Received message for facility: TBSF1
+🔄 MQTT: Received message for facility: WAMBOWF1
+🔄 MQTT: Received message for facility: LYA1
+🔄 MQTT: Received message for facility: TARONG#1
+🔄 MQTT: Received message for facility: YAMBUKWF
+🔄 MQTT: Received message for facility: LOYYB2
+🔄 MQTT: Received message for facility: CROOKWF3
+🔄 MQTT: Received message for facility: QBYNBL1
+🔄 MQTT: Received message for facility: MCKAY1
+🔄 MQTT: Received message for facility: WAUBRAWF
+🔄 MQTT: Received message for facility: ULPBESSL1
+🔄 MQTT: Received message for facility: TBSF1
+🔄 MQTT: Received message for facility: MREHAL2
+🔄 MQTT: Received message for facility: TARRALEA
+🔄 MQTT: Received message for facility: TB2BG1
+🔄 MQTT: Received message for facility: CALL_B_1
+🔄 MQTT: Received message for facility: SNUG1
+🔄 MQTT: Received message for facility: WHITSF1
+🔄 MQTT: Received message for facility: LKBONNY2
+🔄 MQTT: Received message for facility: BOCORWF1
+🔄 MQTT: Received message for facility: MSTUART3
+🔄 MQTT: Received message for facility: ADPBA1L
+🔄 MQTT: Received message for facility: DRYCGT1
+🔄 MQTT: Received message for facility: BRNDBESL1
+🔄 MQTT: Received message for facility: GREENB1G1
+🔄 MQTT: Received message for facility: TARALGA1
+🔄 MQTT: Received message for facility: ROYALLA1
+🔄 MQTT: Received message for facility: KIATAWF1
+🔄 MQTT: Received message for facility: MUWAWF1
+🔄 MQTT: Received message for facility: RYEPARK1
+🔄 MQTT: Received message for facility: TVCC201
+🔄 MQTT: Received message for facility: DUNDWF3
+🔄 MQTT: Received message for facility: SNAPPER1
+🔄 MQTT: Received message for facility: LYA2
+🔄 MQTT: Received message for facility: BBTHREE1
+🔄 MQTT: Received message for facility: STOCKYD1
+🔄 MQTT: Received message for facility: DDSF1
+🔄 MQTT: Received message for facility: REECE2
+🔄 MQTT: Received message for facility: SNOWTWN1
+🔄 MQTT: Received message for facility: WOODLWN1
+🔄 MQTT: Received message for facility: WEMENSF1
+🔄 MQTT: Received message for facility: GNNDHSF1
+🔄 MQTT: Received message for facility: UPPTUMUT
+🔄 MQTT: Received message for facility: WELNSF1
+🔄 MQTT: Received message for facility: ER04
+🔄 MQTT: Received message for facility: YENDWF1
+🔄 MQTT: Received message for facility: YARWUN_1
+🔄 MQTT: Received message for facility: CHBESS1127.0.0.1 - - [05/Nov/2025 23:33:36] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:33:38] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:33:40] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:33:42] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:33:44] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:33:46] "POST /_dash-update-component HTTP/1.1" 200 -
+127.0.0.1 - - [05/Nov/2025 23:33:48] "POST /_dash-update-component HTTP/1.1" 200 -

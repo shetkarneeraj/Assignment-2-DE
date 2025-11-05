@@ -5,6 +5,15 @@ set -euo pipefail
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$PROJECT_ROOT"
 
+# Prefer project venv's Python if available; fall back to system python3
+PYTHON="$PROJECT_ROOT/venv/bin/python"
+if [[ ! -x "$PYTHON" ]]; then
+    PYTHON="$(command -v python3)"
+fi
+
+# Ensure src/ is importable as a package root
+export PYTHONPATH="$PROJECT_ROOT/src:${PYTHONPATH:-}"
+
 START_DATE="${START_DATE:-2025-10-01}"
 END_DATE="${END_DATE:-2025-10-08}"
 METRICS_STRING="${METRICS:-power emissions price demand}"
@@ -22,7 +31,12 @@ run_metadata() {
         return
     fi
     echo "[metadata] Building facilities metadata from Assignment 1 datasets..."
-    python3 -m electricity_pipeline.assignment1_facilities
+    if [[ "${SKIP_GEOCODE:-0}" == "1" ]]; then
+        echo "[metadata] Note: SKIP_GEOCODE=1 (faster, uses cached/state centroids)"
+        "$PYTHON" -m electricity_pipeline.assignment1_facilities --skip-geocode
+    else
+        "$PYTHON" -m electricity_pipeline.assignment1_facilities
+    fi
 }
 
 run_pipeline() {
@@ -31,7 +45,7 @@ run_pipeline() {
         return
     fi
     echo "[pipeline] Starting retrieval + MQTT publishing loop..."
-    python3 -m electricity_pipeline.main \
+    "$PYTHON" -m electricity_pipeline.main \
         --start "$START_DATE" \
         --end "$END_DATE" \
         --metrics "${METRIC_ARGS[@]}" \
@@ -45,7 +59,7 @@ run_dashboard() {
         return
     fi
     echo "[dashboard] Launching Dash/Folium map (Ctrl+C to stop)..."
-    python3 -m electricity_pipeline.dashboard
+    "$PYTHON" -m electricity_pipeline.dashboard
 }
 
 run_metadata

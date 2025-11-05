@@ -1,0 +1,334 @@
+{
+  "Barnawartha Solar Farm|VIC": {
+    "lat": -36.1054009,
+    "lon": 146.6735718
+  },
+  "Barwon Solar Farm|VIC": {
+    "lat": -38.2090551,
+    "lon": 143.9943963
+  },
+  "Boddington Giga Energy|WA": {
+    "lat": -32.792141,
+    "lon": 116.4210582
+  },
+  "Bulli Creek Solar Project Stage 1|QLD": {
+    "lat": -26.5845379,
+    "lon": 153.0966873
+  },
+  "Bullyard Solar Farm|QLD": {
+    "lat": -24.9514635,
+    "lon": 152.0476533
+  },
+  "Bungaban Wind Farm|QLD": {
+    "lat": -25.923731,
+    "lon": 150.153065
+  },
+  "Campbells Forest Solar Farm|VIC": {
+    "lat": -38.1667381,
+    "lon": 144.3655969
+  },
+  "Coppabella Wind Farm|NSW": {
+    "lat": -35.7316667,
+    "lon": 147.7177778
+  },
+  "Derby Solar Farm & Battery|VIC": {
+    "lat": -36.6581115,
+    "lon": 144.0143231
+  },
+  "Elaine Solar Farm|VIC": {
+    "lat": -37.761595,
+    "lon": 144.0062833
+  },
+  "Eurimbula Solar Farm|QLD": {
+    "lat": -24.1195145,
+    "lon": 151.7481155
+  },
+  "Frasers Solar Farm|VIC": {
+    "lat": -36.7823654,
+    "lon": 143.6195678
+  },
+  "Ganymirra Solar Power Station|QLD": {
+    "lat": null,
+    "lon": null
+  },
+  "Glanmire Solar Farm|NSW": {
+    "lat": -33.415,
+    "lon": 149.7011111
+  },
+  "Goyder North Wind Farm Stage 1|SA": {
+    "lat": -33.7175888,
+    "lon": 139.0369511
+  },
+  "Hopeland Solar Farm|QLD": {
+    "lat": -26.872868,
+    "lon": 150.6610021
+  },
+  "Junction Rivers Wind Farm|NSW": {
+    "lat": -31.9571874,
+    "lon": 152.4164578
+  },
+  "Kentbruck Green Power Hub|VIC": {
+    "lat": -38.1788552,
+    "lon": 141.3071248
+  },
+  "Kiamal Solar Farm - Stage 2|VIC": {
+    "lat": -34.9956336,
+    "lon": 142.3157549
+  },
+  "Kidston Stage 3 Wind Project|QLD": {
+    "lat": -18.8745956,
+    "lon": 144.1689025
+  },
+  "Lakeland Wind Farm|QLD": {
+    "lat": -15.8942415,
+    "lon": 144.8671449
+  },
+  "Majors Creek Solar Farm|QLD": {
+    "lat": -17.6402778,
+    "lon": 145.5363889
+  },
+  "Mount Hopeful Wind Farm|QLD": {
+    "lat": -27.5419813,
+    "lon": 153.0791853
+  },
+  "Northern Midlands Solar Farm|TAS": {
+    "lat": -41.8798625,
+    "lon": 147.4362844
+  },
+  "Palmer Wind Farm|SA": {
+    "lat": -34.8527976,
+    "lon": 139.1600623
+  },
+  "Port Augusta Energy Park Stage 2|SA": {
+    "lat": -33.8521165,
+    "lon": 151.2107812
+  },
+  "Sandy Creek Solar Farm|NSW": {
+    "lat": -33.975407,
+    "lon": 150.9939195
+  },
+  "Sapphire Solar Farm|NSW": {
+    "lat": -29.6774612,
+    "lon": 151.350582
+  },
+  "Silverleaf Solar Farm|NSW": {
+    "lat": -33.7054951,
+    "lon": 150.9042977
+  },
+  "Smoky Creek And Guthrie'S Gap Solar Farm|QLD": {
+    "lat": -24.1225987,
+    "lon": 150.5477139
+  },
+  "Spicers Creek Wind Farm|NSW": {
+    "lat": -33.8716466,
+    "lon": 151.223032
+  },
+  "Theodore Wind Farm|QLD": {
+    "lat": -24.946086,
+    "lon": 150.0773651
+  },
+  "Thunderbolt Wind Farm Stage 1|NSW": {
+    "lat": -32.1271337,
+    "lon": 150.9741228
+  },
+  "Upper Calliope Solar Farm|QLD": {
+    "lat": -27.4633463,
+    "lon": 153.0247422
+  },
+  "Vales Point Solar Farm|NSW": {
+    "lat": -33.1605934,
+    "lon": 151.5440766
+  },
+  "Valley Of The Winds|NSW": {
+    "lat": -29.4994413,
+    "lon": 153.2434943
+  },
+  "Vast Solar Facility - Vs1|SA": {
+    "lat": null,
+    "lon": null
+  },
+  "Waroona Solar Fam|WA": {
+    "lat": -32.8492605,
+    "lon": 115.9082511
+  },
+  "West Mokoan Solar Farm|VIC": {
+    "lat": -37.8071754,
+    "lon": 144.9447753
+  },
+  "Winton North Solar Farm|VIC": {
+    "lat": -36.5197855,
+    "lon": 146.0931149
+  },
+  "Woolsthorpe Wind Farm|VIC": {
+    "lat": -38.1856495,
+    "lon": 142.4314251
+  },
+  "East Rockingham Resource Recovery Facility|WA": {
+    "lat": -15.7973483,
+    "lon": 128.6868128
+  },
+  "Moorebank Logistics Park|NSW": {
+    "lat": -33.9548342,
+    "lon": 150.9291037
+  },
+  "Wangaratta Solar Farm|VIC": {
+    "lat": -36.356434,
+    "lon": 146.3228311
+  },
+  "Kidston Pumped Hydro Storage Project|QLD": {
+    "lat": -18.8745956,
+    "lon": 144.1689025
+  },
+  "New England Solar Farm - Stage 2|NSW": {
+    "lat": -32.6290018,
+    "lon": 151.8091421
+  },
+  "Bellevue Gold Hybrid Power Station (Wind)|WA": {
+    "lat": -31.9015253,
+    "lon": 116.0288929
+  },
+  "Glenellen Solar Project|NSW": {
+    "lat": -35.915,
+    "lon": 146.9177778
+  },
+  "Forest Glen Solar Farm|NSW": {
+    "lat": -33.959283,
+    "lon": 151.062423
+  },
+  "Uungula Wind Farm|NSW": {
+    "lat": -32.5450403,
+    "lon": 149.1970061
+  },
+  "Munna Creek Solar Farm|QLD": {
+    "lat": -25.881987,
+    "lon": 152.4509775
+  },
+  "St Ives Gold Solar Farm|WA": {
+    "lat": -17.9616321,
+    "lon": 122.224029
+  },
+  "Gunsynd Solar Farm|QLD": {
+    "lat": -28.0979003,
+    "lon": 153.3662247
+  },
+  "Aldoga Solar Farm|QLD": {
+    "lat": -23.844797,
+    "lon": 151.0739806
+  },
+  "Quorn Park Solar Hybrid|NSW": {
+    "lat": -33.0809644,
+    "lon": 148.0922033
+  },
+  "Golden Plains Wind Farm - Stage 2|VIC": {
+    "lat": -37.8396942,
+    "lon": 143.6385369
+  },
+  "Lotus Creek Wind Farm|QLD": {
+    "lat": -27.4321408,
+    "lon": 153.0403258
+  },
+  "Goorambat Solar Farm|VIC": {
+    "lat": -36.4141675,
+    "lon": 145.9531843
+  },
+  "Broadsound Solar Farm|QLD": {
+    "lat": -21.1471903,
+    "lon": 149.1729172
+  },
+  "Boulder Creek Wind Farm|QLD": {
+    "lat": -23.6710175,
+    "lon": 150.3134101
+  },
+  "Horsham Solar Farm|VIC": {
+    "lat": -36.7148099,
+    "lon": 142.2018105
+  },
+  "Carwarp Energy Park|VIC": {
+    "lat": -34.4571108,
+    "lon": 142.1972835
+  },
+  "Goulburn River Solar Farm|NSW": {
+    "lat": -34.7523871,
+    "lon": 149.7198009
+  },
+  "Wambo Wind Farm Stage 2|QLD": {
+    "lat": -26.63629,
+    "lon": 151.2709429
+  },
+  "Warradarge Wind Farm Stage 2|WA": {
+    "lat": -30.04778,
+    "lon": 115.3242
+  },
+  "Bungama Solar Farm (Stage 3)|SA": {
+    "lat": -33.1979576,
+    "lon": 138.0680019
+  },
+  "Fulham Solar Farm|VIC": {
+    "lat": -38.082623,
+    "lon": 146.9634772
+  },
+  "Cloudbreak Solar Farm|WA": {
+    "lat": -22.3045424,
+    "lon": 119.4320893
+  },
+  "Port Latta Wind Farm|TAS": {
+    "lat": -41.0622997,
+    "lon": 145.9040829
+  },
+  "Wandoan South Solar Farm (Stage 2)|QLD": {
+    "lat": -26.135673,
+    "lon": 149.9011851
+  },
+  "Lancaster Solar Farm|VIC": {
+    "lat": -36.298938,
+    "lon": 145.136072
+  },
+  "Mulwala Solar Farm|NSW": {
+    "lat": -35.9869152,
+    "lon": 146.0026789
+  },
+  "Kerang Solar Plant - Solar - Vic|VIC|3579": {
+    "lat": -35.7338373,
+    "lon": 143.9204152
+  },
+  "Goyder South Wind Farm 1B - Wind - Sa|SA|5417": {
+    "lat": -33.7175888,
+    "lon": 139.0369511
+  },
+  "Stubbo - Solar - Nsw|NSW|2852": {
+    "lat": -32.2818,
+    "lon": 149.5679
+  },
+  "Wollar Solar Farm-Solar-Nsw|NSW|2850": {
+    "lat": -32.3581121,
+    "lon": 149.9483663
+  },
+  "Clarke Creek Wind Farm - Wind - Qld|QLD|4705": {
+    "lat": -22.72562,
+    "lon": 149.3120589
+  },
+  "Mokoan Solar Farm - Solar - Vic|VIC|3673": {
+    "lat": -36.5714094,
+    "lon": 146.0199594
+  },
+  "Wambo Wind Farm Stage 1 - Wind - Qld|QLD|4410": {
+    "lat": -27.1528839,
+    "lon": 150.6493798
+  },
+  "Kwinana Wte - Wa|WA|6167": {
+    "lat": -32.233854,
+    "lon": 115.8211484
+  },
+  "Culcairn Solar Farm - Solar - Nsw|NSW|2660": {
+    "lat": -35.6674081,
+    "lon": 147.0365471
+  },
+  "Tronox-Solar-Nsw|NSW|2715": {
+    "lat": -34.16847,
+    "lon": 116.1581566
+  },
+  "Norther Airfield - Solar - Vic|VIC|3045": {
+    "lat": -34.16847,
+    "lon": 116.1581566
+  }
+}

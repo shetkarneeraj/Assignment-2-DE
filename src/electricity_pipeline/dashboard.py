@@ -1,14 +1,13 @@
 from __future__ import annotations
 
 import logging
-import threading
 from pathlib import Path
 from typing import Optional
 
 import dash
 import folium
 import pandas as pd
-from dash import Dash, Input, Output, State, dcc, html
+from dash import Dash, Input, Output, dcc, html
 from folium.plugins import MarkerCluster
 
 from .assignment1_facilities import slugify
@@ -34,74 +33,58 @@ FUEL_COLORS = [
 
 
 def _build_layout() -> html.Div:
-    return html.Div(
-        [
-            html.H1(
-                "Australian Electricity Facilities Dashboard",
-                style={"textAlign": "center", "marginBottom": "10px"},
-            ),
-            html.Div(
-                [
-                    html.Div(
-                        [
-                            html.Label("Network Region"),
-                            dcc.Dropdown(id="region-filter", placeholder="All regions"),
-                        ],
-                        style={"flex": 1, "marginRight": "10px"},
-                    ),
-                    html.Div(
-                        [
-                            html.Label("Fuel Technology"),
-                            dcc.Dropdown(id="fuel-filter", placeholder="All fuels"),
-                        ],
-                        style={"flex": 1, "marginRight": "10px"},
-                    ),
-                    html.Div(
-                        [
-                            html.Label("Metric"),
-                            dcc.RadioItems(
-                                id="metric-toggle",
-                                options=[
-                                    {"label": "Power (MW)", "value": "power"},
-                                    {"label": "Emissions (tCO2e)", "value": "emissions"},
-                                ],
-                                value="power",
-                                labelStyle={"display": "inline-block", "marginRight": "10px"},
-                            ),
-                        ],
-                        style={"flex": 1},
-                    ),
-                ],
-                style={"display": "flex", "marginBottom": "15px"},
-            ),
+    return html.Div([
+        html.Div([
+            html.H1("Electricity Facilities", style={
+                "textAlign": "center", "margin": "20px 0", "fontSize": "2.5em",
+                "fontWeight": "300", "color": "#2c3e50", "letterSpacing": "2px"
+            }),
+            html.Div([
+                dcc.RadioItems(
+                    id="metric-toggle",
+                    options=[
+                        {"label": "Power (MW)", "value": "power"},
+                        {"label": "Emissions (tCO2e)", "value": "emissions"}
+                    ],
+                    value="power",
+                    style={"textAlign": "center", "marginBottom": "20px"},
+                    labelStyle={"margin": "0 20px", "fontSize": "1.1em", "color": "#34495e"}
+                )
+            ]),
             html.Iframe(
                 id="facility-map",
                 srcDoc="",
-                style={"width": "100%", "height": "720px", "border": "none", "boxShadow": "0 2px 4px rgba(0,0,0,0.1)"},
+                style={
+                    "width": "100%", "height": "80vh", "border": "none",
+                    "borderRadius": "8px", "boxShadow": "0 4px 20px rgba(0,0,0,0.1)"
+                }
             ),
-            html.Div(
-                html.P(
-                    id="data-status",
-                    children="Waiting for live data...",
-                    style={"textAlign": "center", "marginTop": "10px", "color": "#555"},
-                )
-            ),
-            dcc.Interval(id="update-interval", interval=2000, n_intervals=0),
-        ],
-        style={"padding": "20px", "fontFamily": "Arial, sans-serif"},
-    )
+            html.Div([
+                html.P(id="data-status", style={
+                    "textAlign": "center", "margin": "20px 0", "fontSize": "1.1em",
+                    "color": "#7f8c8d", "fontStyle": "italic"
+                })
+            ]),
+            dcc.Interval(id="update-interval", interval=3000, n_intervals=0)
+        ], style={
+            "maxWidth": "1400px", "margin": "0 auto", "padding": "20px",
+            "fontFamily": "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+            "backgroundColor": "#f8f9fa", "minHeight": "100vh"
+        })
+    ], style={"backgroundColor": "#f8f9fa"})
 
 
 def _prepare_live_dataframe(live_df: pd.DataFrame, metadata: pd.DataFrame) -> pd.DataFrame:
-    base_metadata = metadata.copy()
-    if "name_key" not in base_metadata.columns:
-        base_metadata["name_key"] = base_metadata["name"].astype(str).apply(slugify)
+    meta = metadata.copy()
+    if "name_key" not in meta.columns:
+        meta["name_key"] = meta["name"].astype(str).apply(slugify)
 
+    # If no live data, return metadata with empty power/emissions/timestamp
     if live_df.empty:
-        base_metadata["power"] = pd.NA
-        base_metadata["emissions"] = pd.NA
-        base_metadata["timestamp"] = pd.NaT
-        return base_metadata
+        meta["power"] = pd.NA
+        meta["emissions"] = pd.NA
+        meta["timestamp"] = pd.NaT
+        return meta
 
     df = live_df.copy()
     if "metadata" in df.columns:
@@ -124,21 +107,84 @@ def _prepare_live_dataframe(live_df: pd.DataFrame, metadata: pd.DataFrame) -> pd
         .drop_duplicates(subset=["facility_id", "name_key"], keep="last")
     )
 
-    enriched = base_metadata.merge(
-        latest[["facility_id", "name_key", "power", "emissions", "timestamp"]],
+    meta = metadata.copy()
+    if "name_key" not in meta.columns:
+        meta["name_key"] = meta["name"].astype(str).apply(slugify)
+
+    meta_columns = [
+        "facility_id",
+        "name",
+        "name_key",
+        "fuel_type",
+        "network_region",
+        "latitude",
+        "longitude",
+        "status",
+    ]
+    available_meta_cols = [col for col in meta_columns if col in meta.columns]
+
+    enriched = latest.merge(
+        meta[available_meta_cols],
         on="facility_id",
         how="left",
-        suffixes=("", "_live"),
+        suffixes=("", "_meta"),
     )
 
-    missing = enriched["power"].isna() & enriched["name_key"].notna()
-    if missing.any():
-        fallback = latest.set_index("name_key")
-        for column in ["power", "emissions", "timestamp"]:
-            if column in fallback.columns:
-                enriched.loc[missing, column] = enriched.loc[missing, "name_key"].map(
-                    fallback[column]
-                )
+    # Ensure coordinate columns have proper numeric dtype from the start
+    for coord_col in ["latitude", "longitude"]:
+        if coord_col in enriched.columns:
+            enriched[coord_col] = pd.to_numeric(enriched[coord_col], errors='coerce')
+        meta_coord = f"{coord_col}_meta"
+        if meta_coord in enriched.columns:
+            enriched[meta_coord] = pd.to_numeric(enriched[meta_coord], errors='coerce')
+
+    # Fill missing metadata from the merged columns using dtype-safe where-based assignment
+    for column in ["name", "fuel_type", "network_region", "latitude", "longitude"]:
+        meta_col = f"{column}_meta"
+        if column in enriched.columns and meta_col in enriched.columns:
+            if column in ["latitude", "longitude"]:
+                base = pd.to_numeric(enriched[column], errors='coerce')
+                meta_vals = pd.to_numeric(enriched[meta_col], errors='coerce')
+                enriched[column] = base.where(base.notna(), meta_vals).astype('float64')
+            else:
+                base = enriched[column]
+                meta_vals = enriched[meta_col]
+                enriched[column] = base.where(base.notna(), meta_vals)
+                if enriched[column].dtype == 'object':
+                    enriched[column] = enriched[column].infer_objects(copy=False)
+    
+    # For facilities that didn't match by facility_id, try matching by name_key
+    if "name_key" in enriched.columns and "latitude" in enriched.columns:
+        missing_coords = enriched["latitude"].isna()
+        if missing_coords.any():
+            name_lookup = meta.drop_duplicates(subset=["name_key"]).set_index("name_key")
+
+            # Ensure lookup columns have proper dtypes
+            for coord_col in ["latitude", "longitude"]:
+                if coord_col in name_lookup.columns:
+                    name_lookup[coord_col] = pd.to_numeric(name_lookup[coord_col], errors='coerce')
+
+            for column in ["name", "fuel_type", "network_region", "latitude", "longitude"]:
+                if column in name_lookup.columns and column in enriched.columns:
+                    # Map by name_key for missing values
+                    missing_mask = enriched[column].isna() & enriched["name_key"].notna()
+                    if missing_mask.any():
+                        mapped_values = enriched.loc[missing_mask, "name_key"].map(name_lookup[column])
+                        # Use where-based replacement to avoid dtype conflicts
+                        if column in ["latitude", "longitude"]:
+                            current = pd.to_numeric(enriched[column], errors='coerce')
+                            replacements = pd.to_numeric(mapped_values, errors='coerce')
+                            combined = current.where(~missing_mask, replacements)
+                            enriched[column] = combined.astype('float64')
+                        else:
+                            current = enriched[column]
+                            combined = current.where(~missing_mask, mapped_values)
+                            enriched[column] = combined
+
+    # Infer object types to suppress pandas warning
+    for column in ["name", "fuel_type", "network_region"]:
+        if column in enriched.columns:
+            enriched[column] = enriched[column].infer_objects(copy=False)
 
     return enriched
 
@@ -151,12 +197,16 @@ def _build_folium_map(df: pd.DataFrame, metric: str) -> str:
     map_obj = folium.Map(location=[-25.2744, 133.7751], zoom_start=4, tiles="cartodbpositron")
     marker_cluster = MarkerCluster().add_to(map_obj)
 
+    if df.empty or "latitude" not in df.columns or "longitude" not in df.columns:
+        return map_obj.get_root().render()
+
     df_vis = df.dropna(subset=["latitude", "longitude"])
     if df_vis.empty:
         return map_obj.get_root().render()
 
     fuels = [fuel for fuel in df_vis["fuel_type"].dropna().unique()]
     color_map = _colour_map(fuels)
+    df_vis = df_vis.copy()  # Avoid SettingWithCopyWarning
     df_vis["color"] = df_vis["fuel_type"].map(color_map).fillna("#7f7f7f")
 
     metric_values = df_vis[metric].abs()
@@ -168,33 +218,50 @@ def _build_folium_map(df: pd.DataFrame, metric: str) -> str:
     for idx, row in df_vis.iterrows():
         value = row.get(metric)
         value_str = "N/A" if pd.isna(value) else f"{value:.2f}"
+
+        power_value = row.get("power")
+        power_str = "N/A" if pd.isna(power_value) else f"{power_value:.2f} MW"
+
+        emissions_value = row.get("emissions")
+        emissions_str = "N/A" if pd.isna(emissions_value) else f"{emissions_value:.2f} tCO2e"
+
+        timestamp = row.get("timestamp")
+        timestamp_str = timestamp.strftime("%Y-%m-%d %H:%M:%S") if pd.notna(timestamp) and hasattr(timestamp, "strftime") else "N/A"
+
         popup_html = f"""
-        <b>Name:</b> {row.get('name', row.get('facility_id'))}<br>
-        <b>Fuel:</b> {row.get('fuel_type', 'Unknown')}<br>
-        <b>Status:</b> {row.get('status', 'N/A')}<br>
-        <b>{metric.title()}:</b> {value_str}<br>
-        <b>Timestamp:</b> {row.get('timestamp', 'N/A')}
-        """
+        <div style="font-family: Arial, sans-serif;">
+        <b>Station:</b> {row.get('name', row.get('facility_id', 'Unknown'))}<br>
+        <b>Type:</b> {row.get('fuel_type', 'Unknown')}<br>
+        <hr style="margin: 5px 0;">
+        <b>Power:</b> {power_str}<br>
+        <b>Emissions:</b> {emissions_str}<br>
+        <b>Region:</b> {row.get('network_region', 'N/A')}<br>
+        <b>Updated:</b> {timestamp_str}
+        </div>"""
+
+        tooltip_text = f"{row.get('name', row.get('facility_id', 'Unknown'))}: {value_str}"
+
         folium.CircleMarker(
             location=[row["latitude"], row["longitude"]],
             radius=float(size.loc[idx]),
             popup=folium.Popup(popup_html, max_width=300),
+            tooltip=tooltip_text,
             color=row["color"],
             fill=True,
             fill_color=row["color"],
             fill_opacity=0.7,
         ).add_to(marker_cluster)
 
-    legend_html = """
-    <div style="position: fixed;
-                bottom: 50px; left: 50px; width: 200px; height: auto;
-                border:2px solid grey; z-index:9999; font-size:14px;
-                background-color:white; padding: 10px;">
-    <b>Fuel Types</b><br>
-    """
+    legend_html = f"""
+    <div style="position: fixed; bottom: 20px; right: 20px; background: rgba(255,255,255,0.95);
+                padding: 15px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                font-family: 'Segoe UI', sans-serif; font-size: 13px; max-width: 200px;">
+    <div style="font-weight: 600; margin-bottom: 10px; color: #2c3e50;">Fuel Types</div>"""
+
     for fuel, color in color_map.items():
-        legend_html += f'<i class="fa fa-circle" style="color:{color}"></i> {fuel}<br>'
+        legend_html += f'<div style="margin: 4px 0;"><span style="color:{color}; font-size: 12px;">●</span> {fuel}</div>'
     legend_html += "</div>"
+
     map_obj.get_root().html.add_child(folium.Element(legend_html))
     return map_obj.get_root().render()
 
@@ -216,53 +283,39 @@ def run_dashboard(
 
     @app.callback(
         Output("facility-map", "srcDoc"),
-        Output("region-filter", "options"),
-        Output("fuel-filter", "options"),
         Output("data-status", "children"),
         Input("update-interval", "n_intervals"),
-        Input("metric-toggle", "value"),
-        State("region-filter", "value"),
-        State("fuel-filter", "value"),
+        Input("metric-toggle", "value")
     )
-    def update_map(n_intervals, metric, selected_region, selected_fuel):
+    def update_map(n_intervals, metric):
         del n_intervals
         live_data = subscriber.store.snapshot()
         combined = _prepare_live_dataframe(live_data, facility_metadata)
 
-        if selected_region:
-            combined = combined[combined["network_region"] == selected_region]
-        if selected_fuel:
-            combined = combined[combined["fuel_type"] == selected_fuel]
-
-        regions = sorted(facility_metadata["network_region"].dropna().unique())
-        fuels = sorted(facility_metadata["fuel_type"].dropna().unique())
-
         map_html = _build_folium_map(combined, metric)
-        latest_ts = combined["timestamp"].dropna().max()
-        status = (
-            f"Displaying {combined.dropna(subset=['latitude', 'longitude']).shape[0]} facilities."
-            if pd.isna(latest_ts)
-            else f"Last update: {latest_ts}"
-        )
+        if combined.empty or "timestamp" not in combined.columns:
+            status = "Waiting for live data..."
+        else:
+            latest_ts = combined["timestamp"].dropna().max()
+            display_count = (
+                combined.dropna(subset=["latitude", "longitude"]).shape[0]
+                if {"latitude", "longitude"}.issubset(combined.columns)
+                else len(combined)
+            )
+            status = (
+                "Waiting for live data..."
+                if pd.isna(latest_ts)
+                else f"Last update: {latest_ts.strftime('%Y-%m-%d %H:%M:%S')} · {display_count} facilities"
+            )
 
-        region_options = [{"label": region, "value": region} for region in regions]
-        fuel_options = [{"label": fuel, "value": fuel} for fuel in fuels]
-        return map_html, region_options, fuel_options, status
+        return map_html, status
 
-    def _run():
-        logger.info(
-            "Starting dashboard at http://%s:%s",
-            dashboard_config.host,
-            dashboard_config.port,
-        )
-        app.run_server(
-            host=dashboard_config.host,
-            port=dashboard_config.port,
-            debug=False,
-        )
-
-    thread = threading.Thread(target=_run, daemon=True)
-    thread.start()
+    app.run(
+        host=dashboard_config.host,
+        port=dashboard_config.port,
+        debug=False,
+        use_reloader=False,
+    )
     return app
 
 

@@ -24,7 +24,7 @@ mqtt:
 
 dashboard:
   host: "127.0.0.1"
-  port: 8050
+  port: 8080
   refresh_interval_ms: 2000
   # mapbox_token: "optional-mapbox-token"
 

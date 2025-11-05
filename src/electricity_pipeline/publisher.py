@@ -56,6 +56,29 @@ def publish_dataset(
         logger.warning("No data to publish to MQTT.")
         return
 
+    # Filter to only publish records that have both power AND emissions
+    # This ensures we only publish combined power+emissions messages
+    required_cols = ["power", "emissions"]
+    missing_cols = [col for col in required_cols if col not in df.columns]
+    if missing_cols:
+        logger.warning("DataFrame missing required columns: %s. Skipping publication.", missing_cols)
+        return
+    
+    # Filter rows that have both power and emissions (non-null)
+    combined_records = df[
+        df["power"].notna() & df["emissions"].notna()
+    ].copy()
+    
+    if combined_records.empty:
+        logger.warning("No records with both power and emissions to publish.")
+        return
+
+    logger.info(
+        "Publishing %d combined power+emissions records (filtered from %d total records)",
+        len(combined_records),
+        len(df)
+    )
+
     client = mqtt.Client()
     if config.username and config.password:
         client.username_pw_set(config.username, config.password)
@@ -65,12 +88,14 @@ def publish_dataset(
     client.loop_start()
 
     topic = topic_override or config.topic
-    for _, row in df.sort_values("timestamp").iterrows():
+    # Sort by timestamp to ensure event time order
+    for _, row in combined_records.sort_values("timestamp").iterrows():
         payload = _build_payload(row)
         result = client.publish(topic, payload, qos=1)
         if result.rc != mqtt.MQTT_ERR_SUCCESS:
             logger.error("Failed to publish message: %s", mqtt.error_string(result.rc))
         logger.debug("Published message to %s: %s", topic, payload)
+        # Ensure at least 0.1-second delay between messages
         time.sleep(delay_seconds)
 
     client.loop_stop()

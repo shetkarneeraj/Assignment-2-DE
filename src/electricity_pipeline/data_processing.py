@@ -184,20 +184,26 @@ def merge_with_metadata(
         .set_index("name_key")
     )
 
+    # First try merging by facility_id
     merged = consolidated.merge(
         metadata.drop(columns=["name_key"]),
         on="facility_id",
         how="left",
         suffixes=("", "_meta"),
     )
+
+    # For rows that didn't match by facility_id, try name-based matching
+    # Derive name_key from consolidated data (may come from facility_catalog or be None)
     merged["name_key"] = _derive_name_key(merged)
 
-    missing_mask = merged["latitude"].isna() & merged["name_key"].notna()
-    if missing_mask.any():
-        fallback = metadata_name_lookup.reindex(merged.loc[missing_mask, "name_key"])
+    # Find rows that still don't have metadata (latitude is NaN)
+    missing_metadata = merged["latitude"].isna() & merged["name_key"].notna()
+    if missing_metadata.any():
+        logger.info("Attempting name-based metadata matching for %d facilities", missing_metadata.sum())
+        fallback = metadata_name_lookup.reindex(merged.loc[missing_metadata, "name_key"])
         for column in ["name", "fuel_type", "network_region", "latitude", "longitude"]:
             if column in fallback.columns:
-                merged.loc[missing_mask, column] = merged.loc[missing_mask, column].fillna(
+                merged.loc[missing_metadata, column] = merged.loc[missing_metadata, column].fillna(
                     fallback[column].values
                 )
 

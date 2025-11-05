@@ -1,0 +1,84 @@
+facility_id,name,name_clean,state,network_region,fuel_type,status,capacity_mw,latitude,longitude,name_key
+barnawartha-solar-farm-vic,Barnawartha Solar Farm,Barnawartha Solar Farm,VIC,VIC1,Solar,Probable,64.0,-36.1054009,146.6735718,barnawartha-solar-farm
+barwon-solar-farm-vic,Barwon solar farm,Barwon Solar Farm,VIC,VIC1,Solar,Probable,250.0,-38.2090551,143.9943963,barwon-solar-farm
+boddington-giga-energy-wa,Boddington Giga Energy,Boddington Giga Energy,WA,,Solar,Probable,400.0,-32.792141,116.4210582,boddington-giga-energy
+bulli-creek-solar-project-stage-1-qld,Bulli Creek Solar project Stage 1,Bulli Creek Solar Project Stage 1,QLD,QLD1,Solar,Probable,775.0,-26.5845379,153.0966873,bulli-creek-solar-project-stage-1
+bullyard-solar-farm-qld,Bullyard Solar Farm,Bullyard Solar Farm,QLD,QLD1,Solar,Probable,100.0,-24.9514635,152.0476533,bullyard-solar-farm
+bungaban-wind-farm-qld,Bungaban Wind Farm,Bungaban Wind Farm,QLD,QLD1,Wind,Probable,1400.0,-25.923731,150.153065,bungaban-wind-farm
+campbells-forest-solar-farm-vic,Campbells Forest Solar Farm,Campbells Forest Solar Farm,VIC,VIC1,Solar,Probable,205.0,-38.1667381,144.3655969,campbells-forest-solar-farm
+coppabella-wind-farm-nsw,Coppabella Wind Farm,Coppabella Wind Farm,NSW,NSW1,Wind,Probable,284.0,-35.7316667,147.7177778,coppabella-wind-farm
+derby-solar-farm-battery-vic,Derby Solar Farm & Battery,Derby Solar Farm & Battery,VIC,VIC1,Solar,Probable,95.0,-36.6581115,144.0143231,derby-solar-farm-battery
+elaine-solar-farm-vic,Elaine Solar Farm,Elaine Solar Farm,VIC,VIC1,Solar,Probable,125.0,-37.761595,144.0062833,elaine-solar-farm
+eurimbula-solar-farm-qld,Eurimbula Solar Farm,Eurimbula Solar Farm,QLD,QLD1,Solar,Probable,696.0,-24.1195145,151.7481155,eurimbula-solar-farm
+frasers-solar-farm-vic,Frasers Solar Farm,Frasers Solar Farm,VIC,VIC1,Solar,Probable,77.0,-36.7823654,143.6195678,frasers-solar-farm
+ganymirra-solar-power-station-qld,Ganymirra Solar Power Station,Ganymirra Solar Power Station,QLD,QLD1,Solar,Probable,150.0,-24.9514635,150.6493798,ganymirra-solar-power-station
+glanmire-solar-farm-nsw,Glanmire Solar Farm,Glanmire Solar Farm,NSW,NSW1,Solar,Probable,60.0,-33.415,149.7011111,glanmire-solar-farm
+goyder-north-wind-farm-stage-1-sa,Goyder North Wind Farm Stage 1,Goyder North Wind Farm Stage 1,SA,SA1,Wind,Probable,300.0,-33.7175888,139.0369511,goyder-north-wind-farm-stage-1
+hopeland-solar-farm-qld,Hopeland Solar Farm,Hopeland Solar Farm,QLD,QLD1,Solar,Probable,250.0,-26.872868,150.6610021,hopeland-solar-farm
+junction-rivers-wind-farm-nsw,Junction Rivers Wind Farm,Junction Rivers Wind Farm,NSW,NSW1,Wind,Probable,585.0,-31.9571874,152.4164578,junction-rivers-wind-farm
+kentbruck-green-power-hub-vic,Kentbruck Green Power Hub,Kentbruck Green Power Hub,VIC,VIC1,Wind,Probable,600.0,-38.1788552,141.3071248,kentbruck-green-power-hub
+kiamal-solar-farm-stage-2-vic,Kiamal Solar Farm - Stage 2,Kiamal Solar Farm - Stage 2,VIC,VIC1,Solar,Probable,150.0,-34.9956336,142.3157549,kiamal-solar-farm-stage-2
+kidston-stage-3-wind-project-qld,Kidston Stage 3 Wind Project,Kidston Stage 3 Wind Project,QLD,QLD1,Wind,Probable,258.0,-18.8745956,144.1689025,kidston-stage-3-wind-project
+lakeland-wind-farm-qld,Lakeland Wind Farm,Lakeland Wind Farm,QLD,QLD1,Wind,Probable,100.0,-15.8942415,144.8671449,lakeland-wind-farm
+majors-creek-solar-farm-qld,Majors Creek Solar Farm,Majors Creek Solar Farm,QLD,QLD1,Solar,Probable,150.0,-17.6402778,145.5363889,majors-creek-solar-farm
+mount-hopeful-wind-farm-qld,Mount Hopeful Wind Farm,Mount Hopeful Wind Farm,QLD,QLD1,Wind,Probable,350.0,-27.5419813,153.0791853,mount-hopeful-wind-farm
+northern-midlands-solar-farm-tas,Northern Midlands Solar Farm,Northern Midlands Solar Farm,TAS,TAS1,Solar,Probable,288.0,-41.8798625,147.4362844,northern-midlands-solar-farm
+palmer-wind-farm-sa,Palmer Wind Farm,Palmer Wind Farm,SA,SA1,Wind,Probable,288.0,-34.8527976,139.1600623,palmer-wind-farm
+port-augusta-energy-park-stage-2-sa,Port Augusta Energy Park Stage 2,Port Augusta Energy Park Stage 2,SA,SA1,Solar,Probable,300.0,-33.8521165,151.2107812,port-augusta-energy-park-stage-2
+sandy-creek-solar-farm-nsw,Sandy Creek Solar Farm,Sandy Creek Solar Farm,NSW,NSW1,Solar,Probable,700.0,-33.975407,150.9939195,sandy-creek-solar-farm
+sapphire-solar-farm-nsw,Sapphire Solar Farm,Sapphire Solar Farm,NSW,NSW1,Solar,Probable,200.0,-29.6774612,151.350582,sapphire-solar-farm
+silverleaf-solar-farm-nsw,Silverleaf Solar Farm,Silverleaf Solar Farm,NSW,NSW1,Solar,Probable,120.0,-33.7054951,150.9042977,silverleaf-solar-farm
+smoky-creek-and-guthrie-s-gap-solar-farm-qld,Smoky Creek and Guthrie's Gap Solar Farm,Smoky Creek And Guthrie'S Gap Solar Farm,QLD,QLD1,Solar,Probable,600.0,-24.1225987,150.5477139,smoky-creek-and-guthrie-s-gap-solar-farm
+spicers-creek-wind-farm-nsw,Spicers Creek Wind Farm,Spicers Creek Wind Farm,NSW,NSW1,Wind,Probable,700.0,-33.8716466,151.223032,spicers-creek-wind-farm
+theodore-wind-farm-qld,Theodore Wind Farm,Theodore Wind Farm,QLD,QLD1,Wind,Probable,1152.0,-24.946086,150.0773651,theodore-wind-farm
+thunderbolt-wind-farm-stage-1-nsw,Thunderbolt Wind Farm stage 1,Thunderbolt Wind Farm Stage 1,NSW,NSW1,Wind,Probable,230.0,-32.1271337,150.9741228,thunderbolt-wind-farm-stage-1
+upper-calliope-solar-farm-qld,Upper Calliope Solar Farm,Upper Calliope Solar Farm,QLD,QLD1,Solar,Probable,1300.0,-27.4633463,153.0247422,upper-calliope-solar-farm
+vales-point-solar-farm-nsw,Vales Point Solar Farm,Vales Point Solar Farm,NSW,NSW1,Solar,Probable,62.0,-33.1605934,151.5440766,vales-point-solar-farm
+valley-of-the-winds-nsw,Valley of the Winds,Valley Of The Winds,NSW,NSW1,Wind,Probable,936.0,-29.4994413,153.2434943,valley-of-the-winds
+vast-solar-facility-vs1-sa,Vast Solar Facility - VS1,Vast Solar Facility - Vs1,SA,SA1,Solar,Probable,30.0,-33.7175888,139.0369511,vast-solar-facility-vs1
+waroona-solar-fam-wa,Waroona Solar Fam,Waroona Solar Fam,WA,,Solar,Probable,120.0,-32.8492605,115.9082511,waroona-solar-fam
+west-mokoan-solar-farm-vic,West Mokoan Solar Farm,West Mokoan Solar Farm,VIC,VIC1,Solar,Probable,300.0,-37.8071754,144.9447753,west-mokoan-solar-farm
+winton-north-solar-farm-vic,Winton North Solar Farm,Winton North Solar Farm,VIC,VIC1,Solar,Probable,100.0,-36.5197855,146.0931149,winton-north-solar-farm
+woolsthorpe-wind-farm-vic,Woolsthorpe Wind Farm,Woolsthorpe Wind Farm,VIC,VIC1,Wind,Probable,70.0,-38.1856495,142.4314251,woolsthorpe-wind-farm
+east-rockingham-resource-recovery-facility-wa,East Rockingham Resource Recovery Facility,East Rockingham Resource Recovery Facility,WA,,Biomass,Committed,29.0,-15.7973483,128.6868128,east-rockingham-resource-recovery-facility
+moorebank-logistics-park-nsw,Moorebank Logistics Park,Moorebank Logistics Park,NSW,NSW1,Solar,Committed,60.0,-33.9548342,150.9291037,moorebank-logistics-park
+wangaratta-solar-farm-vic,Wangaratta Solar Farm,Wangaratta Solar Farm,VIC,VIC1,Solar,Committed,40.0,-36.356434,146.3228311,wangaratta-solar-farm
+kidston-pumped-hydro-storage-project-qld,Kidston Pumped Hydro Storage Project,Kidston Pumped Hydro Storage Project,QLD,QLD1,Hydro,Committed,250.0,-18.8745956,144.1689025,kidston-pumped-hydro-storage-project
+new-england-solar-farm-stage-2-nsw,New England Solar Farm - Stage 2,New England Solar Farm - Stage 2,NSW,NSW1,Solar,Committed,320.0,-32.6290018,151.8091421,new-england-solar-farm-stage-2
+bellevue-gold-hybrid-power-station-wind-wa,Bellevue Gold Hybrid Power Station (Wind),Bellevue Gold Hybrid Power Station (Wind),WA,,Wind,Committed,24.0,-31.9015253,116.0288929,bellevue-gold-hybrid-power-station-wind
+glenellen-solar-project-nsw,Glenellen solar project,Glenellen Solar Project,NSW,NSW1,Solar,Committed,200.0,-35.915,146.9177778,glenellen-solar-project
+forest-glen-solar-farm-nsw,Forest Glen Solar Farm,Forest Glen Solar Farm,NSW,NSW1,Solar,Committed,90.0,-33.959283,151.062423,forest-glen-solar-farm
+uungula-wind-farm-nsw,Uungula Wind Farm,Uungula Wind Farm,NSW,NSW1,Wind,Committed,414.0,-32.5450403,149.1970061,uungula-wind-farm
+munna-creek-solar-farm-qld,Munna Creek Solar Farm,Munna Creek Solar Farm,QLD,QLD1,Solar,Committed,150.0,-25.881987,152.4509775,munna-creek-solar-farm
+st-ives-gold-solar-farm-wa,St Ives Gold Solar Farm,St Ives Gold Solar Farm,WA,,Wind,Committed,77.0,-17.9616321,122.224029,st-ives-gold-solar-farm
+gunsynd-solar-farm-qld,Gunsynd Solar Farm,Gunsynd Solar Farm,QLD,QLD1,Solar,Committed,94.0,-28.0979003,153.3662247,gunsynd-solar-farm
+aldoga-solar-farm-qld,Aldoga Solar Farm,Aldoga Solar Farm,QLD,QLD1,Solar,Committed,380.0,-23.844797,151.0739806,aldoga-solar-farm
+quorn-park-solar-hybrid-nsw,Quorn Park Solar Hybrid,Quorn Park Solar Hybrid,NSW,NSW1,Solar,Committed,98.0,-33.0809644,148.0922033,quorn-park-solar-hybrid
+golden-plains-wind-farm-stage-2-vic,Golden Plains Wind Farm - Stage 2,Golden Plains Wind Farm - Stage 2,VIC,VIC1,Wind,Committed,574.0,-37.8396942,143.6385369,golden-plains-wind-farm-stage-2
+lotus-creek-wind-farm-qld,Lotus Creek Wind Farm,Lotus Creek Wind Farm,QLD,QLD1,Wind,Committed,285.0,-27.4321408,153.0403258,lotus-creek-wind-farm
+goorambat-solar-farm-vic,Goorambat Solar Farm,Goorambat Solar Farm,VIC,VIC1,Solar,Committed,250.0,-36.4141675,145.9531843,goorambat-solar-farm
+broadsound-solar-farm-qld,Broadsound Solar Farm,Broadsound Solar Farm,QLD,QLD1,Solar,Committed,376.0,-21.1471903,149.1729172,broadsound-solar-farm
+boulder-creek-wind-farm-qld,Boulder Creek Wind Farm,Boulder Creek Wind Farm,QLD,QLD1,Wind,Committed,228.0,-23.6710175,150.3134101,boulder-creek-wind-farm
+horsham-solar-farm-vic,Horsham Solar Farm,Horsham Solar Farm,VIC,VIC1,Solar,Committed,118.8,-36.7148099,142.2018105,horsham-solar-farm
+carwarp-energy-park-vic,Carwarp Energy Park,Carwarp Energy Park,VIC,VIC1,Solar,Committed,171.0,-34.4571108,142.1972835,carwarp-energy-park
+goulburn-river-solar-farm-nsw,Goulburn River Solar Farm,Goulburn River Solar Farm,NSW,NSW1,Solar,Committed,450.0,-34.7523871,149.7198009,goulburn-river-solar-farm
+wambo-wind-farm-stage-2-qld,Wambo Wind Farm Stage 2,Wambo Wind Farm Stage 2,QLD,QLD1,Wind,Committed,254.0,-26.63629,151.2709429,wambo-wind-farm-stage-2
+warradarge-wind-farm-stage-2-wa,Warradarge Wind Farm Stage 2,Warradarge Wind Farm Stage 2,WA,,Wind,Committed,108.0,-30.04778,115.3242,warradarge-wind-farm-stage-2
+bungama-solar-farm-stage-3-sa,Bungama Solar Farm (stage 3),Bungama Solar Farm (Stage 3),SA,SA1,Solar,Committed,280.0,-33.1979576,138.0680019,bungama-solar-farm-stage-3
+fulham-solar-farm-vic,Fulham Solar Farm,Fulham Solar Farm,VIC,VIC1,Solar,Committed,80.0,-38.082623,146.9634772,fulham-solar-farm
+cloudbreak-solar-farm-wa,Cloudbreak Solar Farm,Cloudbreak Solar Farm,WA,,Solar,Committed,190.0,-22.3045424,119.4320893,cloudbreak-solar-farm
+port-latta-wind-farm-tas,Port Latta Wind Farm,Port Latta Wind Farm,TAS,TAS1,Wind,Committed,25.0,-41.0622997,145.9040829,port-latta-wind-farm
+wandoan-south-solar-farm-stage-2-qld,Wandoan South Solar Farm (Stage 2),Wandoan South Solar Farm (Stage 2),QLD,QLD1,Solar,Committed,240.0,-26.135673,149.9011851,wandoan-south-solar-farm-stage-2
+lancaster-solar-farm-vic,Lancaster Solar Farm,Lancaster Solar Farm,VIC,VIC1,Solar,Committed,106.0,-36.298938,145.136072,lancaster-solar-farm
+mulwala-solar-farm-nsw,Mulwala Solar Farm,Mulwala Solar Farm,NSW,NSW1,Solar,Committed,31.0,-35.9869152,146.0026789,mulwala-solar-farm
+kerang-solar-plant-solar-vic-vic,Kerang Solar Plant - Solar - VIC,Kerang Solar Plant - Solar - Vic,VIC,VIC1,Solar,Accredited,37.2874,-35.7338373,143.9204152,kerang-solar-plant-solar-vic
+goyder-south-wind-farm-1b-wind-sa-sa,Goyder South Wind Farm 1B - Wind - SA,Goyder South Wind Farm 1B - Wind - Sa,SA,SA1,Wind,Accredited,195.693,-33.7175888,139.0369511,goyder-south-wind-farm-1b-wind-sa
+stubbo-solar-nsw-nsw,Stubbo - Solar - NSW,Stubbo - Solar - Nsw,NSW,NSW1,Solar,Accredited,520.393,-32.2818,149.5679,stubbo-solar-nsw
+wollar-solar-farm-solar-nsw-nsw,Wollar Solar Farm-Solar-NSW,Wollar Solar Farm-Solar-Nsw,NSW,NSW1,Solar,Accredited,346.248,-32.3581121,149.9483663,wollar-solar-farm-solar-nsw
+clarke-creek-wind-farm-wind-qld-qld,Clarke Creek Wind Farm - Wind - QLD,Clarke Creek Wind Farm - Wind - Qld,QLD,QLD1,Wind,Accredited,450.0,-22.72562,149.3120589,clarke-creek-wind-farm-wind-qld
+mokoan-solar-farm-solar-vic-vic,MOKOAN SOLAR FARM - SOLAR - VIC,Mokoan Solar Farm - Solar - Vic,VIC,VIC1,Solar,Accredited,57.803,-36.5714094,146.0199594,mokoan-solar-farm-solar-vic
+wambo-wind-farm-stage-1-wind-qld-qld,Wambo Wind Farm Stage 1 - Wind - QLD,Wambo Wind Farm Stage 1 - Wind - Qld,QLD,QLD1,Wind,Accredited,252.0,-27.1528839,150.6493798,wambo-wind-farm-stage-1-wind-qld
+kwinana-wte-wa-wa,Kwinana WTE - WA,Kwinana Wte - Wa,WA,,Biomass-Based Components of Municipal Solid Waste,Accredited,42.0,-32.233854,115.8211484,kwinana-wte-wa
+culcairn-solar-farm-solar-nsw-nsw,Culcairn Solar Farm - Solar - NSW,Culcairn Solar Farm - Solar - Nsw,NSW,NSW1,Solar,Accredited,439.869,-35.6674081,147.0365471,culcairn-solar-farm-solar-nsw
+tronox-solar-nsw-nsw,Tronox-Solar-NSW,Tronox-Solar-Nsw,NSW,NSW1,Solar,Accredited,10.713,-34.16847,116.1581566,tronox-solar-nsw
+norther-airfield-solar-vic-vic,Norther Airfield - Solar - VIC,Norther Airfield - Solar - Vic,VIC,VIC1,Solar,Accredited,11.278,-34.16847,116.1581566,norther-airfield-solar-vic

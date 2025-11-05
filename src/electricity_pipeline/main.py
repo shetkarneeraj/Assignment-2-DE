@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 
 def _parse_args(argv: Sequence[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="OpenElectricity data retrieval and MQTT publisher. Uses network endpoint."
+        description="OpenElectricity data retrieval and MQTT publisher. Uses facility-level endpoints for continuous data streaming."
     )
     parser.add_argument(
         "--start",
@@ -99,9 +99,12 @@ def run_pipeline(args: argparse.Namespace) -> None:
     config = load_config()
 
     iteration = 0
+    # Task 5: Continuous execution - run indefinitely unless iterations is set
     while True:
         iteration += 1
         logger.info("Starting iteration %d", iteration)
+        
+        # Task 1-2: Retrieve facility-level power and emissions data
         df = retrieve_and_cache_dataset(
             config=config,
             start=start,
@@ -114,16 +117,38 @@ def run_pipeline(args: argparse.Namespace) -> None:
             primary_grouping=args.primary_grouping,
             use_facility_endpoint=args.use_facility_endpoint,
         )
+        
         if df.empty:
             logger.warning("Iteration %d produced no data.", iteration)
         else:
-            logger.info("Publishing %d messages to MQTT", len(df))
-            df["timestamp"] = pd.to_datetime(df["timestamp"], utc=True, errors="coerce")
-            publish_dataset(df, config.mqtt)
+            if "latitude" not in df.columns or df["latitude"].isna().all():
+                from .retrieval import _normalise_facility_catalog
+                from .api_client import OpenElectricityClient
 
+                client = OpenElectricityClient(config.api)
+                facilities = client.fetch_facilities()
+                facility_catalog = _normalise_facility_catalog(facilities)
+
+                if not facility_catalog.empty:
+                    df = df.merge(
+                        facility_catalog[["facility_id", "facility_name", "facility_latitude", "facility_longitude"]],
+                        on="facility_id", how="left"
+                    )
+                    df = df.rename(columns={
+                        "facility_name": "name",
+                        "facility_latitude": "latitude",
+                        "facility_longitude": "longitude"
+                    })
+
+            df["timestamp"] = pd.to_datetime(df["timestamp"], utc=True, errors="coerce")
+            publish_dataset(df, config.mqtt, delay_seconds=0.1)
+
+        # Task 5: Stop if iterations limit is reached, otherwise continue indefinitely
         if args.iterations and iteration >= args.iterations:
             logger.info("Reached requested iterations, stopping.")
             break
+        
+        # Task 5: 60-second delay between API data retrieval rounds (in addition to 0.1s delay between messages)
         logger.info("Sleeping for %d seconds before the next iteration.", args.sleep_seconds)
         time.sleep(args.sleep_seconds)
 

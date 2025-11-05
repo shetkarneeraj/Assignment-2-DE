@@ -1,0 +1,5 @@
+2025-11-05 23:29:55,301 [INFO] __main__ - Starting iteration 1
+2025-11-05 23:29:55,302 [INFO] electricity_pipeline.caching - Loading cached dataset from cache/2025-10-01_2025-10-08_consolidated.csv
+2025-11-05 23:29:57,179 [INFO] electricity_pipeline.api_client - Fetched 515 facilities for network_id NEM
+2025-11-05 23:29:57,221 [INFO] electricity_pipeline.publisher - Publishing 86171 combined power+emissions records (filtered from 86171 total records)
+2025-11-05 23:29:57,222 [INFO] electricity_pipeline.publisher - Connecting to MQTT broker localhost:1883

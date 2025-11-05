@@ -25,8 +25,19 @@ STATE_TO_REGION = {
     "TAS": "TAS1",
 }
 
+# Approximate state centroids for fallback when geocoding is skipped
+STATE_CENTROIDS = {
+    "NSW": (-32.0, 147.0),
+    "VIC": (-37.0, 144.5),
+    "QLD": (-22.5, 144.5),
+    "SA": (-30.0, 135.0),
+    "WA": (-26.0, 121.0),
+    "TAS": (-42.0, 147.0),
+    "NT": (-19.5, 133.5),
+    "ACT": (-35.3, 149.1),
+}
 
-DEFAULT_USER_AGENT = "Assignment2ElectricityPipeline/1.0 (+contact@example.com)"
+DEFAULT_USER_AGENT = "Assignment2ElectricityPipeline/1.0 (+neerajshetkar@gmail.com)"
 
 
 @dataclass
@@ -176,18 +187,43 @@ def geocode_with_fallbacks(
     cache: Dict[str, Dict[str, float]],
     config: Assignment1DataConfig,
 ) -> Tuple[Optional[float], Optional[float]]:
-    cache_key = "|".join(filter(None, [name or "", state or "", postcode or ""]))
+    # Normalize inputs to robust strings (handle None/NaN/float)
+    def _norm(val: Optional[object]) -> Optional[str]:
+        try:
+            if val is None:
+                return None
+            # pandas NA/NaN handling
+            if isinstance(val, float) and pd.isna(val):
+                return None
+            if pd.isna(val):  # type: ignore[arg-type]
+                return None
+            s = str(val).strip()
+            if not s or s.lower() in {"nan", "none", "null"}:
+                return None
+            return s
+        except Exception:
+            return None
+
+    name_s = _norm(name) or ""
+    state_s = _norm(state) or ""
+    postcode_s = _norm(postcode)
+
+    cache_key = "|".join([v for v in (name_s, state_s, postcode_s) if v])
     if cache_key in cache:
         entry = cache[cache_key]
         return entry.get("lat"), entry.get("lon")
 
-    queries = [
-        f"{name} {state} Australia",
-        f"{name.split(' ')[0]} {state} Australia",
-    ]
-    if postcode:
-        queries.append(f"{name} {postcode} Australia")
-        queries.append(f"Australia postcode {postcode}")
+    # Build polite fallback query list
+    base_name = name_s.split(" ")[0] if name_s else ""
+    queries = []
+    if name_s and state_s:
+        queries.append(f"{name_s} {state_s} Australia")
+        if base_name and base_name != name_s:
+            queries.append(f"{base_name} {state_s} Australia")
+    if postcode_s:
+        if name_s:
+            queries.append(f"{name_s} {postcode_s} Australia")
+        queries.append(f"Australia postcode {postcode_s}")
 
     for idx, query in enumerate(queries):
         try:
@@ -208,13 +244,37 @@ def geocode_with_fallbacks(
 
 
 def fill_missing_coordinates(df: pd.DataFrame) -> pd.DataFrame:
+    # Ensure columns exist and are numeric for aggregation
+    if "lat" not in df.columns:
+        df["lat"] = pd.NA
+    if "lon" not in df.columns:
+        df["lon"] = pd.NA
+
+    df["lat"] = pd.to_numeric(df["lat"], errors="coerce")
+    df["lon"] = pd.to_numeric(df["lon"], errors="coerce")
+
+    # First try to compute state medians from geocoded data
     state_centroids = df.groupby("State")[["lat", "lon"]].median(numeric_only=True)
-    missing_mask = df["lat"].isna() | df["lon"].isna()
-    for idx in df[missing_mask].index:
-        state = df.at[idx, "State"]
-        if state in state_centroids.index:
-            df.at[idx, "lat"] = state_centroids.loc[state, "lat"]
-            df.at[idx, "lon"] = state_centroids.loc[state, "lon"]
+
+    # For states with no valid coordinates, use predefined centroids
+    for state in df["State"].unique():
+        if state not in state_centroids.index or pd.isna(state_centroids.loc[state, "lat"]):
+            if state in STATE_CENTROIDS:
+                if state not in state_centroids.index:
+                    state_centroids.loc[state] = STATE_CENTROIDS[state]
+                else:
+                    state_centroids.loc[state, "lat"] = STATE_CENTROIDS[state][0]
+                    state_centroids.loc[state, "lon"] = STATE_CENTROIDS[state][1]
+
+    # Fill missing coordinates with state centroids
+    if not state_centroids.empty and "lat" in state_centroids.columns and "lon" in state_centroids.columns:
+        missing_mask = df["lat"].isna() | df["lon"].isna()
+        for idx in df[missing_mask].index:
+            state = df.at[idx, "State"]
+            if state in state_centroids.index:
+                df.at[idx, "lat"] = state_centroids.loc[state, "lat"]
+                df.at[idx, "lon"] = state_centroids.loc[state, "lon"]
+    
     return df
 
 
@@ -246,7 +306,12 @@ def build_facilities_metadata(config: Assignment1DataConfig, *, skip_geocode: bo
         logger.info("Geocoding %d facilities (may take several minutes)...", len(combined))
         combined = attach_geocodes(combined, config)
     else:
-        logger.warning("Skipping geocoding; latitude/longitude may be empty.")
+        logger.warning("Skipping geocoding; using state centroids for coordinates.")
+        # Ensure lat/lon columns exist even when skipped
+        combined["lat"] = pd.NA
+        combined["lon"] = pd.NA
+        # Fill with state centroids immediately
+        combined = fill_missing_coordinates(combined)
 
     combined["facility_id"] = combined.apply(
         lambda row: slugify(f"{row['Name_clean']}_{row['State']}"), axis=1

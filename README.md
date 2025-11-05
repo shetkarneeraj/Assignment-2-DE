@@ -56,6 +56,7 @@ python -m electricity_pipeline.main \
 - Set `--iterations` to a positive integer to stop after a fixed number of cycles (useful for testing).
 - Pass `--disable-cache` to force a fresh API pull even when cached data is available.
 - The script enforces a 60 second pause between iterations and emits MQTT messages with a 0.1 second gap exactly as required.
+- **Task 3**: Only records with both power AND emissions are published as combined messages to MQTT, ensuring ordered data stream in event time order.
 
 Consolidated CSV files are stored under `cache/` in the format `YYYY-MM-DD_YYYY-MM-DD_consolidated.csv`. Reuse these for downstream analysis to avoid redundant API calls.
 
@@ -67,11 +68,11 @@ Launch the Dash dashboard, which subscribes to the same MQTT topic and renders t
 python -m electricity_pipeline.dashboard
 ```
 
-Navigate to `http://127.0.0.1:8050` (configurable via `config.yml`) to interact with the map. Use the toggles to switch between power output and emissions, and filters to drill into regions or fuel types. Clicking a marker reveals facility details with the latest metrics.
+Navigate to `http://127.0.0.1:8050` (configurable via `config.yml`) to interact with the map. Use the toggles to switch between power output and emissions, and filters to drill into regions or fuel types. **Task 4**: Clicking a marker reveals a popup with the station's name, type (fuel technology), latest power production, and latest emissions data. The dashboard dynamically adds markers as MQTT messages are received, simulating an ordered data stream.
 
 ### Task 5: Continuous Execution
 
-The main pipeline script (`electricity_pipeline.main`) loops indefinitely by default with a 60-second delay between retrieval cycles, satisfying the continuous execution requirement. Use `CTRL+C` to terminate.
+The main pipeline script (`electricity_pipeline.main`) loops indefinitely by default (when `--iterations` is 0 or not set) with a 60-second delay between API data retrieval rounds. This delay is in addition to the 0.1-second delay between publishing individual MQTT messages, satisfying the continuous execution requirement. Use `CTRL+C` to terminate.
 
 ### Task 6: Documentation & Reporting
 
