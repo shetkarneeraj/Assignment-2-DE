@@ -9,6 +9,7 @@ This repository implements the end-to-end workflow required for Assignment 2: co
 ```
 src/electricity_pipeline/   Core Python package
 ├── api_client.py           REST client for OpenElectricity
+├── assignment1_facilities.py  Builds geocoded facility metadata from Assignment 1
 ├── caching.py              Helpers for cache paths and persistence
 ├── config.py               Config loaders and dataclasses
 ├── dashboard.py            Dash-powered MQTT subscriber map
@@ -37,7 +38,7 @@ Supporting assets:
    - Set `OPEN_ELECTRICITY_API_KEY` in the environment _or_ edit `config.yml`.
    - If the API expects a header other than `Authorization: Bearer …`, adjust `api.api_key_header` and `api.api_key_prefix` in `config.yml` (e.g., `x-api-key` with an empty prefix).
    - Update MQTT broker parameters if you are not using a local broker.
-   - Replace `data/facilities_metadata.csv` with Assignment 1 output. Required columns: `facility_id,name,fuel_type,network_region,latitude,longitude`.
+   - Integrate Assignment 1 data: keep the downloaded CER CSVs under `data/` and run `python -m electricity_pipeline.assignment1_facilities` to build the canonical `data/facilities_metadata.csv` (with precise geocodes + fuel/region metadata). The script caches geocoding responses (`cache/geocode_cache.json`) and falls back to state centroids if a lookup fails.
 
 ## Usage
 
@@ -60,7 +61,7 @@ Consolidated CSV files are stored under `cache/` in the format `YYYY-MM-DD_YYYY-
 
 ### Task 4: MQTT Subscription and Map Visualisation
 
-Launch the Dash dashboard, which subscribes to the same MQTT topic and renders an interactive map of facilities. Filters update in real time as new messages arrive.
+Launch the Dash dashboard, which subscribes to the same MQTT topic and renders the **same Folium/MarkerCluster visualization** you built in Assignment 1 (color-coded by fuel type, with rich popups). Filters update in real time as new messages arrive.
 
 ```bash
 python -m electricity_pipeline.dashboard
@@ -80,6 +81,7 @@ The main pipeline script (`electricity_pipeline.main`) loops indefinitely by def
 ## Testing Tips
 
 - Start a local MQTT broker (e.g., Mosquitto) before running the publisher or dashboard.
+- If geocoding takes too long (Nominatim throttling), rerun `python -m electricity_pipeline.assignment1_facilities --skip-geocode`; it will reuse cached coordinates/state medians.
 - Use `--iterations 1` during early testing to avoid long waits.
 - If the OpenElectricity API enforces tight rate limits, narrow the facility list or shorten the date window while debugging.
 

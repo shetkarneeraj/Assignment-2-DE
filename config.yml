@@ -9,6 +9,8 @@ api:
     emissions: "emissions"
     price: "price"
     demand: "demand"
+  facility_endpoint: "/facilities/"
+  timeseries_endpoint: "/facilities/{facility_id}/metrics/{metric}"
 
 cache:
   directory: "cache"
