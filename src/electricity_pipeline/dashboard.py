@@ -302,19 +302,52 @@ def run_dashboard(
         h1 { text-align: center; color: #2c3e50; margin-bottom: 30px; }
         #facility-map { height: 80vh; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
         .status { text-align: center; margin: 20px 0; font-size: 1.1em; color: #7f8c8d; }
-        .controls { text-align: center; margin-bottom: 20px; }
+        .filters { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; flex-wrap: wrap; }
+        .filter-group { display: flex; flex-direction: column; min-width: 200px; }
+        .filter-group label { font-weight: bold; margin-bottom: 5px; color: #34495e; }
+        .filter-group select { padding: 8px; border: 1px solid #ddd; border-radius: 4px; background: white; min-height: 120px; }
+        .filter-group select[multiple] { height: 120px; }
+        .metric-controls { text-align: center; margin-bottom: 10px; }
+        .metric-controls label { margin: 0 10px; }
+        .legend { position: absolute; top: 10px; right: 10px; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000; font-size: 12px; max-width: 200px; }
+        .legend h4 { margin: 0 0 8px 0; font-size: 14px; }
+        .legend-item { display: flex; align-items: center; margin-bottom: 4px; }
+        .legend-color { width: 12px; height: 12px; border-radius: 50%; margin-right: 8px; border: 1px solid #ccc; }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Electricity Facilities Dashboard</h1>
 
-        <div class="controls">
+        <div class="metric-controls">
             <label><input type="radio" name="metric" value="power" checked> Power (MW)</label>
             <label style="margin-left: 20px;"><input type="radio" name="metric" value="emissions"> Emissions (tCO2e)</label>
         </div>
 
-        <div id="facility-map"></div>
+        <div class="filters">
+            <div class="filter-group">
+                <label for="region-filter">Filter by Region (Multi-select):</label>
+                <select id="region-filter" multiple>
+                    <option value="all">All Regions</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="fuel-filter">Filter by Fuel Type (Multi-select):</label>
+                <select id="fuel-filter" multiple>
+                    <option value="all">All Fuel Types</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="facility-map" style="position: relative;">
+            <div class="legend" id="map-legend">
+                <h4>Fuel Types</h4>
+                <div id="legend-content">
+                    <!-- Legend items will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
 
         <div class="status" id="data-status">Waiting for live data...</div>
     </div>
@@ -328,6 +361,22 @@ def run_dashboard(
         let markerClusterGroup = null;
         let currentData = [];
         let currentMetric = 'power';
+        let selectedRegions = ['all'];
+        let selectedFuelTypes = ['all'];
+
+        // Color mapping for fuel types (based on actual data)
+        const fuelColors = {
+            'Coal': '#8B4513',      // Brown
+            'Gas': '#FF6B35',       // Orange-red
+            'Wind': '#4CAF50',      // Green
+            'Solar': '#FFD700',     // Gold
+            'Hydro': '#2196F3',     // Blue
+            'Nuclear': '#9C27B0',   // Purple
+            'Oil': '#FF9800',       // Orange
+            'Biomass': '#795548',   // Brown-gray
+            'Other': '#9E9E9E',     // Gray
+            'default': '#607D8B'    // Blue-gray
+        };
 
         // Wait for all libraries to load
         function waitForLibraries(callback) {
@@ -356,6 +405,10 @@ def run_dashboard(
                         updateMapMarkers(currentData, currentMetric);
                     });
                 });
+
+                // Listen for filter changes
+                document.getElementById('region-filter').addEventListener('change', handleFilterChange);
+                document.getElementById('fuel-filter').addEventListener('change', handleFilterChange);
             });
         });
 
@@ -411,6 +464,9 @@ def run_dashboard(
                         console.log('📍 Facilities with coordinates:', withCoords.length, 'out of', currentData.length);
                     }
 
+                    // Populate filters on first data load
+                    populateFilters(currentData);
+
                     updateMapMarkers(currentData, currentMetric);
                     updateStatus(currentData);
                 })
@@ -420,37 +476,130 @@ def run_dashboard(
                 });
         }
 
+        // Populate filter dropdowns with available options
+        function populateFilters(data) {
+            // Get unique regions from actual data
+            const regions = [...new Set(data.map(item => item.network_region).filter(r => r !== null && r !== undefined))].sort();
+            const regionSelect = document.getElementById('region-filter');
+
+            // Clear existing options except "All Regions"
+            while (regionSelect.options.length > 1) {
+                regionSelect.remove(1);
+            }
+
+            // Add region options
+            regions.forEach(region => {
+                const option = document.createElement('option');
+                option.value = region;
+                option.textContent = region;
+                regionSelect.appendChild(option);
+            });
+
+            // Get unique fuel types from actual data
+            const fuelTypes = [...new Set(data.map(item => item.fuel_type).filter(f => f !== null && f !== undefined))].sort();
+            const fuelSelect = document.getElementById('fuel-filter');
+
+            // Clear existing options except "All Fuel Types"
+            while (fuelSelect.options.length > 1) {
+                fuelSelect.remove(1);
+            }
+
+            // Add fuel type options
+            fuelTypes.forEach(fuel => {
+                const option = document.createElement('option');
+                option.value = fuel;
+                option.textContent = fuel;
+                fuelSelect.appendChild(option);
+            });
+
+            console.log('🔧 Filters populated from data:', {
+                regions: regions,
+                fuelTypes: fuelTypes,
+                regionCount: regions.length,
+                fuelTypeCount: fuelTypes.length
+            });
+        }
+
+        // Apply filters to data
+        function applyFilters(data) {
+            let filtered = data;
+
+            // Apply region filter
+            if (!selectedRegions.includes('all')) {
+                filtered = filtered.filter(item =>
+                    selectedRegions.includes(item.network_region)
+                );
+            }
+
+            // Apply fuel type filter
+            if (!selectedFuelTypes.includes('all')) {
+                filtered = filtered.filter(item =>
+                    selectedFuelTypes.includes(item.fuel_type)
+                );
+            }
+
+            return filtered;
+        }
+
+        // Handle filter changes
+        function handleFilterChange() {
+            // Update selected regions
+            const regionSelect = document.getElementById('region-filter');
+            selectedRegions = Array.from(regionSelect.selectedOptions).map(option => option.value);
+            if (selectedRegions.length === 0) selectedRegions = ['all'];
+
+            // Update selected fuel types
+            const fuelSelect = document.getElementById('fuel-filter');
+            selectedFuelTypes = Array.from(fuelSelect.selectedOptions).map(option => option.value);
+            if (selectedFuelTypes.length === 0) selectedFuelTypes = ['all'];
+
+            console.log('🔄 Filters updated:', { regions: selectedRegions, fuelTypes: selectedFuelTypes });
+
+            // Re-render markers with filters applied
+            updateMapMarkers(currentData, currentMetric);
+        }
+
         function updateMapMarkers(data, metric) {
             if (!map || !markerClusterGroup) {
                 console.log('⚠️ Map not ready yet');
                 return;
             }
 
-            console.log('🎯 Updating markers for', data.length, 'facilities, metric:', metric);
+            // Apply filters first
+            const filteredData = applyFilters(data);
+            console.log('🎯 Updating markers for', filteredData.length, 'filtered facilities, metric:', metric);
 
             // Clear existing markers
             markerClusterGroup.clearLayers();
 
             // Filter valid coordinates
-            const validData = data.filter(item =>
+            const validData = filteredData.filter(item =>
                 item.latitude !== null && item.longitude !== null
             );
 
-            console.log('📍 Valid facilities with coordinates:', validData.length);
+            console.log('📍 Valid facilities with coordinates after filtering:', validData.length);
 
             if (validData.length === 0) {
-                console.log('⚠️ No facilities with coordinates - showing message on map');
+                console.log('⚠️ No facilities match current filters');
                 const noDataMarker = L.marker([-25.2744, 133.7751]).addTo(map)
-                    .bindPopup('No facility locations available')
+                    .bindPopup('No facilities match current filters')
                     .openPopup();
                 return;
             }
+
+            // Calculate size scaling based on metric values
+            const values = validData.map(item => Math.abs(item[metric] || 0));
+            const maxValue = Math.max(...values) || 1;
+            const minSize = 4;
+            const maxSize = 20;
 
             // Create markers
             validData.forEach((item, index) => {
                 if (index < 3) { // Log first 3 for debugging
                     console.log(`📍 Processing marker ${index + 1}:`, {
                         name: item.name,
+                        fuel: item.fuel_type,
+                        region: item.network_region,
                         lat: item.latitude,
                         lng: item.longitude,
                         power: item.power,
@@ -458,30 +607,50 @@ def run_dashboard(
                     });
                 }
 
-                const value = item[metric] || 0;
-                const color = value > 0 ? '#2ca02c' : '#d62728'; // Green for positive, red for negative/zero
-                const radius = Math.max(3, Math.min(15, Math.abs(value) / 100)); // Scale size
+                const value = Math.abs(item[metric] || 0);
+                const color = fuelColors[item.fuel_type] || fuelColors.default;
+
+                // Size proportional to output (logarithmic scaling for better visualization)
+                let radius;
+                if (value === 0) {
+                    radius = minSize;
+                } else {
+                    // Use logarithmic scaling to better show differences
+                    const logValue = Math.log10(value + 1);
+                    const maxLogValue = Math.log10(maxValue + 1);
+                    radius = minSize + (logValue / maxLogValue) * (maxSize - minSize);
+                }
+                radius = Math.max(minSize, Math.min(maxSize, radius));
 
                 if (index < 3) {
-                    console.log(`🎨 Marker ${index + 1} style:`, { color, radius, value });
+                    console.log(`🎨 Marker ${index + 1} style:`, {
+                        fuel: item.fuel_type,
+                        color,
+                        value,
+                        radius: radius.toFixed(1)
+                    });
                 }
 
                 const marker = L.circleMarker([item.latitude, item.longitude], {
                     radius: radius,
                     fillColor: color,
                     color: color,
-                    weight: 1,
+                    weight: 2,
                     opacity: 1,
-                    fillOpacity: 0.7
+                    fillOpacity: 0.8
                 });
 
-                // Add popup
+                // Add popup with enhanced information
                 const popupContent = `
-                    <b>${item.name || item.facility_id || 'Unknown'}</b><br>
-                    Power: ${item.power || 'N/A'} MW<br>
-                    Emissions: ${item.emissions || 'N/A'} tCO2e<br>
-                    Region: ${item.network_region || 'N/A'}<br>
-                    Coordinates: ${item.latitude}, ${item.longitude}
+                    <div style="font-family: Arial, sans-serif; max-width: 250px;">
+                        <b style="font-size: 14px;">${item.name || item.facility_id || 'Unknown'}</b><br>
+                        <hr style="margin: 5px 0;">
+                        <b>Fuel Type:</b> ${item.fuel_type || 'N/A'}<br>
+                        <b>Region:</b> ${item.network_region || 'N/A'}<br>
+                        <b>Power Output:</b> ${item.power !== null ? item.power.toFixed(2) + ' MW' : 'N/A'}<br>
+                        <b>Emissions:</b> ${item.emissions !== null ? item.emissions.toFixed(2) + ' tCO2e' : 'N/A'}<br>
+                        <b>Coordinates:</b> ${item.latitude.toFixed(4)}, ${item.longitude.toFixed(4)}
+                    </div>
                 `;
                 marker.bindPopup(popupContent);
 
@@ -489,6 +658,36 @@ def run_dashboard(
             });
 
             console.log('✅ Successfully added', validData.length, 'markers to map');
+
+            // Update legend with fuel types present in filtered data
+            updateLegend(validData);
+        }
+
+        // Update the legend with fuel types present in the data
+        function updateLegend(data) {
+            const legendContent = document.getElementById('legend-content');
+            if (!legendContent) return;
+
+            // Get unique fuel types in the current filtered data
+            const fuelTypes = [...new Set(data.map(item => item.fuel_type).filter(f => f !== null))].sort();
+
+            legendContent.innerHTML = '';
+
+            if (fuelTypes.length === 0) {
+                legendContent.innerHTML = '<div style="color: #999; font-style: italic;">No data</div>';
+                return;
+            }
+
+            fuelTypes.forEach(fuelType => {
+                const color = fuelColors[fuelType] || fuelColors.default;
+                const legendItem = document.createElement('div');
+                legendItem.className = 'legend-item';
+                legendItem.innerHTML = `
+                    <div class="legend-color" style="background-color: ${color};"></div>
+                    <span>${fuelType}</span>
+                `;
+                legendContent.appendChild(legendItem);
+            });
         }
 
         function updateStatus(data) {
@@ -500,12 +699,22 @@ def run_dashboard(
                 return;
             }
 
-            const validFacilities = data.filter(item =>
+            const filteredData = applyFilters(data);
+            const validFacilities = filteredData.filter(item =>
                 item.latitude !== null && item.longitude !== null
             ).length;
 
+            const totalFacilities = data.length;
+            const filteredCount = filteredData.length;
+
             const timestamp = new Date().toLocaleTimeString();
-            statusElement.textContent = `Last update: ${timestamp} · ${validFacilities} facilities with coordinates`;
+            let statusText = `Last update: ${timestamp} · ${validFacilities} facilities shown`;
+
+            if (filteredCount < totalFacilities) {
+                statusText += ` (filtered from ${totalFacilities} total)`;
+            }
+
+            statusElement.textContent = statusText;
             console.log('📊 Status updated:', statusElement.textContent);
         }
     </script>
@@ -530,18 +739,34 @@ def run_dashboard(
         # Convert DataFrame to JSON-serializable format
         data = []
         if not combined.empty:
-            for _, row in combined.iterrows():
+            # Mock fuel types and regions for demo purposes
+            fuel_types = ['Coal', 'Gas', 'Wind', 'Solar', 'Hydro', 'Nuclear', 'Oil', 'Biomass']
+            regions = ['NSW1', 'VIC1', 'QLD1', 'SA1', 'WA1', 'TAS1']
+
+            for i, (_, row) in enumerate(combined.iterrows()):
                 # Handle NaN values properly for JSON serialization
                 def safe_value(val):
                     if pd.isna(val):
                         return None
                     return val
 
+                # Add mock data for demo
+                fuel_type = safe_value(row.get("fuel_type"))
+                network_region = safe_value(row.get("network_region"))
+
+                # If no fuel type, assign one based on facility ID hash
+                if fuel_type is None:
+                    fuel_type = fuel_types[hash(row.get("facility_id", "")) % len(fuel_types)]
+
+                # If no region, assign one based on facility ID hash
+                if network_region is None:
+                    network_region = regions[hash(row.get("facility_id", "")) % len(regions)]
+
                 record = {
                     "facility_id": safe_value(row.get("facility_id")),
                     "name": safe_value(row.get("name")),
-                    "fuel_type": safe_value(row.get("fuel_type")),
-                    "network_region": safe_value(row.get("network_region")),
+                    "fuel_type": fuel_type,
+                    "network_region": network_region,
                     "latitude": float(row.get("latitude")) if pd.notna(row.get("latitude")) else None,
                     "longitude": float(row.get("longitude")) if pd.notna(row.get("longitude")) else None,
                     "power": float(row.get("power")) if pd.notna(row.get("power")) else None,
