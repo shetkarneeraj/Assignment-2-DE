@@ -2,6 +2,7 @@ README.md
 setup.py
 src/electricity_pipeline/__init__.py
 src/electricity_pipeline/api_client.py
+src/electricity_pipeline/assignment1_facilities.py
 src/electricity_pipeline/caching.py
 src/electricity_pipeline/config.py
 src/electricity_pipeline/dashboard.py
