@@ -324,9 +324,41 @@ def run_dashboard(
         }
         #facility-map {
             height: 80vh;
+            min-height: 500px;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             margin-top: 20px;
+            position: relative;
+        }
+
+        /* Responsive design improvements */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 20px;
+            }
+            #facility-map {
+                height: 70vh;
+                min-height: 400px;
+            }
+            .filters {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .filter-group {
+                width: 100%;
+                min-width: unset;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            .status {
+                padding: 10px;
+                font-size: 14px;
+            }
         }
         .status {
             text-align: center;
@@ -581,6 +613,59 @@ def run_dashboard(
             will-change: auto !important;
         }
 
+        /* Enhanced cluster styling */
+        .marker-cluster-small {
+            background-color: rgba(52, 152, 219, 0.6);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+        }
+        .marker-cluster-small div {
+            background-color: rgba(52, 152, 219, 0.8);
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .marker-cluster-medium {
+            background-color: rgba(46, 204, 113, 0.6);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+        }
+        .marker-cluster-medium div {
+            background-color: rgba(46, 204, 113, 0.8);
+        }
+
+        .marker-cluster-large {
+            background-color: rgba(230, 126, 34, 0.6);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+        }
+        .marker-cluster-large div {
+            background-color: rgba(230, 126, 34, 0.8);
+        }
+
+        /* Smooth transitions for all interactive elements */
+        .marker-cluster,
+        .facility-marker {
+            transition: all 0.2s ease;
+        }
+
+        .marker-cluster:hover {
+            transform: scale(1.1);
+            z-index: 1000;
+        }
+
+        /* Loading animation for better UX */
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .loading-pulse {
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
         /* Enhanced popup styling */
         .leaflet-popup-content-wrapper {
             border-radius: 8px;
@@ -665,6 +750,8 @@ def run_dashboard(
         let selectedFuelTypes = []; // Start with no filters (show all)
         let lastFilteredData = null; // Track last rendered data to avoid unnecessary updates
         let lastMetric = null; // Track last metric used
+        let updateTimeout = null; // For debounced updates
+        let isUpdating = false; // Prevent concurrent updates
 
         // Enhanced color mapping for fuel types and metrics
         const fuelColors = {
@@ -749,8 +836,43 @@ def run_dashboard(
                     maxZoom: 19
                 }).addTo(map);
 
-                // Create marker cluster group
-                markerClusterGroup = L.markerClusterGroup();
+                // Create enhanced marker cluster group with density-based sizing
+                markerClusterGroup = L.markerClusterGroup({
+                    chunkedLoading: true, // Load markers in chunks for better performance
+                    maxClusterRadius: 50, // Base cluster radius
+                    spiderfyOnMaxZoom: true,
+                    showCoverageOnHover: false,
+                    zoomToBoundsOnClick: true,
+                    removeOutsideVisibleBounds: true, // Performance optimization
+                    // Custom cluster icon creation based on density
+                    iconCreateFunction: function(cluster) {
+                        const childCount = cluster.getChildCount();
+                        let c = ' marker-cluster-';
+                        let sizeClass = 'small';
+
+                        // Size clusters based on density (number of markers)
+                        if (childCount < 10) {
+                            c += 'small';
+                            sizeClass = 'small';
+                        } else if (childCount < 50) {
+                            c += 'medium';
+                            sizeClass = 'medium';
+                        } else {
+                            c += 'large';
+                            sizeClass = 'large';
+                        }
+
+                        // Create density-proportional cluster icon
+                        const size = Math.min(40 + Math.sqrt(childCount) * 2, 60); // Proportional sizing
+                        const iconSize = [size, size];
+
+                        return new L.DivIcon({
+                            html: '<div style="background-color: rgba(52, 152, 219, 0.8); border: 2px solid white; border-radius: 50%; width: ' + (size-4) + 'px; height: ' + (size-4) + 'px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white; font-size: ' + Math.max(10, size/4) + 'px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">' + childCount + '</div>',
+                            className: 'marker-cluster' + c,
+                            iconSize: iconSize
+                        });
+                    }
+                });
                 map.addLayer(markerClusterGroup);
 
                 console.log('✅ Map initialized successfully!');
@@ -900,9 +1022,19 @@ def run_dashboard(
                 showAll: selectedRegions.length === 0 && selectedFuelTypes.length === 0
             });
 
-            // Re-render markers with filters applied
-            updateMapMarkers(currentData, currentMetric);
-            updateSummaryPanel(currentData);
+            // Debounced update to prevent excessive re-rendering
+            debouncedUpdate();
+        }
+
+        // Debounced update function for performance
+        function debouncedUpdate() {
+            if (updateTimeout) {
+                clearTimeout(updateTimeout);
+            }
+            updateTimeout = setTimeout(() => {
+                updateMapMarkers(currentData, currentMetric);
+                updateSummaryPanel(currentData);
+            }, 300); // 300ms debounce
         }
 
         function updateMapMarkers(data, metric) {
@@ -910,6 +1042,18 @@ def run_dashboard(
                 console.log('⚠️ Map not ready yet');
                 return;
             }
+
+            // Prevent concurrent updates for better performance
+            if (isUpdating) {
+                console.log('⏳ Update already in progress, skipping...');
+                return;
+            }
+
+            isUpdating = true;
+            const startTime = performance.now();
+
+            // Show loading indicator
+            showLoadingIndicator(true);
 
             // Apply filters first
             const filteredData = applyFilters(data);
@@ -941,6 +1085,36 @@ def run_dashboard(
 
             console.log('📍 Valid facilities with coordinates after filtering:', validData.length);
 
+            // Calculate density for each marker (number of nearby facilities)
+            const calculateDensity = (facility, allFacilities, radiusKm = 10) => {
+                let count = 0;
+                allFacilities.forEach(other => {
+                    if (other.facility_id !== facility.facility_id &&
+                        other.latitude !== null && other.longitude !== null) {
+                        const distance = getDistance(
+                            facility.latitude, facility.longitude,
+                            other.latitude, other.longitude
+                        );
+                        if (distance <= radiusKm) {
+                            count++;
+                        }
+                    }
+                });
+                return count;
+            };
+
+            // Haversine distance calculation
+            const getDistance = (lat1, lon1, lat2, lon2) => {
+                const R = 6371; // Earth's radius in km
+                const dLat = (lat2 - lat1) * Math.PI / 180;
+                const dLon = (lon2 - lon1) * Math.PI / 180;
+                const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                    Math.sin(dLon/2) * Math.sin(dLon/2);
+                const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+                return R * c;
+            };
+
             if (validData.length === 0) {
                 console.log('⚠️ No facilities match current filters');
                 const noDataMarker = L.marker([-25.2744, 133.7751]).addTo(map)
@@ -964,8 +1138,12 @@ def run_dashboard(
             const minSize = 4;
             const maxSize = 20;
 
-            // Create markers
+            // Create markers with density-based enhancements
             validData.forEach((item, index) => {
+                // Calculate density for this facility (performance optimization: sample every 10th for large datasets)
+                const densitySample = validData.length > 100 ? validData.filter((_, i) => i % 10 === 0) : validData;
+                const density = calculateDensity(item, densitySample, 15); // 15km radius for density calculation
+
                 if (index < 3) { // Log first 3 for debugging
                     console.log(`📍 Processing marker ${index + 1}:`, {
                         name: item.name,
@@ -974,7 +1152,8 @@ def run_dashboard(
                         lat: item.latitude,
                         lng: item.longitude,
                         power: item.power,
-                        emissions: item.emissions
+                        emissions: item.emissions,
+                        density: density
                     });
                 }
 
@@ -983,34 +1162,38 @@ def run_dashboard(
                     ? metricColors[metric]
                     : (fuelColors[item.fuel_type] || fuelColors.default);
 
-                // Size calculation based on metric
-                let radius, value;
+                // Enhanced size calculation: combine metric value with density factor
+                let baseRadius, value;
                 if (metric === 'price' || metric === 'demand') {
-                    // Market-wide metrics - all facilities have same size
+                    // Market-wide metrics - base size with density enhancement
                     const marketValue = marketData[metric] || 0;
                     value = marketValue;
                     if (marketValue === 0) {
-                        radius = minSize;
+                        baseRadius = minSize;
                     } else {
                         // Scale market value for visualization
                         const scaledValue = metric === 'price' ? marketValue : marketValue / 1000; // Convert demand to GW
                         const logValue = Math.log10(Math.abs(scaledValue) + 1);
                         const maxLogValue = Math.log10(Math.abs(maxValue) + 1);
-                        radius = minSize + (logValue / maxLogValue) * (maxSize - minSize);
+                        baseRadius = minSize + (logValue / maxLogValue) * (maxSize - minSize);
                     }
                 } else {
-                    // Facility-specific metrics
+                    // Facility-specific metrics with density enhancement
                     value = Math.abs(item[metric] || 0);
                     if (value === 0) {
-                        radius = minSize;
+                        baseRadius = minSize;
                     } else {
                         // Use logarithmic scaling to better show differences
                         const logValue = Math.log10(value + 1);
                         const maxLogValue = Math.log10(maxValue + 1);
-                        radius = minSize + (logValue / maxLogValue) * (maxSize - minSize);
+                        baseRadius = minSize + (logValue / maxLogValue) * (maxSize - minSize);
                     }
                 }
-                radius = Math.max(minSize, Math.min(maxSize, radius));
+
+                // Apply density factor: facilities in denser areas get slightly larger markers
+                const densityFactor = 1 + Math.min(density * 0.1, 0.5); // Max 50% increase for very dense areas
+                let radius = baseRadius * densityFactor;
+                radius = Math.max(minSize, Math.min(maxSize * 1.5, radius)); // Allow larger max for dense areas
 
                 if (index < 3) {
                     console.log(`🎨 Marker ${index + 1} style:`, {
@@ -1105,6 +1288,39 @@ def run_dashboard(
 
             // Update legend based on current metric
             updateLegend(validData, metric);
+
+            // Hide loading indicator and log performance
+            const endTime = performance.now();
+            console.log(`⚡ Map update completed in ${(endTime - startTime).toFixed(2)}ms`);
+            showLoadingIndicator(false);
+            isUpdating = false;
+        }
+
+        // Loading indicator functions
+        function showLoadingIndicator(show) {
+            let indicator = document.getElementById('map-loading-indicator');
+            if (!indicator) {
+                indicator = document.createElement('div');
+                indicator.id = 'map-loading-indicator';
+                indicator.style.cssText = `
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    background: rgba(255, 255, 255, 0.95);
+                    padding: 8px 12px;
+                    border-radius: 6px;
+                    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                    font-size: 12px;
+                    color: #666;
+                    z-index: 1000;
+                    display: none;
+                    font-family: 'Segoe UI', sans-serif;
+                `;
+                indicator.innerHTML = '🔄 Updating map...';
+                document.getElementById('facility-map').style.position = 'relative';
+                document.getElementById('facility-map').appendChild(indicator);
+            }
+            indicator.style.display = show ? 'block' : 'none';
         }
 
         // Update the summary panel with regional data
