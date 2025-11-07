@@ -3,6 +3,7 @@ from __future__ import annotations
 import logging
 from pathlib import Path
 from typing import Optional
+from datetime import datetime
 
 import dash
 import folium
@@ -297,22 +298,315 @@ def run_dashboard(
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f8f9fa; }
-        .container { max-width: 1400px; margin: 0 auto; }
-        h1 { text-align: center; color: #2c3e50; margin-bottom: 30px; }
-        #facility-map { height: 80vh; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-        .status { text-align: center; margin: 20px 0; font-size: 1.1em; color: #7f8c8d; }
-        .filters { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; flex-wrap: wrap; }
-        .filter-group { display: flex; flex-direction: column; min-width: 200px; }
-        .filter-group label { font-weight: bold; margin-bottom: 5px; color: #34495e; }
-        .filter-group select { padding: 8px; border: 1px solid #ddd; border-radius: 4px; background: white; min-height: 120px; }
-        .filter-group select[multiple] { height: 120px; }
-        .metric-controls { text-align: center; margin-bottom: 10px; }
-        .metric-controls label { margin: 0 10px; }
-        .legend { position: absolute; top: 10px; right: 10px; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000; font-size: 12px; max-width: 200px; }
-        .legend h4 { margin: 0 0 8px 0; font-size: 14px; }
-        .legend-item { display: flex; align-items: center; margin-bottom: 4px; }
-        .legend-color { width: 12px; height: 12px; border-radius: 50%; margin-right: 8px; border: 1px solid #ccc; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: 300;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        #facility-map {
+            height: 80vh;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        .status {
+            text-align: center;
+            margin: 25px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            min-width: 220px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .filter-group label {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+        .checkbox-group {
+            max-height: 180px;
+            overflow-y: auto;
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 10px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            padding: 4px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        .checkbox-item:hover {
+            background-color: #f8f9fa;
+        }
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+            accent-color: #3498db;
+        }
+        .checkbox-item label {
+            margin: 0;
+            font-size: 14px;
+            cursor: pointer;
+            color: #495057;
+            font-weight: 500;
+        }
+        .metric-controls {
+            text-align: center;
+            margin-bottom: 20px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+        .metric-controls label {
+            margin: 0 15px;
+            font-weight: 500;
+            color: #495057;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .metric-controls label:hover {
+            color: #3498db;
+        }
+        .metric-controls input[type="radio"] {
+            margin-right: 5px;
+            accent-color: #3498db;
+        }
+        .metric-controls label {
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .metric-controls label:hover {
+            background: rgba(52, 152, 219, 0.1);
+            transform: translateY(-2px);
+        }
+        .metric-controls input[type="radio"]:checked + * {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        .legend {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            z-index: 1000;
+            font-size: 13px;
+            max-width: 220px;
+            border: 1px solid #e9ecef;
+        }
+        .legend h4 {
+            margin: 0 0 12px 0;
+            font-size: 16px;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 6px;
+            padding: 2px;
+        }
+        .legend-color {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            margin-right: 10px;
+            border: 2px solid rgba(255,255,255,0.8);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .summary-panel {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border: 1px solid #e9ecef;
+        }
+        .summary-panel h3 {
+            margin: 0 0 15px 0;
+            color: #2c3e50;
+            font-size: 1.4em;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 8px;
+        }
+        .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .summary-table th, .summary-table td {
+            padding: 8px 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        .summary-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .summary-table .total-row {
+            background: #e8f4f8;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .summary-table .total-row td {
+            border-top: 2px solid #3498db;
+        }
+        .summary-table .market-row {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .summary-table .market-row td {
+            font-weight: bold;
+            text-align: center;
+            padding: 12px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .filters {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .filter-group {
+                min-width: auto;
+            }
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+        }
+
+        /* Custom scrollbar */
+        .checkbox-group::-webkit-scrollbar {
+            width: 6px;
+        }
+        .checkbox-group::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+        .checkbox-group::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 3px;
+        }
+        .checkbox-group::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+
+        /* Completely stable marker positioning - no movement whatsoever */
+        .facility-marker {
+            cursor: pointer;
+            /* Remove all transitions and transforms that could cause movement */
+        }
+
+        .facility-marker:hover {
+            /* Only change visual appearance, not position */
+            opacity: 1;
+            z-index: 1000;
+            filter: brightness(1.1) drop-shadow(0 0 6px rgba(52, 152, 219, 0.6));
+        }
+
+        /* Ensure Leaflet markers are completely stable */
+        .leaflet-marker-icon,
+        .leaflet-marker-icon.facility-marker {
+            transition: none !important;
+            transform: none !important;
+            animation: none !important;
+            will-change: auto;
+        }
+
+        /* Prevent any marker movement during clustering */
+        .marker-cluster-small,
+        .marker-cluster-medium,
+        .marker-cluster-large {
+            transition: none !important;
+            animation: none !important;
+        }
+
+        /* Ensure marker clusters don't cause position shifts */
+        .leaflet-marker-icon,
+        .leaflet-marker-icon.facility-marker,
+        .marker-cluster {
+            position: absolute !important;
+            will-change: auto !important;
+        }
+
+        /* Enhanced popup styling */
+        .leaflet-popup-content-wrapper {
+            border-radius: 8px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .leaflet-popup-content {
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.4;
+        }
+
+        /* Loading animation for status updates */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .status {
+            animation: fadeInUp 0.5s ease-out;
+        }
     </style>
 </head>
 <body>
@@ -321,22 +615,20 @@ def run_dashboard(
 
         <div class="metric-controls">
             <label><input type="radio" name="metric" value="power" checked> Power (MW)</label>
-            <label style="margin-left: 20px;"><input type="radio" name="metric" value="emissions"> Emissions (tCO2e)</label>
+            <label style="margin-left: 20px;"><input type="radio" name="metric" value="emissions"> Emissions (tCO₂)</label>
+            <label style="margin-left: 20px;"><input type="radio" name="metric" value="price"> Price ($/MWh)</label>
+            <label style="margin-left: 20px;"><input type="radio" name="metric" value="demand"> Demand (GW)</label>
         </div>
 
         <div class="filters">
             <div class="filter-group">
-                <label for="region-filter">Filter by Region (Multi-select):</label>
-                <select id="region-filter" multiple>
-                    <option value="all">All Regions</option>
-                </select>
+                <label>Filter by Region:</label>
+                <div id="region-filter" class="checkbox-group"></div>
             </div>
 
             <div class="filter-group">
-                <label for="fuel-filter">Filter by Fuel Type (Multi-select):</label>
-                <select id="fuel-filter" multiple>
-                    <option value="all">All Fuel Types</option>
-                </select>
+                <label>Filter by Fuel Type:</label>
+                <div id="fuel-filter" class="checkbox-group"></div>
             </div>
         </div>
 
@@ -346,6 +638,13 @@ def run_dashboard(
                 <div id="legend-content">
                     <!-- Legend items will be populated by JavaScript -->
                 </div>
+            </div>
+        </div>
+
+        <div class="summary-panel" id="summary-panel">
+            <h3>Regional Summary</h3>
+            <div id="summary-content">
+                <!-- Summary data will be populated by JavaScript -->
             </div>
         </div>
 
@@ -360,11 +659,14 @@ def run_dashboard(
         let map = null;
         let markerClusterGroup = null;
         let currentData = [];
+        let marketData = {};
         let currentMetric = 'power';
-        let selectedRegions = ['all'];
-        let selectedFuelTypes = ['all'];
+        let selectedRegions = []; // Start with no filters (show all)
+        let selectedFuelTypes = []; // Start with no filters (show all)
+        let lastFilteredData = null; // Track last rendered data to avoid unnecessary updates
+        let lastMetric = null; // Track last metric used
 
-        // Color mapping for fuel types (based on actual data)
+        // Enhanced color mapping for fuel types and metrics
         const fuelColors = {
             'Coal': '#8B4513',      // Brown
             'Gas': '#FF6B35',       // Orange-red
@@ -377,6 +679,23 @@ def run_dashboard(
             'Other': '#9E9E9E',     // Gray
             'default': '#607D8B'    // Blue-gray
         };
+
+        // Metric-specific colors for when viewing market data
+        const metricColors = {
+            'power': '#27ae60',     // Green for power
+            'emissions': '#e74c3c', // Red for emissions
+            'price': '#f39c12',     // Orange for price
+            'demand': '#9b59b6'     // Purple for demand
+        };
+
+        // Helper function to compare arrays
+        function arraysEqual(a, b) {
+            if (a.length !== b.length) return false;
+            for (let i = 0; i < a.length; i++) {
+                if (a[i] !== b[i]) return false;
+            }
+            return true;
+        }
 
         // Wait for all libraries to load
         function waitForLibraries(callback) {
@@ -403,6 +722,7 @@ def run_dashboard(
                         currentMetric = e.target.value;
                         console.log('🔄 Metric changed to:', currentMetric);
                         updateMapMarkers(currentData, currentMetric);
+                        updateSummaryPanel(currentData);
                     });
                 });
 
@@ -455,7 +775,9 @@ def run_dashboard(
                 .then(data => {
                     console.log('📊 Raw API response:', data);
                     currentData = data.data;
+                    marketData = data.market_data || {};
                     console.log('✅ Processed', currentData.length, 'facilities at', new Date().toLocaleTimeString());
+                    console.log('💰 Market data:', marketData);
 
                     // Log detailed data structure
                     if (currentData.length > 0) {
@@ -469,6 +791,7 @@ def run_dashboard(
 
                     updateMapMarkers(currentData, currentMetric);
                     updateStatus(currentData);
+                    updateSummaryPanel(currentData);
                 })
                 .catch(error => {
                     console.error('❌ Fetch error:', error);
@@ -476,43 +799,63 @@ def run_dashboard(
                 });
         }
 
-        // Populate filter dropdowns with available options
+        // Populate filter checkboxes with available options
         function populateFilters(data) {
             // Get unique regions from actual data
             const regions = [...new Set(data.map(item => item.network_region).filter(r => r !== null && r !== undefined))].sort();
-            const regionSelect = document.getElementById('region-filter');
+            const regionContainer = document.getElementById('region-filter');
 
-            // Clear existing options except "All Regions"
-            while (regionSelect.options.length > 1) {
-                regionSelect.remove(1);
-            }
+            // Clear existing checkboxes
+            regionContainer.innerHTML = '';
 
-            // Add region options
+            // Add region checkboxes
             regions.forEach(region => {
-                const option = document.createElement('option');
-                option.value = region;
-                option.textContent = region;
-                regionSelect.appendChild(option);
+                const checkboxItem = document.createElement('div');
+                checkboxItem.className = 'checkbox-item';
+
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.id = `region-${region}`;
+                checkbox.value = region;
+                checkbox.addEventListener('change', handleFilterChange);
+
+                const label = document.createElement('label');
+                label.htmlFor = `region-${region}`;
+                label.textContent = region;
+
+                checkboxItem.appendChild(checkbox);
+                checkboxItem.appendChild(label);
+                regionContainer.appendChild(checkboxItem);
             });
 
             // Get unique fuel types from actual data
             const fuelTypes = [...new Set(data.map(item => item.fuel_type).filter(f => f !== null && f !== undefined))].sort();
-            const fuelSelect = document.getElementById('fuel-filter');
+            const fuelContainer = document.getElementById('fuel-filter');
 
-            // Clear existing options except "All Fuel Types"
-            while (fuelSelect.options.length > 1) {
-                fuelSelect.remove(1);
-            }
+            // Clear existing checkboxes
+            fuelContainer.innerHTML = '';
 
-            // Add fuel type options
+            // Add fuel type checkboxes
             fuelTypes.forEach(fuel => {
-                const option = document.createElement('option');
-                option.value = fuel;
-                option.textContent = fuel;
-                fuelSelect.appendChild(option);
+                const checkboxItem = document.createElement('div');
+                checkboxItem.className = 'checkbox-item';
+
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.id = `fuel-${fuel}`;
+                checkbox.value = fuel;
+                checkbox.addEventListener('change', handleFilterChange);
+
+                const label = document.createElement('label');
+                label.htmlFor = `fuel-${fuel}`;
+                label.textContent = fuel;
+
+                checkboxItem.appendChild(checkbox);
+                checkboxItem.appendChild(label);
+                fuelContainer.appendChild(checkboxItem);
             });
 
-            console.log('🔧 Filters populated from data:', {
+            console.log('🔧 Filter checkboxes populated from data:', {
                 regions: regions,
                 fuelTypes: fuelTypes,
                 regionCount: regions.length,
@@ -524,15 +867,15 @@ def run_dashboard(
         function applyFilters(data) {
             let filtered = data;
 
-            // Apply region filter
-            if (!selectedRegions.includes('all')) {
+            // Apply region filter only if regions are selected
+            if (selectedRegions.length > 0) {
                 filtered = filtered.filter(item =>
                     selectedRegions.includes(item.network_region)
                 );
             }
 
-            // Apply fuel type filter
-            if (!selectedFuelTypes.includes('all')) {
+            // Apply fuel type filter only if fuel types are selected
+            if (selectedFuelTypes.length > 0) {
                 filtered = filtered.filter(item =>
                     selectedFuelTypes.includes(item.fuel_type)
                 );
@@ -543,20 +886,23 @@ def run_dashboard(
 
         // Handle filter changes
         function handleFilterChange() {
-            // Update selected regions
-            const regionSelect = document.getElementById('region-filter');
-            selectedRegions = Array.from(regionSelect.selectedOptions).map(option => option.value);
-            if (selectedRegions.length === 0) selectedRegions = ['all'];
+            // Update selected regions from checkboxes
+            selectedRegions = Array.from(document.querySelectorAll('#region-filter input[type="checkbox"]:checked'))
+                .map(checkbox => checkbox.value);
 
-            // Update selected fuel types
-            const fuelSelect = document.getElementById('fuel-filter');
-            selectedFuelTypes = Array.from(fuelSelect.selectedOptions).map(option => option.value);
-            if (selectedFuelTypes.length === 0) selectedFuelTypes = ['all'];
+            // Update selected fuel types from checkboxes
+            selectedFuelTypes = Array.from(document.querySelectorAll('#fuel-filter input[type="checkbox"]:checked'))
+                .map(checkbox => checkbox.value);
 
-            console.log('🔄 Filters updated:', { regions: selectedRegions, fuelTypes: selectedFuelTypes });
+            console.log('🔄 Filters updated:', {
+                regions: selectedRegions,
+                fuelTypes: selectedFuelTypes,
+                showAll: selectedRegions.length === 0 && selectedFuelTypes.length === 0
+            });
 
             // Re-render markers with filters applied
             updateMapMarkers(currentData, currentMetric);
+            updateSummaryPanel(currentData);
         }
 
         function updateMapMarkers(data, metric) {
@@ -567,7 +913,23 @@ def run_dashboard(
 
             // Apply filters first
             const filteredData = applyFilters(data);
+
+            // Check if data or metric has changed to avoid unnecessary re-renders
+            const dataChanged = !lastFilteredData ||
+                lastFilteredData.length !== filteredData.length ||
+                lastMetric !== metric ||
+                !arraysEqual(lastFilteredData.map(d => d.facility_id), filteredData.map(d => d.facility_id));
+
+            if (!dataChanged) {
+                console.log('🔄 Data unchanged, skipping marker update');
+                return;
+            }
+
             console.log('🎯 Updating markers for', filteredData.length, 'filtered facilities, metric:', metric);
+
+            // Store current state for next comparison
+            lastFilteredData = filteredData.slice(); // Clone array
+            lastMetric = metric;
 
             // Clear existing markers
             markerClusterGroup.clearLayers();
@@ -588,8 +950,17 @@ def run_dashboard(
             }
 
             // Calculate size scaling based on metric values
-            const values = validData.map(item => Math.abs(item[metric] || 0));
-            const maxValue = Math.max(...values) || 1;
+            let values, maxValue;
+            if (metric === 'price' || metric === 'demand') {
+                // Market-wide metrics - all facilities have the same value
+                const marketValue = marketData[metric] || 0;
+                values = [Math.abs(marketValue)];
+                maxValue = Math.abs(marketValue) || 1;
+            } else {
+                // Facility-specific metrics
+                values = validData.map(item => Math.abs(item[metric] || 0));
+                maxValue = Math.max(...values) || 1;
+            }
             const minSize = 4;
             const maxSize = 20;
 
@@ -607,18 +978,37 @@ def run_dashboard(
                     });
                 }
 
-                const value = Math.abs(item[metric] || 0);
-                const color = fuelColors[item.fuel_type] || fuelColors.default;
+                // Color based on metric type for market data, fuel type for facility data
+                const color = (metric === 'price' || metric === 'demand')
+                    ? metricColors[metric]
+                    : (fuelColors[item.fuel_type] || fuelColors.default);
 
-                // Size proportional to output (logarithmic scaling for better visualization)
-                let radius;
-                if (value === 0) {
-                    radius = minSize;
+                // Size calculation based on metric
+                let radius, value;
+                if (metric === 'price' || metric === 'demand') {
+                    // Market-wide metrics - all facilities have same size
+                    const marketValue = marketData[metric] || 0;
+                    value = marketValue;
+                    if (marketValue === 0) {
+                        radius = minSize;
+                    } else {
+                        // Scale market value for visualization
+                        const scaledValue = metric === 'price' ? marketValue : marketValue / 1000; // Convert demand to GW
+                        const logValue = Math.log10(Math.abs(scaledValue) + 1);
+                        const maxLogValue = Math.log10(Math.abs(maxValue) + 1);
+                        radius = minSize + (logValue / maxLogValue) * (maxSize - minSize);
+                    }
                 } else {
-                    // Use logarithmic scaling to better show differences
-                    const logValue = Math.log10(value + 1);
-                    const maxLogValue = Math.log10(maxValue + 1);
-                    radius = minSize + (logValue / maxLogValue) * (maxSize - minSize);
+                    // Facility-specific metrics
+                    value = Math.abs(item[metric] || 0);
+                    if (value === 0) {
+                        radius = minSize;
+                    } else {
+                        // Use logarithmic scaling to better show differences
+                        const logValue = Math.log10(value + 1);
+                        const maxLogValue = Math.log10(maxValue + 1);
+                        radius = minSize + (logValue / maxLogValue) * (maxSize - minSize);
+                    }
                 }
                 radius = Math.max(minSize, Math.min(maxSize, radius));
 
@@ -634,60 +1024,237 @@ def run_dashboard(
                 const marker = L.circleMarker([item.latitude, item.longitude], {
                     radius: radius,
                     fillColor: color,
-                    color: color,
+                    color: '#ffffff',
                     weight: 2,
                     opacity: 1,
-                    fillOpacity: 0.8
+                    fillOpacity: 0.9,
+                    className: 'facility-marker'
                 });
 
-                // Add popup with enhanced information
+                // Add detailed popup with all facility information
+                const facilityName = item.name || item.facility_id || 'Unknown';
+                const fuelType = item.fuel_type || 'Unknown';
+                const currentPower = item.power !== null ? item.power.toFixed(2) + ' MW' : 'N/A';
+                const emissions = item.emissions !== null ? item.emissions.toFixed(2) + ' tonnes' : 'N/A';
+                const region = item.network_region || 'N/A';
+                const lastUpdate = item.timestamp ? new Date(item.timestamp).toLocaleString('en-US', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: true
+                }) : 'N/A';
+
+                const fuelColor = fuelColors[item.fuel_type] || fuelColors.default;
                 const popupContent = `
-                    <div style="font-family: Arial, sans-serif; max-width: 250px;">
-                        <b style="font-size: 14px;">${item.name || item.facility_id || 'Unknown'}</b><br>
-                        <hr style="margin: 5px 0;">
-                        <b>Fuel Type:</b> ${item.fuel_type || 'N/A'}<br>
-                        <b>Region:</b> ${item.network_region || 'N/A'}<br>
-                        <b>Power Output:</b> ${item.power !== null ? item.power.toFixed(2) + ' MW' : 'N/A'}<br>
-                        <b>Emissions:</b> ${item.emissions !== null ? item.emissions.toFixed(2) + ' tCO2e' : 'N/A'}<br>
-                        <b>Coordinates:</b> ${item.latitude.toFixed(4)}, ${item.longitude.toFixed(4)}
+                    <div style="font-family: 'Segoe UI', sans-serif; max-width: 300px; line-height: 1.4;">
+                        <div style="background: #f8f9fa; padding: 8px; border-radius: 4px; margin-bottom: 8px;">
+                            <b style="font-size: 16px; color: #2c3e50;">${facilityName}</b>
+                        </div>
+                        <div style="padding: 8px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                                <span><b>Type:</b></span>
+                                <span style="color: #${fuelColor};">${fuelType}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                                <span><b>Current Power:</b></span>
+                                <span style="font-weight: bold; color: #27ae60;">${currentPower}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                                <span><b>CO₂ Emissions:</b></span>
+                                <span style="font-weight: bold; color: #e74c3c;">${emissions}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                                <span><b>Region:</b></span>
+                                <span>${region}</span>
+                            </div>
+                            <hr style="margin: 8px 0; border: none; border-top: 1px solid #eee;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                                <span><b>Market Price:</b></span>
+                                <span style="font-weight: bold; color: #f39c12;">$${marketData.price ? marketData.price.toFixed(2) : 'N/A'}/MWh</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                                <span><b>Demand:</b></span>
+                                <span style="font-weight: bold; color: #9b59b6;">${marketData.demand ? (marketData.demand / 1000).toFixed(1) : 'N/A'} GW</span>
+                            </div>
+                            <hr style="margin: 8px 0; border: none; border-top: 1px solid #eee;">
+                            <div style="display: flex; justify-content: space-between; font-size: 12px; color: #7f8c8d;">
+                                <span><b>Last Update:</b></span>
+                                <span>${lastUpdate}</span>
+                            </div>
+                            <div style="margin-top: 8px; font-size: 11px; color: #95a5a6;">
+                                Coordinates: ${item.latitude ? item.latitude.toFixed(4) : 'N/A'}, ${item.longitude ? item.longitude.toFixed(4) : 'N/A'}
+                            </div>
+                        </div>
                     </div>
                 `;
-                marker.bindPopup(popupContent);
+                // Bind popup with options to keep it open until manually closed
+                marker.bindPopup(popupContent, {
+                    closeButton: true,
+                    autoClose: false,
+                    closeOnEscapeKey: true,
+                    closeOnClick: false
+                });
 
                 markerClusterGroup.addLayer(marker);
             });
 
             console.log('✅ Successfully added', validData.length, 'markers to map');
 
-            // Update legend with fuel types present in filtered data
-            updateLegend(validData);
+            // Update legend based on current metric
+            updateLegend(validData, metric);
         }
 
-        // Update the legend with fuel types present in the data
-        function updateLegend(data) {
-            const legendContent = document.getElementById('legend-content');
-            if (!legendContent) return;
+        // Update the summary panel with regional data
+        function updateSummaryPanel(data) {
+            const filteredData = applyFilters(data);
+            const summaryContent = document.getElementById('summary-content');
+            if (!summaryContent) return;
 
-            // Get unique fuel types in the current filtered data
-            const fuelTypes = [...new Set(data.map(item => item.fuel_type).filter(f => f !== null))].sort();
+            // Group data by region
+            const regionalData = {};
+            filteredData.forEach(facility => {
+                const region = facility.network_region || 'Unknown';
+                if (!regionalData[region]) {
+                    regionalData[region] = {
+                        facilities: 0,
+                        totalPower: 0,
+                        totalEmissions: 0
+                    };
+                }
+                regionalData[region].facilities += 1;
+                if (facility.power !== null) {
+                    regionalData[region].totalPower += facility.power;
+                }
+                if (facility.emissions !== null) {
+                    regionalData[region].totalEmissions += facility.emissions;
+                }
+            });
+
+            // Create summary table
+            let tableHTML = `
+                <table class="summary-table">
+                    <thead>
+                        <tr>
+                            <th>Region</th>
+                            <th>Facilities</th>
+                            <th>Total Power (MW)</th>
+                            <th>Total CO₂ (tonnes)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            // Add market data row if available
+            if (marketData.price !== null && marketData.price !== undefined) {
+                tableHTML += `
+                    <tr class="market-row">
+                        <td><strong>MARKET DATA</strong></td>
+                        <td colspan="3" style="text-align: left; padding-left: 20px;">
+                            <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+                                <span><strong>Price:</strong> $${marketData.price.toFixed(2)}/MWh</span>
+                                <span><strong>Demand:</strong> ${(marketData.demand / 1000).toFixed(1)} GW</span>
+                                <span><strong>Last Update:</strong> ${marketData.timestamp ? new Date(marketData.timestamp).toLocaleTimeString('en-US', {hour12: false}) : 'N/A'}</span>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }
+
+            // Sort regions for consistent display
+            const sortedRegions = Object.keys(regionalData).sort();
+
+            sortedRegions.forEach(region => {
+                const data = regionalData[region];
+                tableHTML += `
+                    <tr>
+                        <td>${region}</td>
+                        <td>${data.facilities}</td>
+                        <td>${data.totalPower.toFixed(1)}</td>
+                        <td>${data.totalEmissions.toFixed(1)}</td>
+                    </tr>
+                `;
+            });
+
+            // Add totals row
+            const totals = sortedRegions.reduce((acc, region) => {
+                const data = regionalData[region];
+                acc.facilities += data.facilities;
+                acc.totalPower += data.totalPower;
+                acc.totalEmissions += data.totalEmissions;
+                return acc;
+            }, { facilities: 0, totalPower: 0, totalEmissions: 0 });
+
+            tableHTML += `
+                    <tr class="total-row">
+                        <td><strong>TOTAL</strong></td>
+                        <td><strong>${totals.facilities}</strong></td>
+                        <td><strong>${totals.totalPower.toFixed(1)}</strong></td>
+                        <td><strong>${totals.totalEmissions.toFixed(1)}</strong></td>
+                    </tr>
+                </tbody>
+                </table>
+            `;
+
+            summaryContent.innerHTML = tableHTML;
+            console.log('📊 Summary panel updated');
+        }
+
+        // Update the legend based on current metric
+        function updateLegend(data, metric) {
+            const legendContent = document.getElementById('legend-content');
+            const legendTitle = document.querySelector('.legend h4');
+            if (!legendContent || !legendTitle) return;
 
             legendContent.innerHTML = '';
 
-            if (fuelTypes.length === 0) {
-                legendContent.innerHTML = '<div style="color: #999; font-style: italic;">No data</div>';
-                return;
-            }
+            if (metric === 'price' || metric === 'demand') {
+                // Show metric-specific legend for market data
+                legendTitle.textContent = `${metric.charAt(0).toUpperCase() + metric.slice(1)} Visualization`;
+                const color = metricColors[metric];
+                const value = marketData[metric];
+                const unit = metric === 'price' ? '$/MWh' : 'GW';
+                const displayValue = value ? (metric === 'demand' ? (value / 1000).toFixed(1) : value.toFixed(2)) : 'N/A';
 
-            fuelTypes.forEach(fuelType => {
-                const color = fuelColors[fuelType] || fuelColors.default;
                 const legendItem = document.createElement('div');
                 legendItem.className = 'legend-item';
                 legendItem.innerHTML = `
                     <div class="legend-color" style="background-color: ${color};"></div>
-                    <span>${fuelType}</span>
+                    <span>Market ${metric.charAt(0).toUpperCase() + metric.slice(1)}: ${displayValue} ${unit}</span>
                 `;
                 legendContent.appendChild(legendItem);
-            });
+
+                // Add note about uniform sizing
+                const noteItem = document.createElement('div');
+                noteItem.className = 'legend-item';
+                noteItem.style.fontSize = '11px';
+                noteItem.style.color = '#666';
+                noteItem.style.marginTop = '8px';
+                noteItem.innerHTML = '<span>All facilities show market-wide value</span>';
+                legendContent.appendChild(noteItem);
+            } else {
+                // Show fuel type legend for facility data
+                legendTitle.textContent = 'Fuel Types';
+                const fuelTypes = [...new Set(data.map(item => item.fuel_type).filter(f => f !== null))].sort();
+
+                if (fuelTypes.length === 0) {
+                    legendContent.innerHTML = '<div style="color: #999; font-style: italic;">No data</div>';
+                    return;
+                }
+
+                fuelTypes.forEach(fuelType => {
+                    const color = fuelColors[fuelType] || fuelColors.default;
+                    const legendItem = document.createElement('div');
+                    legendItem.className = 'legend-item';
+                    legendItem.innerHTML = `
+                        <div class="legend-color" style="background-color: ${color};"></div>
+                        <span>${fuelType}</span>
+                    `;
+                    legendContent.appendChild(legendItem);
+                });
+            }
         }
 
         function updateStatus(data) {
@@ -705,17 +1272,38 @@ def run_dashboard(
             ).length;
 
             const totalFacilities = data.length;
-            const filteredCount = filteredData.length;
+            const totalWithCoords = data.filter(item =>
+                item.latitude !== null && item.longitude !== null
+            ).length;
 
             const timestamp = new Date().toLocaleTimeString();
-            let statusText = `Last update: ${timestamp} · ${validFacilities} facilities shown`;
 
-            if (filteredCount < totalFacilities) {
-                statusText += ` (filtered from ${totalFacilities} total)`;
+            let statusHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                    <div style="font-weight: bold; color: #2c3e50;">
+                        Total Facilities: ${totalFacilities} |
+                        With Coordinates: ${totalWithCoords}`;
+
+            if (selectedRegions.length > 0 || selectedFuelTypes.length > 0) {
+                statusHTML += ` | Filtered: ${validFacilities} shown`;
+            } else {
+                statusHTML += ` | All: ${validFacilities} shown`;
             }
 
-            statusElement.textContent = statusText;
-            console.log('📊 Status updated:', statusElement.textContent);
+            statusHTML += ` | Last Update: ${timestamp}`;
+
+            // Add market data if available
+            if (marketData.price !== null && marketData.price !== undefined) {
+                statusHTML += `<br>Market Price: $${marketData.price.toFixed(2)}/MWh`;
+            }
+            if (marketData.demand !== null && marketData.demand !== undefined) {
+                statusHTML += ` | Demand: ${(marketData.demand / 1000).toFixed(1)} GW`;
+            }
+
+            statusHTML += `</div></div>`;
+
+            statusElement.innerHTML = statusHTML;
+            console.log('📊 Status updated with market data:', marketData);
         }
     </script>
 </body>
@@ -735,6 +1323,28 @@ def run_dashboard(
         """REST API endpoint that returns JSON data for JavaScript."""
         live_data = global_subscriber.store.snapshot()
         combined = _prepare_live_dataframe(live_data, global_metadata)
+
+        # Get latest market price and demand data
+        latest_price = None
+        latest_demand = None
+        if not combined.empty and 'price' in combined.columns and 'demand' in combined.columns:
+            # Calculate average price and demand across all facilities for the most recent timestamp
+            if not combined.empty:
+                # Sort by timestamp to get most recent data
+                combined_sorted = combined.sort_values('timestamp', ascending=False)
+                most_recent_timestamp = combined_sorted['timestamp'].iloc[0]
+
+                # Get data for the most recent timestamp
+                recent_data = combined_sorted[combined_sorted['timestamp'] == most_recent_timestamp]
+
+                # Calculate averages for price and demand
+                price_data = recent_data['price'].dropna()
+                demand_data = recent_data['demand'].dropna()
+
+                if not price_data.empty:
+                    latest_price = float(price_data.mean())  # Use average price across facilities
+                if not demand_data.empty:
+                    latest_demand = float(demand_data.mean())  # Use average demand across facilities
 
         # Convert DataFrame to JSON-serializable format
         data = []
@@ -775,7 +1385,16 @@ def run_dashboard(
                 }
                 data.append(record)
 
-        return jsonify({"data": data})
+        response_data = {
+            "data": data,
+            "market_data": {
+                "price": latest_price,
+                "demand": latest_demand,
+                "timestamp": datetime.now().isoformat() if latest_price or latest_demand else None
+            }
+        }
+
+        return jsonify(response_data)
 
     # No callbacks for now - just test basic layout
 
