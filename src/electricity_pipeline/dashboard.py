@@ -905,14 +905,18 @@ def run_dashboard(
                         console.log('🔍 First facility structure:', currentData[0]);
                         const withCoords = currentData.filter(f => f.latitude !== null && f.longitude !== null);
                         console.log('📍 Facilities with coordinates:', withCoords.length, 'out of', currentData.length);
-
-                        // Log emissions data specifically
+                        
+                        // Log emissions data
                         const withEmissions = currentData.filter(f => f.emissions !== null && f.emissions !== undefined);
                         const withNonZeroEmissions = currentData.filter(f => f.emissions !== null && f.emissions !== undefined && f.emissions !== 0);
-                        console.log('🌡️ Facilities with emissions data:', withEmissions.length, 'out of', currentData.length);
-                        console.log('🌡️ Facilities with non-zero emissions:', withNonZeroEmissions.length, 'out of', currentData.length);
-                        if (withEmissions.length > 0) {
-                            console.log('🌡️ Sample emissions values (first 5):', withEmissions.slice(0, 5).map(f => ({ id: f.facility_id, emissions: f.emissions })));
+                        console.log('🌡️ Facilities with emissions data:', withEmissions.length);
+                        console.log('🌡️ Facilities with non-zero emissions:', withNonZeroEmissions.length);
+                        if (withNonZeroEmissions.length > 0) {
+                            console.log('🌡️ Sample non-zero emissions:', withNonZeroEmissions.slice(0, 5).map(f => ({
+                                id: f.facility_id,
+                                name: f.name,
+                                emissions: f.emissions
+                            })));
                         }
                     }
 
@@ -1304,7 +1308,19 @@ def run_dashboard(
                 const facilityName = item.name || item.facility_id || 'Unknown';
                 const fuelType = item.fuel_type || 'Unknown';
                 const currentPower = item.power !== null ? item.power.toFixed(2) + ' MW' : 'N/A';
-                const emissions = item.emissions !== null && item.emissions !== undefined ? item.emissions.toFixed(2) + ' tonnes' : 'N/A';
+
+                // Debug emissions value
+                let emissions = 'N/A';
+                if (item.emissions !== null && item.emissions !== undefined) {
+                    emissions = item.emissions.toFixed(2) + ' tonnes';
+                    if (index < 5) {
+                        console.log(`🔍 Popup ${index + 1}: ${facilityName} - emissions=${item.emissions}, formatted=${emissions}`);
+                    }
+                } else {
+                    if (index < 5) {
+                        console.log(`⚠️ Popup ${index + 1}: ${facilityName} - emissions is null/undefined`);
+                    }
+                }
                 const region = item.network_region || 'N/A';
                 const lastUpdate = item.timestamp ? new Date(item.timestamp).toLocaleString('en-US', {
                     year: 'numeric',
@@ -1614,13 +1630,95 @@ def run_dashboard(
     def get_live_data():
         """REST API endpoint that returns JSON data for JavaScript."""
         live_data = global_subscriber.store.snapshot()
-        logger.info(f"Live data snapshot contains {len(live_data)} records")
-        if len(live_data) > 0:
-            logger.info(f"Sample live data record: {live_data.iloc[0].to_dict() if hasattr(live_data, 'iloc') else dict(live_data.iloc[0]) if hasattr(live_data, 'iloc') else str(live_data)}")
+
+        # Always try to load cached data to supplement live data with emissions
+        cached_data = None
+        try:
+            cache_dir = Path("cache")
+            csv_files = list(cache_dir.glob("*_consolidated.csv"))
+            if csv_files:
+                latest_csv = max(csv_files, key=lambda f: f.stat().st_mtime)
+                logger.info(f"Loading cached data from {latest_csv} to supplement emissions")
+                cached_df = pd.read_csv(latest_csv)
+                cached_df["timestamp"] = pd.to_datetime(cached_df["timestamp"])
+                cached_data = cached_df
+        except Exception as e:
+            logger.warning(f"Could not load cached data: {e}")
+
+        # Prepare live data first
         combined = _prepare_live_dataframe(live_data, global_metadata)
-        logger.info(f"Combined dataframe has {len(combined)} rows and columns: {combined.columns.tolist()}")
-        if len(combined) > 0:
-            logger.info(f"Sample combined record: {combined.iloc[0].to_dict()}")
+
+        # If we have cached data, supplement with cached facilities and emissions
+        if cached_data is not None:
+            # Prepare cached data with metadata
+            cached_combined = _prepare_live_dataframe(cached_data, global_metadata)
+            
+            if not cached_combined.empty:
+                # Get latest data per facility from cached (prioritize non-zero emissions)
+                # Sort by facility_id, then by whether emissions is non-zero (True first), then by timestamp
+                cached_combined["has_emissions"] = cached_combined["emissions"].notna() & (cached_combined["emissions"] != 0)
+                cached_latest = cached_combined.sort_values(
+                    ["facility_id", "has_emissions", "timestamp"],
+                    ascending=[True, False, False]
+                ).drop_duplicates(subset=["facility_id"], keep="first")
+                cached_latest = cached_latest.drop(columns=["has_emissions"])
+                
+                # If we have live data, merge cached data to fill gaps
+                if not combined.empty:
+                    # Merge cached emissions/power where live data is missing or zero
+                    cached_for_merge = cached_latest[["facility_id", "emissions", "power", "timestamp"]].copy()
+                    combined = combined.merge(
+                        cached_for_merge,
+                        on="facility_id",
+                        how="left",
+                        suffixes=("", "_cached")
+                    )
+                    
+                    # Fill missing or zero emissions with cached values (but don't overwrite non-zero live emissions)
+                    missing_emissions = (combined["emissions"].isna() | (combined["emissions"] == 0)) & combined["emissions_cached"].notna() & (combined["emissions_cached"] != 0)
+                    if missing_emissions.any():
+                        combined.loc[missing_emissions, "emissions"] = combined.loc[missing_emissions, "emissions_cached"]
+                        logger.info(f"Filled {missing_emissions.sum()} facilities with cached emissions data")
+                    
+                    # Also fill missing power if available
+                    missing_power = combined["power"].isna() & combined["power_cached"].notna()
+                    if missing_power.any():
+                        combined.loc[missing_power, "power"] = combined.loc[missing_power, "power_cached"]
+                    
+                    # Update timestamp if cached is more recent
+                    if "timestamp_cached" in combined.columns:
+                        combined["timestamp"] = combined[["timestamp", "timestamp_cached"]].max(axis=1)
+                    
+                    # Clean up temporary columns
+                    combined = combined.drop(columns=[col for col in combined.columns if col.endswith("_cached")])
+                    
+                    # Add facilities from cached data that aren't in live data
+                    live_facility_ids = set(combined["facility_id"].unique())
+                    cached_only = cached_latest[~cached_latest["facility_id"].isin(live_facility_ids)]
+                    if not cached_only.empty:
+                        logger.info(f"Adding {len(cached_only)} facilities from cached data not in live stream")
+                        combined = pd.concat([combined, cached_only], ignore_index=True)
+                else:
+                    # No live data, use cached data entirely
+                    logger.info("No live data, using cached data")
+                    combined = cached_latest
+
+        # Log data structure
+        if not combined.empty:
+            logger.info(f"Final combined data: {len(combined)} facilities")
+            if "emissions" in combined.columns:
+                non_zero_emissions = combined[combined["emissions"].notna() & (combined["emissions"] != 0)]
+                logger.info(f"Facilities with non-zero emissions: {len(non_zero_emissions)}")
+                if len(non_zero_emissions) > 0:
+                    logger.info(f"Sample emissions: {non_zero_emissions['emissions'].head().tolist()}")
+            with_coords = combined[combined["latitude"].notna() & combined["longitude"].notna()]
+            logger.info(f"Facilities with coordinates: {len(with_coords)} out of {len(combined)}")
+            
+            # Log facilities without coordinates for debugging
+            without_coords = combined[combined["latitude"].isna() | combined["longitude"].isna()]
+            if len(without_coords) > 0:
+                logger.info(f"Facilities without coordinates: {len(without_coords)}")
+                logger.info(f"Sample facility IDs without coords: {without_coords['facility_id'].head(10).tolist()}")
 
         # Get latest market price and demand data
         latest_price = None
@@ -1698,10 +1796,7 @@ def run_dashboard(
                     "timestamp": row.get("timestamp").isoformat() if pd.notna(row.get("timestamp")) else None,
                 }
                 data.append(record)
-                
-                # Log first few records with emissions data
-                if i < 5 and emissions_val is not None:
-                    logger.info(f"Record {i}: facility_id={record['facility_id']}, emissions={emissions_val}")
+
 
         response_data = {
             "data": data,
