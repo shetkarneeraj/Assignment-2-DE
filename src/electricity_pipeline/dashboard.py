@@ -200,7 +200,6 @@ def _colour_map(fuels: list[str]) -> dict[str, str]:
 
 def _build_folium_map(df: pd.DataFrame, metric: str) -> str:
     map_obj = folium.Map(location=[-25.2744, 133.7751], zoom_start=4, tiles="cartodbpositron")
-    marker_cluster = MarkerCluster().add_to(map_obj)
 
     if df.empty or "latitude" not in df.columns or "longitude" not in df.columns:
         return map_obj.get_root().render()
@@ -255,7 +254,7 @@ def _build_folium_map(df: pd.DataFrame, metric: str) -> str:
             fill=True,
             fill_color=row["color"],
             fill_opacity=0.7,
-        ).add_to(marker_cluster)
+        ).add_to(map_obj)
 
     legend_html = f"""
     <div style="position: fixed; bottom: 20px; right: 20px; background: rgba(255,255,255,0.95);
@@ -299,35 +298,31 @@ def run_dashboard(
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             margin: 0;
-            padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 0;
+            background: #f5f5f5;
             min-height: 100vh;
         }
         .container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-            padding: 30px;
-            margin-bottom: 20px;
+            padding: 20px;
         }
         h1 {
             text-align: center;
-            color: #2c3e50;
-            margin-bottom: 30px;
-            font-size: 2.5em;
-            font-weight: 300;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            color: #1a1a1a;
+            margin: 0 0 20px 0;
+            font-size: 1.8em;
+            font-weight: 500;
+            letter-spacing: -0.5px;
         }
         #facility-map {
-            height: 80vh;
+            height: 75vh;
             min-height: 500px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            margin-top: 20px;
+            border: 1px solid #e0e0e0;
+            margin-top: 15px;
             position: relative;
         }
 
@@ -362,41 +357,82 @@ def run_dashboard(
         }
         .status {
             text-align: center;
-            margin: 25px 0;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            border-left: 4px solid #3498db;
+            margin: 15px 0;
+            padding: 10px;
+            background: #fafafa;
+            border-top: 1px solid #e0e0e0;
+            font-size: 0.9em;
+            color: #666;
         }
         .filters {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            margin-bottom: 25px;
+            gap: 15px;
+            margin-bottom: 15px;
             flex-wrap: wrap;
         }
         .filter-group {
             display: flex;
             flex-direction: column;
-            min-width: 220px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            min-width: 200px;
+            padding: 0;
         }
         .filter-group label {
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #2c3e50;
-            font-size: 1.1em;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #333;
+            font-size: 0.9em;
+        }
+        .dropdown-container {
+            position: relative;
+        }
+        .dropdown-button {
+            width: 100%;
+            padding: 8px 12px;
+            background: white;
+            border: 1px solid #d0d0d0;
+            border-radius: 4px;
+            text-align: left;
+            cursor: pointer;
+            font-size: 0.9em;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: border-color 0.2s ease;
+        }
+        .dropdown-button:hover {
+            border-color: #999;
+        }
+        .dropdown-button.active {
+            border-color: #666;
+        }
+        .dropdown-arrow {
+            transition: transform 0.2s ease;
+        }
+        .dropdown-arrow.active {
+            transform: rotate(180deg);
+        }
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #d0d0d0;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            max-height: 250px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            margin-top: 2px;
+        }
+        .dropdown-content.show {
+            display: block;
         }
         .checkbox-group {
-            max-height: 180px;
-            overflow-y: auto;
-            background: white;
-            border: 1px solid #e9ecef;
-            border-radius: 6px;
-            padding: 10px;
+            padding: 8px;
         }
         .checkbox-item {
             display: flex;
@@ -423,91 +459,79 @@ def run_dashboard(
         }
         .metric-controls {
             text-align: center;
-            margin-bottom: 20px;
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            display: inline-block;
+            margin-bottom: 15px;
+            padding: 10px;
         }
         .metric-controls label {
-            margin: 0 15px;
-            font-weight: 500;
-            color: #495057;
+            margin: 0 10px;
+            font-weight: 400;
+            color: #666;
             cursor: pointer;
             transition: color 0.2s;
+            font-size: 0.9em;
+            padding: 6px 12px;
+            border-radius: 4px;
         }
         .metric-controls label:hover {
-            color: #3498db;
+            color: #333;
+            background: #f5f5f5;
         }
         .metric-controls input[type="radio"] {
             margin-right: 5px;
-            accent-color: #3498db;
         }
-        .metric-controls label {
-            position: relative;
-            transition: all 0.3s ease;
-            padding: 8px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-        .metric-controls label:hover {
-            background: rgba(52, 152, 219, 0.1);
-            transform: translateY(-2px);
-        }
-        .metric-controls input[type="radio"]:checked + * {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        .metric-controls input[type="radio"]:checked + span {
+            font-weight: 500;
+            color: #1a1a1a;
         }
         .legend {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            top: 10px;
+            right: 10px;
+            background: rgba(255,255,255,0.95);
+            padding: 12px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
             z-index: 1000;
-            font-size: 13px;
-            max-width: 220px;
-            border: 1px solid #e9ecef;
+            font-size: 12px;
+            max-width: 180px;
+            border: 1px solid #e0e0e0;
         }
         .legend h4 {
-            margin: 0 0 12px 0;
-            font-size: 16px;
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 5px;
+            margin: 0 0 8px 0;
+            font-size: 13px;
+            color: #1a1a1a;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 4px;
+            font-weight: 500;
         }
         .legend-item {
             display: flex;
             align-items: center;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             padding: 2px;
         }
         .legend-color {
-            width: 14px;
-            height: 14px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
-            margin-right: 10px;
-            border: 2px solid rgba(255,255,255,0.8);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            margin-right: 8px;
+            border: 1px solid rgba(255,255,255,0.9);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
 
         .summary-panel {
             background: white;
-            border-radius: 8px;
-            padding: 20px;
+            padding: 15px 0;
             margin-top: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            border: 1px solid #e9ecef;
+            border-top: 1px solid #e0e0e0;
         }
         .summary-panel h3 {
-            margin: 0 0 15px 0;
-            color: #2c3e50;
-            font-size: 1.4em;
-            border-bottom: 2px solid #3498db;
+            margin: 0 0 12px 0;
+            color: #1a1a1a;
+            font-size: 1.1em;
+            font-weight: 500;
             padding-bottom: 8px;
+            border-bottom: 1px solid #e0e0e0;
         }
         .summary-table {
             width: 100%;
@@ -575,84 +599,24 @@ def run_dashboard(
             background: #a8a8a8;
         }
 
-        /* Completely stable marker positioning - no movement whatsoever */
+        /* Minimalist marker styling */
         .facility-marker {
             cursor: pointer;
-            /* Remove all transitions and transforms that could cause movement */
+            transition: opacity 0.2s ease;
         }
 
         .facility-marker:hover {
-            /* Only change visual appearance, not position */
-            opacity: 1;
-            z-index: 1000;
-            filter: brightness(1.1) drop-shadow(0 0 6px rgba(52, 152, 219, 0.6));
+            opacity: 1 !important;
+            filter: brightness(1.15);
         }
 
-        /* Ensure Leaflet markers are completely stable */
-        .leaflet-marker-icon,
-        .leaflet-marker-icon.facility-marker {
-            transition: none !important;
-            transform: none !important;
-            animation: none !important;
-            will-change: auto;
-        }
-
-        /* Prevent any marker movement during clustering */
-        .marker-cluster-small,
-        .marker-cluster-medium,
-        .marker-cluster-large {
-            transition: none !important;
-            animation: none !important;
-        }
-
-        /* Ensure marker clusters don't cause position shifts */
-        .leaflet-marker-icon,
-        .leaflet-marker-icon.facility-marker,
+        /* Clean cluster styling */
         .marker-cluster {
-            position: absolute !important;
-            will-change: auto !important;
-        }
-
-        /* Enhanced cluster styling */
-        .marker-cluster-small {
-            background-color: rgba(52, 152, 219, 0.6);
-            border: 2px solid rgba(255, 255, 255, 0.8);
-        }
-        .marker-cluster-small div {
-            background-color: rgba(52, 152, 219, 0.8);
-            border-radius: 50%;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .marker-cluster-medium {
-            background-color: rgba(46, 204, 113, 0.6);
-            border: 2px solid rgba(255, 255, 255, 0.8);
-        }
-        .marker-cluster-medium div {
-            background-color: rgba(46, 204, 113, 0.8);
-        }
-
-        .marker-cluster-large {
-            background-color: rgba(230, 126, 34, 0.6);
-            border: 2px solid rgba(255, 255, 255, 0.8);
-        }
-        .marker-cluster-large div {
-            background-color: rgba(230, 126, 34, 0.8);
-        }
-
-        /* Smooth transitions for all interactive elements */
-        .marker-cluster,
-        .facility-marker {
-            transition: all 0.2s ease;
+            transition: transform 0.2s ease;
         }
 
         .marker-cluster:hover {
-            transform: scale(1.1);
-            z-index: 1000;
+            transform: scale(1.05);
         }
 
         /* Loading animation for better UX */
@@ -699,21 +663,33 @@ def run_dashboard(
         <h1>Electricity Facilities Dashboard</h1>
 
         <div class="metric-controls">
-            <label><input type="radio" name="metric" value="power" checked> Power (MW)</label>
-            <label style="margin-left: 20px;"><input type="radio" name="metric" value="emissions"> Emissions (tCO₂)</label>
-            <label style="margin-left: 20px;"><input type="radio" name="metric" value="price"> Price ($/MWh)</label>
-            <label style="margin-left: 20px;"><input type="radio" name="metric" value="demand"> Demand (GW)</label>
+            <label><input type="radio" name="metric" value="power" checked><span>Power (MW)</span></label>
+            <label><input type="radio" name="metric" value="emissions"><span>Emissions (tCO₂)</span></label>
+            <label><input type="radio" name="metric" value="price"><span>Price ($/MWh)</span></label>
+            <label><input type="radio" name="metric" value="demand"><span>Demand (GW)</span></label>
         </div>
 
         <div class="filters">
             <div class="filter-group">
                 <label>Filter by Region:</label>
-                <div id="region-filter" class="checkbox-group"></div>
+                <div class="dropdown-container">
+                    <button id="region-dropdown-btn" class="dropdown-button">
+                        <span id="region-selected-text">All Regions</span>
+                        <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <div id="region-filter" class="dropdown-content checkbox-group"></div>
+                </div>
             </div>
 
             <div class="filter-group">
                 <label>Filter by Fuel Type:</label>
-                <div id="fuel-filter" class="checkbox-group"></div>
+                <div class="dropdown-container">
+                    <button id="fuel-dropdown-btn" class="dropdown-button">
+                        <span id="fuel-selected-text">All Fuel Types</span>
+                        <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <div id="fuel-filter" class="dropdown-content checkbox-group"></div>
+                </div>
             </div>
         </div>
 
@@ -738,6 +714,8 @@ def run_dashboard(
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
     <script>
         console.log('🔧 Dashboard JavaScript loaded!');
 
@@ -752,27 +730,28 @@ def run_dashboard(
         let lastMetric = null; // Track last metric used
         let updateTimeout = null; // For debounced updates
         let isUpdating = false; // Prevent concurrent updates
+        let isHandlingFilterChange = false; // Prevent dropdown closing during filter changes
 
-        // Enhanced color mapping for fuel types and metrics
+        // Clean, professional color mapping for fuel types
         const fuelColors = {
-            'Coal': '#8B4513',      // Brown
-            'Gas': '#FF6B35',       // Orange-red
-            'Wind': '#4CAF50',      // Green
-            'Solar': '#FFD700',     // Gold
-            'Hydro': '#2196F3',     // Blue
-            'Nuclear': '#9C27B0',   // Purple
-            'Oil': '#FF9800',       // Orange
-            'Biomass': '#795548',   // Brown-gray
-            'Other': '#9E9E9E',     // Gray
-            'default': '#607D8B'    // Blue-gray
+            'Coal': '#5D4037',      // Brown
+            'Gas': '#FF6F00',       // Deep Orange
+            'Wind': '#43A047',      // Green
+            'Solar': '#FBC02D',     // Yellow
+            'Hydro': '#1976D2',     // Blue
+            'Nuclear': '#7B1FA2',   // Purple
+            'Oil': '#F57C00',       // Orange
+            'Biomass': '#795548',   // Brown
+            'Other': '#757575',     // Gray
+            'default': '#546E7A'    // Blue Gray
         };
 
         // Metric-specific colors for when viewing market data
         const metricColors = {
-            'power': '#27ae60',     // Green for power
-            'emissions': '#e74c3c', // Red for emissions
-            'price': '#f39c12',     // Orange for price
-            'demand': '#9b59b6'     // Purple for demand
+            'power': '#2E7D32',     // Green for power
+            'emissions': '#D32F2F', // Red for emissions
+            'price': '#F57C00',     // Orange for price
+            'demand': '#7B1FA2'     // Purple for demand
         };
 
         // Helper function to compare arrays
@@ -813,6 +792,34 @@ def run_dashboard(
                     });
                 });
 
+                // Listen for dropdown button clicks
+                document.getElementById('region-dropdown-btn').addEventListener('click', () => toggleDropdown('region'));
+                document.getElementById('fuel-dropdown-btn').addEventListener('click', () => toggleDropdown('fuel'));
+
+                // Close dropdowns when clicking outside
+                document.addEventListener('click', (e) => {
+                    const clickedElement = e.target;
+
+                    // Don't close dropdowns if we're in the middle of handling a filter change
+                    if (isHandlingFilterChange) {
+                        return;
+                    }
+
+                    // Don't close dropdowns if clicking on:
+                    // 1. Checkboxes or their labels
+                    // 2. Inside open dropdown content
+                    if (clickedElement.type === 'checkbox' ||
+                        clickedElement.tagName === 'LABEL' ||
+                        clickedElement.closest('.dropdown-content.show')) {
+                        return; // Don't close dropdowns
+                    }
+
+                    // Close dropdowns if clicking outside dropdown containers
+                    if (!clickedElement.closest('.dropdown-container')) {
+                        closeAllDropdowns();
+                    }
+                });
+
                 // Listen for filter changes
                 document.getElementById('region-filter').addEventListener('change', handleFilterChange);
                 document.getElementById('fuel-filter').addEventListener('change', handleFilterChange);
@@ -836,40 +843,32 @@ def run_dashboard(
                     maxZoom: 19
                 }).addTo(map);
 
-                // Create enhanced marker cluster group with density-based sizing
+                // Create marker cluster group with enhanced styling
                 markerClusterGroup = L.markerClusterGroup({
-                    chunkedLoading: true, // Load markers in chunks for better performance
-                    maxClusterRadius: 50, // Base cluster radius
-                    spiderfyOnMaxZoom: true,
                     showCoverageOnHover: false,
-                    zoomToBoundsOnClick: true,
-                    removeOutsideVisibleBounds: true, // Performance optimization
-                    // Custom cluster icon creation based on density
+                    spiderfyOnMaxZoom: true,
+                    spiderfyDistanceMultiplier: 2,
+                    disableClusteringAtZoom: 10, // Disperse earlier at zoom level 10
+                    maxClusterRadius: 60, // Tighter clustering
+                    animate: true,
+                    animateAddingMarkers: true,
                     iconCreateFunction: function(cluster) {
                         const childCount = cluster.getChildCount();
-                        let c = ' marker-cluster-';
-                        let sizeClass = 'small';
-
-                        // Size clusters based on density (number of markers)
-                        if (childCount < 10) {
-                            c += 'small';
-                            sizeClass = 'small';
-                        } else if (childCount < 50) {
-                            c += 'medium';
-                            sizeClass = 'medium';
-                        } else {
-                            c += 'large';
-                            sizeClass = 'large';
+                        let size = 'small';
+                        let iconSize = 35;
+                        
+                        if (childCount >= 50) {
+                            size = 'large';
+                            iconSize = 50;
+                        } else if (childCount >= 10) {
+                            size = 'medium';
+                            iconSize = 42;
                         }
-
-                        // Create density-proportional cluster icon
-                        const size = Math.min(40 + Math.sqrt(childCount) * 2, 60); // Proportional sizing
-                        const iconSize = [size, size];
-
-                        return new L.DivIcon({
-                            html: '<div style="background-color: rgba(52, 152, 219, 0.8); border: 2px solid white; border-radius: 50%; width: ' + (size-4) + 'px; height: ' + (size-4) + 'px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white; font-size: ' + Math.max(10, size/4) + 'px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">' + childCount + '</div>',
-                            className: 'marker-cluster' + c,
-                            iconSize: iconSize
+                        
+                        return L.divIcon({
+                            html: '<div style="width:' + iconSize + 'px; height:' + iconSize + 'px; display:flex; align-items:center; justify-content:center; border-radius:50%; background:rgba(52,152,219,0.8); color:white; font-weight:600; font-size:' + (iconSize/3) + 'px; border:3px solid white; box-shadow:0 2px 8px rgba(0,0,0,0.3);">' + childCount + '</div>',
+                            className: 'marker-cluster marker-cluster-' + size,
+                            iconSize: L.point(iconSize, iconSize)
                         });
                     }
                 });
@@ -906,6 +905,15 @@ def run_dashboard(
                         console.log('🔍 First facility structure:', currentData[0]);
                         const withCoords = currentData.filter(f => f.latitude !== null && f.longitude !== null);
                         console.log('📍 Facilities with coordinates:', withCoords.length, 'out of', currentData.length);
+
+                        // Log emissions data specifically
+                        const withEmissions = currentData.filter(f => f.emissions !== null && f.emissions !== undefined);
+                        const withNonZeroEmissions = currentData.filter(f => f.emissions !== null && f.emissions !== undefined && f.emissions !== 0);
+                        console.log('🌡️ Facilities with emissions data:', withEmissions.length, 'out of', currentData.length);
+                        console.log('🌡️ Facilities with non-zero emissions:', withNonZeroEmissions.length, 'out of', currentData.length);
+                        if (withEmissions.length > 0) {
+                            console.log('🌡️ Sample emissions values (first 5):', withEmissions.slice(0, 5).map(f => ({ id: f.facility_id, emissions: f.emissions })));
+                        }
                     }
 
                     // Populate filters on first data load
@@ -921,8 +929,57 @@ def run_dashboard(
                 });
         }
 
+        // Dropdown toggle functions
+        function toggleDropdown(type) {
+            const dropdown = document.getElementById(`${type}-filter`);
+            const button = document.getElementById(`${type}-dropdown-btn`);
+            const arrow = button.querySelector('.dropdown-arrow');
+
+            // Toggle current dropdown (don't close others - allow multiple open)
+            if (dropdown.classList.contains('show')) {
+                dropdown.classList.remove('show');
+                button.classList.remove('active');
+                arrow.classList.remove('active');
+            } else {
+                dropdown.classList.add('show');
+                button.classList.add('active');
+                arrow.classList.add('active');
+            }
+        }
+
+        function closeAllDropdowns() {
+            document.querySelectorAll('.dropdown-content').forEach(dropdown => {
+                dropdown.classList.remove('show');
+            });
+            document.querySelectorAll('.dropdown-button').forEach(button => {
+                button.classList.remove('active');
+                button.querySelector('.dropdown-arrow').classList.remove('active');
+            });
+        }
+
+        // Update dropdown button text based on selected items
+        function updateDropdownText(type) {
+            const selected = type === 'region' ? selectedRegions : selectedFuelTypes;
+            const totalOptions = document.querySelectorAll(`#${type}-filter input[type="checkbox"]`).length;
+            const textElement = document.getElementById(`${type}-selected-text`);
+
+            if (selected.length === 0) {
+                textElement.textContent = `All ${type === 'region' ? 'Regions' : 'Fuel Types'}`;
+            } else if (selected.length === totalOptions) {
+                textElement.textContent = `All ${type === 'region' ? 'Regions' : 'Fuel Types'}`;
+            } else if (selected.length === 1) {
+                textElement.textContent = selected[0];
+            } else {
+                textElement.textContent = `${selected.length} selected`;
+            }
+        }
+
         // Populate filter checkboxes with available options
         function populateFilters(data) {
+            // Store current selections before repopulating
+            const currentRegionSelections = [...selectedRegions];
+            const currentFuelSelections = [...selectedFuelTypes];
+
             // Get unique regions from actual data
             const regions = [...new Set(data.map(item => item.network_region).filter(r => r !== null && r !== undefined))].sort();
             const regionContainer = document.getElementById('region-filter');
@@ -939,6 +996,10 @@ def run_dashboard(
                 checkbox.type = 'checkbox';
                 checkbox.id = `region-${region}`;
                 checkbox.value = region;
+                // Restore previous selection if this region was selected
+                if (currentRegionSelections.includes(region)) {
+                    checkbox.checked = true;
+                }
                 checkbox.addEventListener('change', handleFilterChange);
 
                 const label = document.createElement('label');
@@ -966,6 +1027,10 @@ def run_dashboard(
                 checkbox.type = 'checkbox';
                 checkbox.id = `fuel-${fuel}`;
                 checkbox.value = fuel;
+                // Restore previous selection if this fuel type was selected
+                if (currentFuelSelections.includes(fuel)) {
+                    checkbox.checked = true;
+                }
                 checkbox.addEventListener('change', handleFilterChange);
 
                 const label = document.createElement('label');
@@ -977,12 +1042,22 @@ def run_dashboard(
                 fuelContainer.appendChild(checkboxItem);
             });
 
+            // Update the global selected arrays with restored values
+            selectedRegions = currentRegionSelections.filter(region => regions.includes(region));
+            selectedFuelTypes = currentFuelSelections.filter(fuel => fuelTypes.includes(fuel));
+
             console.log('🔧 Filter checkboxes populated from data:', {
                 regions: regions,
                 fuelTypes: fuelTypes,
                 regionCount: regions.length,
-                fuelTypeCount: fuelTypes.length
+                fuelTypeCount: fuelTypes.length,
+                restoredRegionSelections: selectedRegions,
+                restoredFuelSelections: selectedFuelTypes
             });
+
+            // Update dropdown texts with restored selections
+            updateDropdownText('region');
+            updateDropdownText('fuel');
         }
 
         // Apply filters to data
@@ -1007,7 +1082,9 @@ def run_dashboard(
         }
 
         // Handle filter changes
-        function handleFilterChange() {
+        function handleFilterChange(event) {
+            isHandlingFilterChange = true;
+
             // Update selected regions from checkboxes
             selectedRegions = Array.from(document.querySelectorAll('#region-filter input[type="checkbox"]:checked'))
                 .map(checkbox => checkbox.value);
@@ -1015,6 +1092,10 @@ def run_dashboard(
             // Update selected fuel types from checkboxes
             selectedFuelTypes = Array.from(document.querySelectorAll('#fuel-filter input[type="checkbox"]:checked'))
                 .map(checkbox => checkbox.value);
+
+            // Update dropdown button texts
+            updateDropdownText('region');
+            updateDropdownText('fuel');
 
             console.log('🔄 Filters updated:', {
                 regions: selectedRegions,
@@ -1024,6 +1105,11 @@ def run_dashboard(
 
             // Debounced update to prevent excessive re-rendering
             debouncedUpdate();
+
+            // Reset flag after a short delay to allow UI updates
+            setTimeout(() => {
+                isHandlingFilterChange = false;
+            }, 100);
         }
 
         // Debounced update function for performance
@@ -1135,8 +1221,8 @@ def run_dashboard(
                 values = validData.map(item => Math.abs(item[metric] || 0));
                 maxValue = Math.max(...values) || 1;
             }
-            const minSize = 4;
-            const maxSize = 20;
+            const minSize = 6;
+            const maxSize = 14;
 
             // Create markers with density-based enhancements
             validData.forEach((item, index) => {
@@ -1208,9 +1294,9 @@ def run_dashboard(
                     radius: radius,
                     fillColor: color,
                     color: '#ffffff',
-                    weight: 2,
-                    opacity: 1,
-                    fillOpacity: 0.9,
+                    weight: 1.5,
+                    opacity: 0.9,
+                    fillOpacity: 0.7,
                     className: 'facility-marker'
                 });
 
@@ -1218,7 +1304,7 @@ def run_dashboard(
                 const facilityName = item.name || item.facility_id || 'Unknown';
                 const fuelType = item.fuel_type || 'Unknown';
                 const currentPower = item.power !== null ? item.power.toFixed(2) + ' MW' : 'N/A';
-                const emissions = item.emissions !== null ? item.emissions.toFixed(2) + ' tonnes' : 'N/A';
+                const emissions = item.emissions !== null && item.emissions !== undefined ? item.emissions.toFixed(2) + ' tonnes' : 'N/A';
                 const region = item.network_region || 'N/A';
                 const lastUpdate = item.timestamp ? new Date(item.timestamp).toLocaleString('en-US', {
                     year: 'numeric',
@@ -1232,43 +1318,32 @@ def run_dashboard(
 
                 const fuelColor = fuelColors[item.fuel_type] || fuelColors.default;
                 const popupContent = `
-                    <div style="font-family: 'Segoe UI', sans-serif; max-width: 300px; line-height: 1.4;">
-                        <div style="background: #f8f9fa; padding: 8px; border-radius: 4px; margin-bottom: 8px;">
-                            <b style="font-size: 16px; color: #2c3e50;">${facilityName}</b>
+                    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 280px; line-height: 1.5;">
+                        <div style="background: #f5f5f5; padding: 10px; margin-bottom: 10px; border-left: 3px solid ${fuelColor};">
+                            <div style="font-size: 15px; font-weight: 500; color: #1a1a1a;">${facilityName}</div>
+                            <div style="font-size: 12px; color: #666; margin-top: 2px;">${fuelType}</div>
                         </div>
-                        <div style="padding: 8px;">
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                                <span><b>Type:</b></span>
-                                <span style="color: #${fuelColor};">${fuelType}</span>
+                        <div style="padding: 0 4px;">
+                            <div style="display: grid; grid-template-columns: auto 1fr; gap: 8px; font-size: 13px;">
+                                <span style="color: #666;">Power:</span>
+                                <span style="font-weight: 500; color: #2E7D32; text-align: right;">${currentPower}</span>
+                                
+                                <span style="color: #666;">Emissions:</span>
+                                <span style="font-weight: 500; color: #D32F2F; text-align: right;">${emissions}</span>
+                                
+                                <span style="color: #666;">Region:</span>
+                                <span style="text-align: right;">${region}</span>
                             </div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                                <span><b>Current Power:</b></span>
-                                <span style="font-weight: bold; color: #27ae60;">${currentPower}</span>
+                            <div style="border-top: 1px solid #e0e0e0; margin: 10px 0;"></div>
+                            <div style="display: grid; grid-template-columns: auto 1fr; gap: 8px; font-size: 13px;">
+                                <span style="color: #666;">Market Price:</span>
+                                <span style="font-weight: 500; color: #F57C00; text-align: right;">$${marketData.price ? marketData.price.toFixed(2) : 'N/A'}/MWh</span>
+                                
+                                <span style="color: #666;">Demand:</span>
+                                <span style="font-weight: 500; color: #7B1FA2; text-align: right;">${marketData.demand ? (marketData.demand / 1000).toFixed(1) : 'N/A'} GW</span>
                             </div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                                <span><b>CO₂ Emissions:</b></span>
-                                <span style="font-weight: bold; color: #e74c3c;">${emissions}</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                                <span><b>Region:</b></span>
-                                <span>${region}</span>
-                            </div>
-                            <hr style="margin: 8px 0; border: none; border-top: 1px solid #eee;">
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                                <span><b>Market Price:</b></span>
-                                <span style="font-weight: bold; color: #f39c12;">$${marketData.price ? marketData.price.toFixed(2) : 'N/A'}/MWh</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                                <span><b>Demand:</b></span>
-                                <span style="font-weight: bold; color: #9b59b6;">${marketData.demand ? (marketData.demand / 1000).toFixed(1) : 'N/A'} GW</span>
-                            </div>
-                            <hr style="margin: 8px 0; border: none; border-top: 1px solid #eee;">
-                            <div style="display: flex; justify-content: space-between; font-size: 12px; color: #7f8c8d;">
-                                <span><b>Last Update:</b></span>
-                                <span>${lastUpdate}</span>
-                            </div>
-                            <div style="margin-top: 8px; font-size: 11px; color: #95a5a6;">
-                                Coordinates: ${item.latitude ? item.latitude.toFixed(4) : 'N/A'}, ${item.longitude ? item.longitude.toFixed(4) : 'N/A'}
+                            <div style="margin-top: 10px; font-size: 11px; color: #999; text-align: center;">
+                                Updated: ${lastUpdate}
                             </div>
                         </div>
                     </div>
@@ -1281,6 +1356,7 @@ def run_dashboard(
                     closeOnClick: false
                 });
 
+                // Add marker to cluster group
                 markerClusterGroup.addLayer(marker);
             });
 
@@ -1538,7 +1614,13 @@ def run_dashboard(
     def get_live_data():
         """REST API endpoint that returns JSON data for JavaScript."""
         live_data = global_subscriber.store.snapshot()
+        logger.info(f"Live data snapshot contains {len(live_data)} records")
+        if len(live_data) > 0:
+            logger.info(f"Sample live data record: {live_data.iloc[0].to_dict() if hasattr(live_data, 'iloc') else dict(live_data.iloc[0]) if hasattr(live_data, 'iloc') else str(live_data)}")
         combined = _prepare_live_dataframe(live_data, global_metadata)
+        logger.info(f"Combined dataframe has {len(combined)} rows and columns: {combined.columns.tolist()}")
+        if len(combined) > 0:
+            logger.info(f"Sample combined record: {combined.iloc[0].to_dict()}")
 
         # Get latest market price and demand data
         latest_price = None
@@ -1553,14 +1635,23 @@ def run_dashboard(
                 # Get data for the most recent timestamp
                 recent_data = combined_sorted[combined_sorted['timestamp'] == most_recent_timestamp]
 
-                # Calculate averages for price and demand
+                # Calculate market price and demand - ensure positive values
                 price_data = recent_data['price'].dropna()
                 demand_data = recent_data['demand'].dropna()
 
                 if not price_data.empty:
-                    latest_price = float(price_data.mean())  # Use average price across facilities
+                    # For market price, use absolute value to prevent negative prices
+                    # Negative prices in electricity markets are unusual but can occur
+                    # For display purposes, we'll use the absolute value
+                    latest_price = float(abs(price_data.mean()))
+
                 if not demand_data.empty:
-                    latest_demand = float(demand_data.mean())  # Use average demand across facilities
+                    # For demand, ensure non-negative values
+                    valid_demand = demand_data[demand_data >= 0]
+                    if not valid_demand.empty:
+                        latest_demand = float(valid_demand.mean())
+                    else:
+                        latest_demand = float(demand_data.abs().mean()) if not demand_data.empty else None
 
         # Convert DataFrame to JSON-serializable format
         data = []
@@ -1588,6 +1679,13 @@ def run_dashboard(
                 if network_region is None:
                     network_region = regions[hash(row.get("facility_id", "")) % len(regions)]
 
+                # Get emissions value with proper handling
+                emissions_value = row.get("emissions")
+                if pd.notna(emissions_value):
+                    emissions_val = float(emissions_value)
+                else:
+                    emissions_val = None
+
                 record = {
                     "facility_id": safe_value(row.get("facility_id")),
                     "name": safe_value(row.get("name")),
@@ -1596,10 +1694,14 @@ def run_dashboard(
                     "latitude": float(row.get("latitude")) if pd.notna(row.get("latitude")) else None,
                     "longitude": float(row.get("longitude")) if pd.notna(row.get("longitude")) else None,
                     "power": float(row.get("power")) if pd.notna(row.get("power")) else None,
-                    "emissions": float(row.get("emissions")) if pd.notna(row.get("emissions")) else None,
+                    "emissions": emissions_val,
                     "timestamp": row.get("timestamp").isoformat() if pd.notna(row.get("timestamp")) else None,
                 }
                 data.append(record)
+                
+                # Log first few records with emissions data
+                if i < 5 and emissions_val is not None:
+                    logger.info(f"Record {i}: facility_id={record['facility_id']}, emissions={emissions_val}")
 
         response_data = {
             "data": data,
